@@ -1,0 +1,56 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+	<h2 class="text-uppercase">What is Anaerobic Digestion?</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p>Anaerobic Digestion is a natural process that can transform organic waste into energy and agricultural fertilizer.</p>
+				<p>It is usefull to :</p>
+				<ul>
+					<li>manage oarganic waste in a clean way</li>
+					<li>self produce energy (gas)</li>
+					<li>self produce fertilizer</li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<div class="embed-responsive embed-responsive-16by9 center-block">
+					<iframe class="embed-responsive-item center-block" src="https://www.youtube.com/embed/ycQT5KujiJk" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h2 class="text-uppercase">Discover the 3 main types of <abbr title="Anaerobic Digestion" class="initialism">A.D.</abbr></h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<figure>
+					<img class="img-responsive img-thumbnail center-block" src="{% static "home/img/ad_industrial.jpg" %}" />
+					<figcaption>
+						<a href="http://www.bluebees.fr/" class="btn btn-default center-block" role="button">Industrial Size</a>
+					</figcaption>
+				</figure>
+			</div>
+			<div class="col-md-4">
+				<figure>
+					<img class="img-responsive img-thumbnail center-block" src="{% static "home/img/ad_farm.jpg" %}" />
+					<figcaption>
+						<a href="http://www.bluebees.fr/" class="btn btn-default center-block" role="button">Farm Size</a>
+					</figcaption>
+				</figure>
+			</div>
+			<div class="col-md-4">
+				<figure>
+					<img class="img-responsive img-thumbnail center-block" src="{% static "home/img/ad_household.jpg" %}" />
+					<figcaption>
+						<a href="http://www.bluebees.fr/" class="btn btn-default center-block" role="button">Household Size</a>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

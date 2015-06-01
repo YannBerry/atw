@@ -1,0 +1,144 @@
+{% extends "home/base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="{% static 'map/css/Control.Geocoder.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<h2>ADD YOUR A.D. INSTALLATION</h2>
+	<div id="form-div" >
+		<form enctype="multipart/form-data" action="{% url 'add_point' %}" method="post">{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="fieldWrapper">
+				{{ form.coordinates.errors }}
+				{{ form.coordinates.label_tag }}
+				<div id="formmap" class="center-block" style="height:50%; width:80%; padding-top:400px;"></div>
+				<input id="coordinates" name="coordinates" value="" type="hidden" />
+			</div>
+			<div class="row">
+				<div class="col-md-6 fieldWrapper">
+					{{ form.stage.errors }}
+					{{ form.stage.label_tag }}</br>
+					{{ form.stage }}
+				</div>
+				<div class="col-md-6 fieldWrapper">
+					{{ form.status.errors }}
+					{{ form.status.label_tag }}</br>
+					{{ form.status }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 fieldWrapper">
+					{{ form.project_name.errors }}
+					{{ form.project_name.label_tag }}</br>
+					{{ form.project_name }}
+				</div>
+				<div class="col-md-6 fieldWrapper">
+					{{ form.project_leader.errors }}
+					{{ form.project_leader.label_tag }}</br>
+					{{ form.project_leader }}
+				</div>
+			</div>
+			<div class="fieldWrapper">
+				{{ form.picture.errors }}
+				{{ form.picture.label_tag }}</br>
+				{{ form.picture }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.description.errors }}
+				{{ form.description.label_tag }}</br>
+				{{ form.description }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.nbr_installations.errors }}
+				{{ form.nbr_installations.label_tag }}</br>
+				{{ form.nbr_installations }}
+			</div>    
+			<div class="fieldWrapper">
+				{{ form.power.errors }}
+				{{ form.power.label_tag }}</br>
+				{{ form.power }}
+			</div>
+			<div class="fieldWrapper">                
+				{{ form.start.errors }}
+				{{ form.start.label_tag }}</br>
+				<input class="form-control" id="id_start" name="start" type="date" />
+			</div>
+			<input type="submit" name="submit" class="btn center-block" value="Add initiative" />
+		</form>
+	</div>
+</div>
+{% endblock content %}
+
+{% block js %}
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="{% static 'map/js/Control.Geocoder.js' %}"></script>
+
+	<script type="text/javascript">
+		var map = L.map('formmap', {
+			center: [25,0],
+			zoom: 2,
+			maxZoom: 20,
+			minZoom: 1
+		});
+
+		L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/hybrid.day/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
+			attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+			subdomains: '1234',
+			mapID: 'newest',
+			app_id: 'Y8m9dK2brESDPGJPdrvs',
+			app_code: 'dq2MYIvjAotR8tHvY8Q_Dg',
+			base: 'aerial',
+			minZoom: 1,
+			maxZoom: 20
+		}).addTo(map);
+
+		L.Control.geocoder({position:'topleft'}).addTo(map);
+
+		map.locate({setView: true,maxZoom: 2});
+
+		var geolocIcon = L.icon({
+			iconUrl: '{% static "map/img/circle-24.png" %}',
+			iconSize:     [24, 24],
+			iconAnchor:   [12, 12],
+			popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
+		});
+
+		function onLocationFound(e) {
+			var radius = 100000;
+			L.marker(e.latlng, {icon: geolocIcon}).addTo(map);
+		}
+		map.on('locationfound', onLocationFound);
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationerror', onLocationError);
+
+		function onMapClick(e) {
+			var lat = e.latlng.lat;
+			var lng = e.latlng.lng;
+
+		// Every time when user click on map we want to delete previous marker and create new marker on the new position where the user clicked
+			if (typeof marker != 'undefined') {
+				map.removeLayer(marker);  // delete previous marker
+				marker = L.marker([lat, lng]).addTo(map);  // add new marker
+			}
+			else {
+				marker = L.marker([lat, lng]).addTo(map);  // add new marker
+			}
+
+			// we want to pass value of longitued and latitude to input field with id 'coordinates'
+			// note that we set that field as hidden because we don't want user to type the coordinates there. We want him to set marker on map
+
+			$('#coordinates').val(lng + ',' + lat)
+		}
+
+		// call the onMapClick function when user click on map
+		map.on('click', onMapClick);
+	</script>
+{% endblock js %}

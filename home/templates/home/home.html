@@ -1,0 +1,206 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+	<h1 class="text-center">Turning BioWaste into energy and nutrient rich soil.</h1>
+	<h2 class="text-center">How? Thanks to Anaerobic Digestion!</h2>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Empowering Anaerobic Digestion Initiatives</h2>
+			<ul>
+				<li>Facilitate international cooperation / contact between AD entrepreneurs and engineering offices / financial structures</li>
+				<li>Communication Relays</li>
+				<li>Diffuser l'expertise et le savoir-faire français dans les pays du Sud.</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<div id="countries_visited_by_ADATW" style="width: 600px; height: 400px;"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>How to participate ?</h2>
+			<ul>
+				<li>Source a project/entrepeneur.</li>
+				<li>Update an already existing project.</li>
+				<li>Talk about this project around you.</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Measuring the Impact of this project</h2>
+			<ul>
+				<li>Number of technical partnerships created</li>
+				<li>Nombre de vidéos de projets différents réalisées</li>
+				<li>Nombre de financements facilités par le projet.</li>
+				<li>Baisse de CO2, Nombre de kWh facilités par le projet</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container partners">
+	<h2>Partners</h2>
+	<div class="row">
+		<div class="col-md-4">
+			<h3 class="text-center">Financial</h3>
+		</div>
+		<div class="col-md-4">
+			<h3 class="text-center">Communication</h3>
+		</div>
+		<div class="col-md-4">
+			<h3 class="text-center">Technical</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<figure>
+				<img src="{% static "home/img/logo_bluebees.png" %}" />
+				<figcaption>
+					<p class="text-center">Plateforme de financement collaborative par le prêt à des agriculteurs du monde entier.</p>
+					<a href="http://www.bluebees.fr/" class="btn btn-default" role="button">> Blue Bees <</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure>
+				<img src="{% static "home/img/logo_esscentraliens.png" %}" />
+				<figcaption>
+					<p class="text-center">Communauté d'acteurs de l'Economie Sociale et Solidaire composée d'ingénieurs centraliens.</p>
+					<a href="http://www.bluebees.fr/" class="btn btn-default" role="button">> ESS Centraliens <</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure>
+				<img src="{% static "home/img/logo_hec.png" %}" />
+				<figcaption>
+					<p class="text-center">Plateforme de financement collaborative par le prêt à des agriculteurs du monde entier.</p>
+					<a href="http://www.bluebees.fr/" class="btn btn-default" role="button">> HEC <</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-3">
+			<figure>
+				<img src="{% static "home/img/logo_rde.png" %}" />
+				<figcaption>
+					<p class="text-center">Initiative de soutien pour l'accès à l'énergie pour tous via mécénat de compétence, investissement et subventionnement.</p>
+					<a href="http://www.bluebees.fr/" class="btn btn-default" role="button">> Rassembleurs d'Energies <</a>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+	<div class="row partners">
+		<div class="col-md-3">
+			<figure>
+				<img src="{% static "home/img/logo_enactushq.png" %}" />
+				<figcaption>
+					<p class="text-center">Association loi 1901 pour la promotion de l'entrepreneuriat social auprès des jeunes en post-bac.</p>
+					<a href="http://www.bluebees.fr/" class="btn btn-default" role="button">> Enactus France <</a>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/ammap.js"></script>
+<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+<script type="text/javascript">
+	var map = AmCharts.makeChart("countries_visited_by_ADATW", {
+		type: "map",
+		pathToImages: "http://www.amcharts.com/lib/3/images/",
+		zoomControl: {
+			panControlEnabled : false,
+			zoomControlEnabled : false,
+		},
+
+		dataProvider: {
+			map: "worldLow",
+			zoomLevel: 1,
+			/*zoomLongitude: 10,
+			zoomLatitude: 52,*/
+			areas:[{
+						id:"IN",
+						color: "#67B7AA",
+						groupId: "2014",
+					},{
+						id:"VN",
+						color: "#67B7AA",
+						groupId: "2014",
+					},{
+						/*title: "France",*/
+						id: "FR",
+						color: "#EBDB8B",
+						/*customData: "2015",*/
+						groupId: "2015",
+					},{
+						id:"SN",
+						color: "#EBDB8B",
+						groupId: "2015",
+					},{
+						id:"MX",
+						pattern: {url: "http://www.amcharts.com/lib/3/patterns/black/pattern1.png",	width: 4, height: 4},
+						groupId: "2016",
+					},{
+						id:"BR",
+						color:"#66CC66",
+						pattern: {url: "http://www.amcharts.com/lib/3/patterns/black/pattern1.png",	width: 4, height: 4},
+						groupId: "2016",
+					},{
+						id:"PE",
+						pattern: {url: "http://www.amcharts.com/lib/3/patterns/black/pattern1.png",	width: 4, height: 4},
+						groupId: "2016",
+					},{
+						id:"BO",
+						pattern: {url: "http://www.amcharts.com/lib/3/patterns/black/pattern1.png",	width: 4, height: 4},
+						groupId: "2016",
+			}],
+		},
+
+		areasSettings: {/*List of settings: http://docs.amcharts.com/3/javascriptmaps/AreasSettings*/
+			autoZoom: false, /*autoZoom set to true means that the map will zoom-in when clicked on the area*/
+			selectedColor: "#CC0000",
+			outlineColor : "#FFFFFF",
+			alpha:1.0,
+			unlistedAreasAlpha:0.6,
+			/*balloonText: "[[title]] visited in [[customData]]"*/
+		},
+
+		legend: {
+			width: "50%",
+			marginRight:10,
+			marginLeft:10,
+			equalWidths:false,
+			backgroundAlpha: 0.0,
+			/*backgroundColor: "#F00FFF",*/
+			borderColor: "#666666",
+			borderAlpha: 0,
+			bottom: 0,
+			right: 0,
+			horizontalGap: 10,
+			data: [{
+						title: "2014",
+						color: "#67B7AA"
+					}, {
+						title: "2015",
+						color: "#EBDB8B"
+					}, {
+						title: "2016",
+						pattern: {url: "http://www.amcharts.com/lib/3/patterns/black/pattern1.png",	width: 4, height: 4},
+					}]
+		}
+	});
+</script>
+{% endblock js %}

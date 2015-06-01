@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'map/css/custom.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-map">
+	<div id="gmap"></div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&sensor=false"></script>
+	<!-- Avec la clé pour avoir le monitoring de la developers console mais ne fonctionne pas (surement psk je suis en local) : <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiFCaQCp0IQFRDtZAZBd9mfztbLbjBclk"></script> -->
+
+	<script type="text/javascript">
+		function initialize() {
+			var mapOptions = {
+				center: { lat: 48, lng: 4.2},
+				zoom: 2,
+				mapTypeId: google.maps.MapTypeId.HYBRID, /* TERRAIN, HYBRID, SATELLITE, ROADMAP */
+				panControl: false,
+				zoomControl: true,
+				mapTypeControl: true,
+				scaleControl: true,
+				streetViewControl: true,
+				overviewMapControl: false
+			};
+
+			var map = new google.maps.Map(document.getElementById('gmap'),
+				mapOptions);
+
+			{% for i in initiatives %}
+				var marker = new google.maps.Marker({
+					position: { lat: {{ i.geom.y }}, lng: {{ i.geom.x }}},
+					map: map,
+					title:"Hello World!",
+				});
+			{% endfor %}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+{% endblock %}

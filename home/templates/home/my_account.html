@@ -1,0 +1,8 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<div class="container">
+	<p>Hi {{ username }}</p>
+	<p><a href="{% url 'sign_out' %}">Sign Out</a></p>
+</div>
+{% endblock content %}
