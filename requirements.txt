@@ -1,0 +1,10 @@
+django==1.8
+django-leaflet
+reportlab
+pillow
+django-registration
+stripe
+requests
+psycopg2
+pytz
+django-widget-tweaks
