@@ -147,9 +147,9 @@ LOGOUT_URL = '/sign-out/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATIC_ROOT = 'static' # directory where static files will be collected to. Never put anything in this directory myself.
 STATIC_URL = '/static/'
 
-if DEBUG:
-    MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media") #directory that hold user-uploaded files
-    MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
-    STATIC_ROOT = os.path.join(BASE_DIR, "static", "static") # directory where static files will be collected to. Never put anything in this directory myself.
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
+MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
+

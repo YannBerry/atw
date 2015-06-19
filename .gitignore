@@ -5,4 +5,11 @@
 *__cache__
 *~
 
+
+/media/
+/static/
+
 pip-selfcheck.json
+
+.project
+.pydevproject
