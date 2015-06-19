@@ -3,16 +3,23 @@ from django.forms import ModelForm, TextInput, Textarea, NumberInput, ClearableF
 #from leaflet.forms.widgets import LeafletWidget
 from .models import *
 
-class AddInitiativeForm(ModelForm): #ModelForm ou forms.Form
-	error_css_class = 'error'
-	required_css_class = 'required'
+class AddInitiativeForm(ModelForm): # ModelForm if it depends on a model, forms.Form otherwise
+    required_css_class = 'required'
 
-	coordinates = forms.CharField(label="Click on the map to show where you're anaerobic digester is located", max_length=200, required=True)
-	stage = forms.ModelChoiceField(widget=forms.Select(attrs={"class": "form-control"}), queryset=Stage.objects, empty_label="----------", required=True)
-	status = forms.ModelChoiceField(widget=forms.Select(attrs={"class": "form-control"}), queryset=Status.objects, empty_label="----------", required=True)
-	start = forms.DateField()
+    coordinates = forms.CharField(label="Click on the map to show where you're anaerobic digester is located", max_length=200, required=True)
+    stage = forms.ModelChoiceField(widget=forms.Select(), queryset=Stage.objects, empty_label="----------")
+    status = forms.ModelChoiceField(queryset=Status.objects, empty_label="----------")
+    start = forms.DateField()
 
-	class Meta:
-		model = Initiative
-		fields = ['coordinates', 'stage', 'status', 'project_name','project_leader', 'picture', 'description', 'nbr_installations', 'power', 'start']
-		
+    class Meta:
+        model = Initiative
+        fields = ['coordinates', 'stage', 'status', 'project_name','project_leader', 'picture', 'description', 'nbr_installations', 'power', 'start', 'email_validation', 'email']
+    
+    def clean(self): # allows me to custom the validator of the form
+        cleaned_data = super(AddInitiativeForm, self).clean()
+        email_validation = cleaned_data.get("email_validation")
+        email = cleaned_data.get("email")
+
+        if email_validation and not email:
+            msg = "Must add your valid email."
+            self.add_error('email', msg)

@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-19 07:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: map/models.py:15
+msgid "Status"
+msgstr "Status"
+
+#: map/models.py:18
+msgid "Stage"
+msgstr "Avancement"
+
+#: map/models.py:27
+msgid "Project Name"
+msgstr "Nom du projet"
+
+#: map/models.py:30
+msgid "Project Leader"
+msgstr "Chef de projet"
+
+#: map/models.py:31
+msgid "Picture"
+msgstr "Image"
+
+#: map/models.py:33
+msgid "Number of Installations"
+msgstr "Nombre d'installations"
+
+#: map/models.py:34
+msgid "Total Power (kW)"
+msgstr "Puissance totale (kW)"
+
+#: map/models.py:35
+msgid "Beginning of the project"
+msgstr "Début du projet"
+
+#: map/models.py:36
+msgid "Date published"
+msgstr "Date de publication"
+
+#: map/models.py:38
+msgid "Email validation"
+msgstr "Confirmation par email"
+
+#: map/models.py:39
+msgid "E-mail adress"
+msgstr "Adresse e-mail"
+
+#: map/models.py:55
+msgid "AD Initiative"
+msgstr ""
+
+#: map/models.py:56
+msgid "AD Initiatives"
+msgstr ""

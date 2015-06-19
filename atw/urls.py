@@ -20,8 +20,8 @@ from django.conf import settings # chargé pour ajouter la possibilité d'accéd
 from django.conf.urls.static import static # chargé pour ajouter la possibilité d'accéder au media_url/root lors d'appel dans les templates
 
 urlpatterns = patterns('',
-    url(r'^', include('home.urls')),
+    url(r'^', include('atw.home.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^map/', include('map.urls')),
+    url(r'^map/', include('atw.map.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')), # default name : set_language
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

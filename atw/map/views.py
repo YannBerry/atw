@@ -1,13 +1,14 @@
-from map.models import *
-from map.forms import *
+from atw.map.models import *
+from atw.map.forms import *
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.context_processors import csrf
+from django.core.mail import send_mail
 from django.contrib.gis.geos import Point
 from django.contrib.auth.decorators import login_required
 # Export pdf
-from map.printers import Printer
+from atw.map.printers import Printer
 from io import BytesIO
 # Export csv
 import csv
@@ -15,8 +16,8 @@ import csv
 @login_required
 def add_point(request):
 	if request.method == 'POST':
-		form = AddInitiativeForm(request.POST, request.FILES)
-		if form.is_valid(): # Si is_valid() renvoit True alors les données validées sont stockées dans le form.cleaned_data
+		form = AddInitiativeForm(request.POST, request.FILES, label_suffix='')
+		if form.is_valid(): # If is_valid() is True then validated data are stored in the form.cleaned_data dictionary nicely converted into python types.
 			new_point = Initiative()
 			coordinates = form.cleaned_data['coordinates'].split(',')
 			new_point.geom = Point(float(coordinates[0]), float(coordinates[1]))
@@ -25,22 +26,25 @@ def add_point(request):
 			new_point.project_leader = form.cleaned_data['project_leader']
 			new_point.picture = form.cleaned_data['picture']
 			new_point.description = form.cleaned_data['description']
-			new_point.status = form.cleaned_data['status']			
+			new_point.status = form.cleaned_data['status']
 			new_point.nbr_installations = form.cleaned_data['nbr_installations']
 			new_point.power = form.cleaned_data['power']
-			new_point.start = form.cleaned_data['start']			
+			new_point.start = form.cleaned_data['start']
+			new_point.email_validation = form.cleaned_data['email_validation']
+			new_point.email = form.cleaned_data['email']
 			new_point.save()
+			
+			if new_point.email_validation:
+			    send_mail('ATW', 'Hi, thank you for adding a new initiative on the map. Update it when necessary! Yann', 'berry.yann@free.fr', [new_point.email], fail_silently=True)
 			return HttpResponseRedirect(reverse('point_added'))
-		else:
-			return HttpResponseRedirect(reverse('point_error'))
 	else:
-		form = AddInitiativeForm()
+		form = AddInitiativeForm(label_suffix='')
 
 	args = {}
 	args.update(csrf(request))
-	args['form'] = AddInitiativeForm()
+	args['form'] = form
 
-	return render_to_response('map/add_point.html', args) # si je hardcode l'url : render_to_response('map/add_point.html', args)
+	return render_to_response('map/add_point.html', args)
 
 def map(request):
 	initiatives = Initiative.objects.all()
@@ -49,9 +53,6 @@ def map(request):
 def gmap(request):
 	initiatives = Initiative.objects.all()
 	return render_to_response('map/gmap.html', {'initiatives':initiatives})
-
-def form_error(request):
-	return render_to_response('map/form_error.html')
 
 def form_success(request):
 	return render_to_response('map/form_success.html')

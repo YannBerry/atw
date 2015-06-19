@@ -109,3 +109,20 @@ body {
   -ms-transform: scale(1);
   transform : scale(1);
 }
+
+/* FORMS */
+.required::after {
+    content: " (required)";
+    color: rgb(1,1,100);
+}
+
+.errorlist {
+    color: rgb(150,1,1);
+    list-style-type: none;
+    padding: 0;
+}
+
+.errorfield {
+    border-color: rgb(150,1,1);
+    /*background-color: rgb(240,240,70)*/
+}

@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
 {% load staticfiles %}
+{% load widget_tweaks %}
 
 {% block css %}
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -9,64 +10,63 @@
 {% block content %}
 
 <div class="container">
-	<h2>ADD YOUR A.D. INSTALLATION</h2>
+	<h2> ADD YOUR A.D. INSTALLATION</h2>
 	<div id="form-div" >
-		<form enctype="multipart/form-data" action="{% url 'add_point' %}" method="post">{% csrf_token %}
+		<form enctype="multipart/form-data" action="{% url 'add_point' %}" method="post" novalidate>{% csrf_token %}
 			{{ form.non_field_errors }}
 			<div class="fieldWrapper">
-				{{ form.coordinates.errors }}
-				{{ form.coordinates.label_tag }}
+				{{ form.coordinates.label_tag }} {{ form.coordinates.errors }}
 				<div id="formmap" class="center-block" style="height:50%; width:80%; padding-top:400px;"></div>
 				<input id="coordinates" name="coordinates" value="" type="hidden" />
 			</div>
 			<div class="row">
 				<div class="col-md-6 fieldWrapper">
-					{{ form.stage.errors }}
-					{{ form.stage.label_tag }}</br>
-					{{ form.stage }}
+					{{ form.stage.label_tag }} {{ form.stage.errors }}
+					{{ form.stage|add_class:"form-control"|add_error_class:"errorfield" }}
 				</div>
 				<div class="col-md-6 fieldWrapper">
-					{{ form.status.errors }}
-					{{ form.status.label_tag }}</br>
-					{{ form.status }}
+					
+					{{ form.status.label_tag }} {{ form.status.errors }}
+					{{ form.status|add_class:"form-control"|add_error_class:"errorfield" }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 fieldWrapper">
-					{{ form.project_name.errors }}
-					{{ form.project_name.label_tag }}</br>
-					{{ form.project_name }}
+					{{ form.project_name.label_tag }} {{ form.project_name.errors }}
+					{{ form.project_name|add_class:"form-control"|add_error_class:"errorfield" }}
 				</div>
 				<div class="col-md-6 fieldWrapper">
-					{{ form.project_leader.errors }}
-					{{ form.project_leader.label_tag }}</br>
-					{{ form.project_leader }}
+					{{ form.project_leader.label_tag }} {{ form.project_leader.errors }}
+					{{ form.project_leader|add_class:"form-control"|add_error_class:"errorfield" }}
 				</div>
 			</div>
 			<div class="fieldWrapper">
-				{{ form.picture.errors }}
-				{{ form.picture.label_tag }}</br>
-				{{ form.picture }}
+				{{ form.picture.label_tag }} {{ form.picture.errors }}
+				{{ form.picture|add_class:"form-control"|add_error_class:"errorfield" }}
 			</div>
 			<div class="fieldWrapper">
-				{{ form.description.errors }}
-				{{ form.description.label_tag }}</br>
-				{{ form.description }}
+				{{ form.description.label_tag }} {{ form.description.errors }}
+				{{ form.description|add_class:"form-control"|add_error_class:"errorfield" }}
 			</div>
 			<div class="fieldWrapper">
-				{{ form.nbr_installations.errors }}
-				{{ form.nbr_installations.label_tag }}</br>
-				{{ form.nbr_installations }}
+				{{ form.nbr_installations.label_tag }} {{ form.nbr_installations.errors }}
+				{{ form.nbr_installations|add_class:"form-control"|add_error_class:"errorfield" }}
 			</div>    
 			<div class="fieldWrapper">
-				{{ form.power.errors }}
-				{{ form.power.label_tag }}</br>
-				{{ form.power }}
+				{{ form.power.label_tag }} {{ form.power.errors }}
+				{{ form.power|add_class:"form-control"|add_error_class:"errorfield" }}
 			</div>
-			<div class="fieldWrapper">                
-				{{ form.start.errors }}
-				{{ form.start.label_tag }}</br>
-				<input class="form-control" id="id_start" name="start" type="date" />
+			<div class="fieldWrapper">
+				{{ form.start.label_tag }} {{ form.start.errors }}
+				{{ form.start|add_class:"form-control"|attr:"type:date"|add_error_class:"errorfield" }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.email_validation.label_tag }} {{ form.email_validation.errors }}<br />
+				{{ form.email_validation|add_error_class:"errorfield" }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.email.label_tag }} {{ form.email.errors }}
+				{{ form.email|add_class:"form-control"|add_error_class:"errorfield" }}
 			</div>
 			<input type="submit" name="submit" class="btn center-block" value="Add initiative" />
 		</form>

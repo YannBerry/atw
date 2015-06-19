@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.core.context_processors import csrf
-from home.forms import RegistrationForm
+from atw.home.forms import RegistrationForm
 
 def home(request):
 	return render_to_response('home/home.html')
@@ -29,11 +29,10 @@ def sign_in(request):
 			login(request, user)
 			return HttpResponseRedirect(reverse('my_account'))
 		else:
-			# Return a 'disabled account' error message
 			print("The password is valid, but the account has been disabled!")
-	# else:
-	# # Return an 'invalid login' error message.
-	# print("The username and password were incorrect.")
+	#else:
+	    # Return an 'invalid login' error message.
+	    # return HttpResponseRedirect(reverse('sign_in_or_register'))
 	args = {}
 	args.update(csrf(request))
 	args['username'] = request.user.username

@@ -4,7 +4,7 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.units import mm
-from map.models import Initiative
+from atw.map.models import Initiative
 # Pour la classe NumberedCanvas
 from reportlab.pdfgen import canvas
 
