@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 07:57+0200\n"
+"POT-Creation-Date: 2015-07-01 20:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: map/models.py:15
+#: models.py:15
 msgid "Status"
-msgstr "Status"
+msgstr "Statut"
 
-#: map/models.py:18
+#: models.py:18
 msgid "Stage"
 msgstr "Avancement"
 
-#: map/models.py:27
+#: models.py:27
 msgid "Project Name"
 msgstr "Nom du projet"
 
-#: map/models.py:30
+#: models.py:30
 msgid "Project Leader"
 msgstr "Chef de projet"
 
-#: map/models.py:31
+#: models.py:31
 msgid "Picture"
-msgstr "Image"
+msgstr "Photo"
 
-#: map/models.py:33
+#: models.py:33
 msgid "Number of Installations"
 msgstr "Nombre d'installations"
 
-#: map/models.py:34
+#: models.py:34
 msgid "Total Power (kW)"
 msgstr "Puissance totale (kW)"
 
-#: map/models.py:35
+#: models.py:35
 msgid "Beginning of the project"
 msgstr "Début du projet"
 
-#: map/models.py:36
+#: models.py:36
 msgid "Date published"
 msgstr "Date de publication"
 
-#: map/models.py:38
+#: models.py:38
 msgid "Email validation"
 msgstr "Confirmation par email"
 
-#: map/models.py:39
+#: models.py:39
 msgid "E-mail adress"
 msgstr "Adresse e-mail"
 
-#: map/models.py:55
+#: models.py:55
 msgid "AD Initiative"
+msgstr "Initiative méthanisation"
+
+#: models.py:56
+msgid "AD Initiatives"
+msgstr "Initiatives méthanisation"
+
+#: urls.py:7
+msgid "^gmap/$"
 msgstr ""
 
-#: map/models.py:56
-msgid "AD Initiatives"
+#: urls.py:8
+msgid "^add-point/$"
+msgstr ""
+
+#: urls.py:9
+msgid "^add-point/success/$"
+msgstr ""
+
+#: urls.py:10
+msgid "^download-db/$"
+msgstr ""
+
+#: urls.py:11
+msgid "^download-db/pdf/$"
+msgstr ""
+
+#: urls.py:12
+msgid "^download-db/csv/$"
 msgstr ""

@@ -1,10 +1,15 @@
 {% extends 'home/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="container">
-    <p>Hi {{ username }}</p>
-    <p><a href="{% url 'sign_out' %}">Sign Out</a></p>
-    
-    
+    <p>{% blocktrans %} Hi {{ username }}{% endblocktrans %}</p>
+    <p>{% trans "Projects you added:" %}</p>
+    <ul>
+    {% for i in initiatives_added_by_user %}
+        <li>{{ i.project_name }}</li>
+    {% endfor %}
+    </ul>
+    <p><a href="{% url 'sign_out' %}">{% trans "Sign Out" %}</a></p>
 </div>
 {% endblock content %}

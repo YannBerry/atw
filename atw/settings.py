@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.utils.translation import ugettext_lazy as _
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'atw.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "admin", "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "atw", "admin", "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n', # Added https://docs.djangoproject.com/en/1.8/topics/i18n/translation/#get-current-language-bidi
+                #'django.template.context_processors.csrf' pas nécessaire de l'ajouter car il est ajouté de force.
             ],
         },
     },
@@ -85,8 +89,8 @@ DATABASES = {
         'NAME': 'atw',
         'USER': 'yann',
         'PASSWORD': 'saew5oex',
-        'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',      # Set to empty string for default.
+        'HOST': '127.0.0.1', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432', # Set to empty string for default.
     }
 }
 
@@ -101,7 +105,7 @@ EMAIL_HOST_PASSWORD='Saew5oex'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-us' # default language Django will use if no translation is found
 
 TIME_ZONE = 'Europe/Paris' # https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-TIME_ZONE
 
@@ -111,16 +115,14 @@ USE_L10N = True # controls whether Django should activate format localization (d
 
 USE_TZ = True # https://docs.djangoproject.com/fr/1.8/topics/i18n/timezones/#naive-and-aware-datetime-objects
 
-gettext = lambda x: x
-
 LANGUAGES = (
-    ('fr', gettext('French')),
-    ('en', gettext('English')),
+    ('fr', _('French')),
+    ('en', _('English')),
 )
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "home", "locale"),
-    os.path.join(BASE_DIR, "map", "locale"),
+    os.path.join(BASE_DIR, "atw", "home", "locale"),
+    os.path.join(BASE_DIR, "atw", "map", "locale"),
 )
 
 # Leaflet
@@ -147,9 +149,8 @@ LOGOUT_URL = '/sign-out/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_ROOT = 'static' # directory where static files will be collected to. Never put anything in this directory myself.
+STATIC_ROOT = os.path.join(BASE_DIR, "static") # directory where static files will be collected to. Never put anything in this directory myself.
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
-

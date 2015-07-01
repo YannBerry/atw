@@ -18,10 +18,15 @@ from django.conf.urls import patterns, include, url
 from django.contrib.gis import admin
 from django.conf import settings # chargé pour ajouter la possibilité d'accéder au media_url/root lors d'appel dans les templates
 from django.conf.urls.static import static # chargé pour ajouter la possibilité d'accéder au media_url/root lors d'appel dans les templates
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import ugettext_lazy as _
 
 urlpatterns = patterns('',
+    url(r'^i18n/', include('django.conf.urls.i18n')), # default name : set_language, ne doit pas être mis dans i18n
+)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
     url(r'^', include('atw.home.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^map/', include('atw.map.urls')),
-    url(r'^i18n/', include('django.conf.urls.i18n')), # default name : set_language
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(_(r'^map/'), include('atw.map.urls')),
+)

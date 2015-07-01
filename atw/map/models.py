@@ -5,7 +5,7 @@ from django.utils import timezone # https://docs.djangoproject.com/en/1.7/topics
 from django.core.validators import MinValueValidator
 
 class Status(models.Model):
-    status = models.CharField(max_length=25)
+    status = models.CharField(verbose_name=_("Status"), max_length=25)
 
     def __str__(self):
         return self.status
@@ -33,10 +33,11 @@ class Initiative(models.Model):
     nbr_installations = models.IntegerField(verbose_name=_("Number of Installations"), blank=True, null=True, validators=[MinValueValidator(0)])
     power = models.IntegerField(verbose_name=_("Total Power (kW)"), blank=True, null=True, validators=[MinValueValidator(0)])
     start = models.DateField(verbose_name=_("Beginning of the project"), default=timezone.now, blank=True)
-    date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True) # 
+    date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
     geom = models.PointField(srid=4326) #srid=4326 doit être la valeur par défaut je pense mais je l'écris quand même
     email_validation = models.BooleanField(verbose_name=_("Email validation"))
     email = models.EmailField(verbose_name=_("E-mail adress"), blank=True, null=True)
+    added_by = models.CharField(verbose_name=_("Added by"), max_length=50)
 
     objects = models.GeoManager() # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
 

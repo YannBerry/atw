@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 07:57+0200\n"
+"POT-Creation-Date: 2015-07-01 21:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,127 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: atw/settings.py:117
-msgid "French"
-msgstr ""
-
-#: atw/settings.py:118
-msgid "English"
-msgstr ""
-
-#: home/templates/home/base.html:15
+#: templates/home/base.html:15
 msgid "Anaerobic Digestion AtW"
+msgstr "Méthanisation AdM"
+
+#: templates/home/base.html:44
+msgid "AD Around the World"
+msgstr "La méthanisation dans le monde"
+
+#: templates/home/base.html:51
+msgid "What it is?"
+msgstr "Quesako ?"
+
+#: templates/home/base.html:52
+#, fuzzy
+#| msgid "Anaerobic Digestion AtW"
+msgid "Anaerobic digestion for noobs"
+msgstr "Méthanisation AdM"
+
+#: templates/home/base.html:53
+msgid "Waste Management in General"
+msgstr "Gestion des déchets"
+
+#: templates/home/base.html:59
+msgid "Explore the Map (Open Source Map)"
+msgstr "Explorer la carte (Open Source)"
+
+#: templates/home/base.html:60
+msgid "Explore the Map (Google Maps)"
+msgstr "Explorer la carte (Google Maps)"
+
+#: templates/home/base.html:61
+msgid "Add a Point to the Map"
+msgstr "Ajouter un point sur la carte"
+
+#: templates/home/base.html:62
+msgid "Get Data from the Map"
+msgstr "Extraire les données de la carte"
+
+#: templates/home/base.html:65
+msgid "The Community"
+msgstr "Communauté"
+
+#: templates/home/base.html:69
+msgid "My account"
+msgstr "Mon compte"
+
+#: templates/home/base.html:71
+msgid "Sign In"
+msgstr "Connexion"
+
+#: templates/home/home.html:7
+msgid "Turning BioWaste into energy and nutrient rich soil."
+msgstr "Transformer vos biodéchets en énergie et amendement organique"
+
+#: templates/home/home.html:8
+msgid "How? Thanks to Anaerobic Digestion!"
+msgstr "Comment ? Grâce à la méthanisation !"
+
+#: templates/home/home.html:14
+msgid "Empowering Anaerobic Digestion Initiatives"
+msgstr "Promouvoir les projets de méthanisation"
+
+#: templates/home/my_account.html:6
+#, python-format
+msgid " Hi %(username)s"
+msgstr "Bonjour %(username)s"
+
+#: templates/home/my_account.html:7
+msgid "Projects you added:"
+msgstr "Projets que vous avez ajouté :"
+
+#: templates/home/my_account.html:13
+msgid "Sign Out"
+msgstr "Déconnexion"
+
+#: templates/home/register.html:27 templates/home/sign_in.html:23
+msgid "Register"
+msgstr "S'inscrire"
+
+#: templates/home/sign_in.html:19
+msgid "Sign in"
+msgstr "Connexion"
+
+#: templates/home/sign_out.html:6
+msgid "Bye. Have a great day."
+msgstr "A bientôt"
+
+#: urls.py:7
+msgid "^project/$"
 msgstr ""
+
+#: urls.py:8
+msgid "^anaerobic-digestion/$"
+msgstr ""
+
+#: urls.py:9
+msgid "^waste-management/france/$"
+msgstr ""
+
+#: urls.py:10
+msgid "^community/$"
+msgstr ""
+
+#: urls.py:11
+msgid "^sign-in/$"
+msgstr ""
+
+#: urls.py:12
+msgid "^sign-out/$"
+msgstr ""
+
+#: urls.py:13
+msgid "^register/$"
+msgstr ""
+
+#: urls.py:14
+msgid "^my-account/$"
+msgstr ""
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid "English"
+#~ msgstr "Anglais"

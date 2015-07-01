@@ -7,12 +7,12 @@ class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais héri
     fieldsets = [
         ('Mandatory information', {'fields': ['date_published', 'geom', 'status', 'stage', 'project_name', 'project_leader']}),
         ('Optional information',  {'fields': ['description', 'nbr_installations', 'power', 'start', 'picture', 'picture_tag'], 'classes': ['collapse']}),
-        ('Publication information', {'fields': ['email_validation', 'email'], 'classes': ['collapse']}),
+        ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
-    list_display = ('project_name', 'stage', 'status', 'power','date_published','published_more_than_6_months_ago', 'picture_tag')
-    readonly_fields = ['date_published', 'picture_tag'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
+    list_display = ('project_name', 'stage', 'status', 'power','date_published','published_more_than_6_months_ago', 'picture_tag', 'added_by')
+    readonly_fields = ['date_published', 'picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
     search_fields = ['project_name']
-    list_filter = ['stage']
+    list_filter = ['stage', 'added_by']
     save_on_top = True
     #map_width = 900 # Ne marche pas avec Leaflet
 

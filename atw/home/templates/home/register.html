@@ -1,31 +1,32 @@
 {% extends 'home/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="container">
-	<form action="{% url 'register' %}" method="post">{% csrf_token %}
-		<div class="row">
-			<div class="col-md-4">
-			</div>
-			<div class="col-md-4">
-				<div class="fieldWrapper">
-					{{ form.username.label_tag }}</br>
-					{{ form.username }}
-				</div>
-				<div class="fieldWrapper">
-					{{ form.email.label_tag }}</br>
-					{{ form.email }}
-				</div>
-				<div class="fieldWrapper">
-					{{ form.password1.label_tag }}</br>
-					{{ form.password1 }}
-				</div>
-				<div class="fieldWrapper">
-					{{ form.password2.label_tag }}</br>
-					{{ form.password2 }}
-				</div>
-				<button type="submit" class="btn center-block">Register</button>
-			</div>
-		</div>		
-	</form>
+    <form action="{% url 'register' %}" method="post">{% csrf_token %}
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            <div class="fieldWrapper">
+                {{ form.username.label_tag }}</br>
+                {{ form.username }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.email.label_tag }}</br>
+                {{ form.email }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password1.label_tag }}</br>
+                {{ form.password1 }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password2.label_tag }}</br>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn center-block">{% trans "Register" %}</button>
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock content %}
