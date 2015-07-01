@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | ATW admin {% endblock %}
+
+{% block extrastyle %}
+<style>
+    #header {
+        background-color: #222;
+        color: #E2CA27;
+    }
+    #branding h1, #branding h1 a:link, #branding h1 a:visited {
+        color: #9d9d9d;
+    }
+    #header a:link, #header a:visited {
+        color: #9d9d9d;
+    }
+</style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">ATW Admin</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
