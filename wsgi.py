@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-WSGI config for biodigitals project.
+WSGI config for atw project hosted by biodigitals.
 
 This module contains the WSGI application used by Django's development server
 and any production WSGI deployments. It should expose a module-level variable
