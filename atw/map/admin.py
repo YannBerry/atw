@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...
 from leaflet.admin import LeafletGeoAdmin
 from .models import Initiative, Status, Stage

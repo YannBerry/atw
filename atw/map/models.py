@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 import datetime # Python’s standard datetime module
 from django.contrib.gis.db import models
 from django.utils.translation import ugettext_lazy as _

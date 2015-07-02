@@ -2,9 +2,11 @@
 /lib/
 /bin/
 /include/
+/local/
 *__cache__
 *~
 
+/settings_prod.py
 settings_secret.py
 
 /media/
