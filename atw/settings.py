@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.utils.translation import ugettext_lazy as _
-
+from atw.settings_secret import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,8 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2ka4=qis=#(nla54kl#shss-c72swb9=ugs114asszc_dg-jy$'
+# SECRET_KEY in settings_secret.py
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,23 +82,9 @@ WSGI_APPLICATION = 'atw.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'atw',
-        'USER': 'yann',
-        'PASSWORD': 'saew5oex',
-        'HOST': '127.0.0.1', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432', # Set to empty string for default.
-    }
-}
+#DATABASES in settings_secret.py
 
-#Email
-EMAIL_USE_TLS=True
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='yannberry.fr@gmail.com'
-EMAIL_HOST_PASSWORD='Saew5oex'
+#Email in settings_secret.py
 
 
 # Internationalization
