@@ -10,13 +10,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECRET_KEY in settings_secret.py
+# SECRET_KEY in settings_prod.py
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('DJANGO_ENV') == 'production':
-	DEBUG = False
+    DEBUG = False
 else:
-	DEBUG = True
+    DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'atw.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-#DATABASES in settings_secret.py
+#DATABASES in settings_prod.py
 
-#Email in settings_secret.py
+#Email in settings_prod.py
 
 
 # Internationalization
@@ -133,5 +133,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
 
-if os.environ.get('DJANGO_ENV','dev') == 'production':
- 	from settings_prod import *
+from settings_prod import *

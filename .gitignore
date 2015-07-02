@@ -7,12 +7,12 @@
 *~
 
 /settings_prod.py
-settings_secret.py
 
 /media/
 /static/
 
 pip-selfcheck.json
 
+/.settings/
 .project
 .pydevproject

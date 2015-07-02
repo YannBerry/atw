@@ -39,7 +39,7 @@ class Initiative(models.Model):
     geom = models.PointField(srid=4326) #srid=4326 doit être la valeur par défaut je pense mais je l'écris quand même
     email_validation = models.BooleanField(verbose_name=_("Email validation"))
     email = models.EmailField(verbose_name=_("E-mail adress"), blank=True, null=True)
-    added_by = models.CharField(verbose_name=_("Added by"), max_length=50)
+    added_by = models.CharField(verbose_name=_("Added by"), max_length=50, default="Admin")
 
     objects = models.GeoManager() # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
 
