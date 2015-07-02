@@ -16,3 +16,4 @@ pip-selfcheck.json
 /.settings/
 .project
 .pydevproject
+/settings_dev.py
