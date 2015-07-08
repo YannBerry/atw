@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'atw.home',
     'atw.map',
     'leaflet',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
