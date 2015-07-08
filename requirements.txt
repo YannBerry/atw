@@ -1,7 +1,7 @@
 django==1.8
 django-leaflet
 reportlab
-pillow
+Pillow
 django-registration
 stripe
 requests
