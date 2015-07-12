@@ -8,9 +8,9 @@ class AddInitiativeForm(ModelForm): # ModelForm if it depends on a model, forms.
     required_css_class = 'required'
 
     coordinates = forms.CharField(label=_("Click on the map to show where you're anaerobic digester is located"), max_length=200, required=True)
-    stage = forms.ModelChoiceField(widget=forms.Select(), queryset=Stage.objects, empty_label="----------")
-    status = forms.ModelChoiceField(queryset=Status.objects, empty_label="----------")
-    start = forms.DateField()
+    stage = forms.ModelChoiceField(widget=forms.Select(), queryset=Stage.objects, empty_label="----------", label=_("Stage"))
+    status = forms.ModelChoiceField(queryset=Status.objects, empty_label="----------", label=_("Status"))
+    start = forms.DateField(label=_("Beginning of the project"))
 
     class Meta:
         model = Initiative

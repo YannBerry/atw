@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from atw.map import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.map, name='map'),
+    url(r'^$', views.osmap, name='map'),
     url(_(r'^gmap/$'), views.gmap, name='gmap'),
     url(_(r'^add-point/$'), views.add_point, name='add_point'),
     url(_(r'^add-point/success/$'), views.form_success, name='point_added'),

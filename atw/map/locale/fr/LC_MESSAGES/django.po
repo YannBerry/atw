@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 20:14+0200\n"
+"POT-Creation-Date: 2015-07-12 12:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,55 +18,72 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: models.py:15
-msgid "Status"
-msgstr "Statut"
+#: forms.py:10
+msgid "Click on the map to show where you're anaerobic digester is located"
+msgstr ""
+"Cliquer sur la carte pour indiquer la localisation de votre installation"
 
-#: models.py:18
+#: forms.py:11 models.py:21 models.py:28 models.py:34
 msgid "Stage"
 msgstr "Avancement"
 
-#: models.py:27
-msgid "Project Name"
-msgstr "Nom du projet"
+#: forms.py:12 models.py:10 models.py:17 models.py:18 models.py:33
+msgid "Status"
+msgstr "Statut"
 
-#: models.py:30
-msgid "Project Leader"
-msgstr "Chef de projet"
-
-#: models.py:31
-msgid "Picture"
-msgstr "Photo"
-
-#: models.py:33
-msgid "Number of Installations"
-msgstr "Nombre d'installations"
-
-#: models.py:34
-msgid "Total Power (kW)"
-msgstr "Puissance totale (kW)"
-
-#: models.py:35
+#: forms.py:13 models.py:40
 msgid "Beginning of the project"
 msgstr "Début du projet"
 
+#: forms.py:25
+msgid "Must add your valid email."
+msgstr "Vous avez du faire une erreur dans votre adresse e-mail ... "
+
+#: models.py:29
+msgid "Stages"
+msgstr "Avancements"
+
+#: models.py:32
+msgid "Project Name"
+msgstr "Nom du projet"
+
+#: models.py:35
+msgid "Project Leader"
+msgstr "Chef de projet"
+
 #: models.py:36
+msgid "Picture"
+msgstr "Photo"
+
+#: models.py:38
+msgid "Number of Installations"
+msgstr "Nombre d'installations"
+
+#: models.py:39
+msgid "Total Power (kW)"
+msgstr "Puissance totale (kW)"
+
+#: models.py:41
 msgid "Date published"
 msgstr "Date de publication"
 
-#: models.py:38
+#: models.py:43
 msgid "Email validation"
 msgstr "Confirmation par email"
 
-#: models.py:39
+#: models.py:44
 msgid "E-mail adress"
 msgstr "Adresse e-mail"
 
-#: models.py:55
+#: models.py:45
+msgid "Added by"
+msgstr "Ajouté par"
+
+#: models.py:61
 msgid "AD Initiative"
 msgstr "Initiative méthanisation"
 
-#: models.py:56
+#: models.py:62
 msgid "AD Initiatives"
 msgstr "Initiatives méthanisation"
 

@@ -1,5 +1,6 @@
 {% extends 'home/base.html' %}
 {% load staticfiles %}
+{% load l10n %} <!-- l10n loaded to use unlocalize filter for coordinates -->
 
 {% block css %}
 	<link rel="stylesheet" href="{% static 'map/css/custom.css' %}" />
@@ -35,7 +36,7 @@
 
 			{% for i in initiatives %}
 				var marker = new google.maps.Marker({
-					position: { lat: {{ i.geom.y }}, lng: {{ i.geom.x }}},
+					position: { lat: {{ i.geom.y | unlocalize }}, lng: {{ i.geom.x | unlocalize }}},
 					map: map,
 					title:"Hello World!",
 				});

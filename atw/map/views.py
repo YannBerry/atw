@@ -45,7 +45,7 @@ def add_point(request):
 
     return render(request, 'map/add_point.html', args)
 
-def map(request):
+def osmap(request):
     initiatives = Initiative.objects.all()
     return render(request, 'map/map.html', {'initiatives':initiatives})
 

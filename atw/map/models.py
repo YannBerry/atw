@@ -14,6 +14,7 @@ class Status(models.Model):
 
     class Meta:
         ordering = ['status']
+        verbose_name = _("Status")
         verbose_name_plural = _("Status")
 
 class Stage(models.Model):
@@ -24,11 +25,13 @@ class Stage(models.Model):
 
     class Meta:
         ordering = ['stage']
+        verbose_name = _("Stage")
+        verbose_name_plural = _("Stages")
 
 class Initiative(models.Model):
     project_name = models.CharField(verbose_name=_("Project Name"), max_length=50)
-    status = models.ForeignKey(Status) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
-    stage = models.ForeignKey(Stage)
+    status = models.ForeignKey(Status, verbose_name = _("Status")) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
+    stage = models.ForeignKey(Stage, verbose_name = _("Stage")) # le verbose name est celui de la classe stage , ainsi s'il y avait plusieurs attributs dans cette classe alors tous les verbose_name de ces attibuts seraient repris
     project_leader = models.CharField(verbose_name=_("Project Leader"), max_length=50)
     picture = models.ImageField(verbose_name=_("Picture"), upload_to='picture/%Y/%m', blank=True, null=True)
     description = models.TextField(blank=True)
