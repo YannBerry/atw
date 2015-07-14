@@ -24,8 +24,7 @@
     <script type="text/javascript">
         var watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 17}),
             roads = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'}),
-            satellite = L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
-            satellite2 = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}),
+            satellite = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}),
             hybrid = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/hybrid.day/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>', subdomains: '1234', mapID: 'newest', app_id: 'Y8m9dK2brESDPGJPdrvs', app_code: 'dq2MYIvjAotR8tHvY8Q_Dg', base: 'aerial', minZoom: 0, maxZoom: 20});
 
         var map = L.map('map', {
@@ -40,7 +39,6 @@
             "Watercolor": watercolor,
             "Roads": roads,
             "Satellite": satellite,
-            "Satellite2": satellite2,
             "Hybrid": hybrid,
         };
 
@@ -63,7 +61,7 @@
 
         {% for i in initiatives %}
             L.marker([{{ i.geom.y | unlocalize }},{{ i.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{{ i.description | urlize }}<br />{% if i.picture %}<img style="width:100%;" src="/media/{{ i.picture }}"/>{% endif %}',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{{ i.description | urlize | linebreaks }}<br />{% if i.picture %}<img style="width:100%;" src="/media/{{ i.picture }}"/>{% endif %}',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 
@@ -78,15 +76,13 @@
 
         var geolocIcon = L.icon({
             iconUrl: '{% static "map/img/circle-24.png" %}',
-            iconSize:     [24, 24],
-            iconAnchor:   [12, 12],
-            popupAnchor:  [0, -12] // point from which the popup should open relative to the iconAnchor
+            iconSize: [12, 12],
+            iconAnchor: [6, 6],
+            popupAnchor: [0, -6] // point from which the popup should open relative to the iconAnchor
         });
 
         function onLocationFound(e) {
-            var radius = 100000;
-            L.marker(e.latlng, {icon: geolocIcon}).addTo(map).bindPopup("Projects within " + radius/1000 + " km from you").openPopup();
-            L.circle(e.latlng, radius).addTo(map);
+            L.marker(e.latlng, {icon: geolocIcon}).addTo(map);
         }
         map.on('locationfound', onLocationFound);
 

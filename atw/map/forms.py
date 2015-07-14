@@ -10,11 +10,12 @@ class AddInitiativeForm(ModelForm): # ModelForm if it depends on a model, forms.
     coordinates = forms.CharField(label=_("Click on the map to show where you're anaerobic digester is located"), max_length=200, required=True)
     stage = forms.ModelChoiceField(widget=forms.Select(), queryset=Stage.objects, empty_label="----------", label=_("Stage"))
     status = forms.ModelChoiceField(queryset=Status.objects, empty_label="----------", label=_("Status"))
+    #need = forms.ModelChoiceField(queryset=Need.objects, empty_label="----------", label=_("Need"))
     start = forms.DateField(label=_("Beginning of the project"))
 
     class Meta:
         model = Initiative
-        fields = ['coordinates', 'stage', 'status', 'project_name','project_leader', 'picture', 'description', 'nbr_installations', 'power', 'start', 'email_validation', 'email']
+        fields = ['coordinates', 'stage', 'status', 'project_name', 'project_leader', 'picture', 'description', 'nbr_installations', 'power', 'start', 'email_validation', 'email']
     
     def clean(self): # allows me to custom the validator of the form
         cleaned_data = super(AddInitiativeForm, self).clean()

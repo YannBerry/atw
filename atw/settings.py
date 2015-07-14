@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.sitemaps', reste à créer
     'django.contrib.gis',
     'widget_tweaks', # https://github.com/kmike/django-widget-tweaks Permet d'ajouter des filtres aux templates des forms (ajout css, attributs, etc.)
     'atw.home',
@@ -56,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, "atw", "admin", "templates")],
-        'APP_DIRS': True,
+        'APP_DIRS': True, # obligatoire pour utiliser l'application sitemap
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
