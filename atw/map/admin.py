@@ -2,7 +2,7 @@
 
 from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...
 from leaflet.admin import LeafletGeoAdmin
-from .models import Initiative, Status, Stage
+from .models import Initiative, Status, Stage, Need
 from django.contrib.gis.geos import Point
 
 class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
