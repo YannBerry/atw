@@ -32,7 +32,7 @@ class Need(models.Model):
     need = models.CharField(verbose_name=_("Need"), max_length=25)
 
     def __str__(self):
-        return self.stage
+        return self.need
 
     class Meta:
         ordering = ['need']
