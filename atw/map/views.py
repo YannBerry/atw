@@ -21,9 +21,9 @@ def add_point(request):
             coordinates = form.cleaned_data['coordinates'].split(',')
             new_point.geom = Point(float(coordinates[0]), float(coordinates[1]))
             new_point.project_name = form.cleaned_data['project_name']
-            new_point.project_leader = form.cleaned_data['project_leader']
+            new_point.project_owner = form.cleaned_data['project_owner']
             new_point.stage = form.cleaned_data['stage']
-            #new_point.need = form.cleaned_data['need']
+            new_point.need = form.cleaned_data['need']
             new_point.picture = form.cleaned_data['picture']
             new_point.description = form.cleaned_data['description']
             new_point.status = form.cleaned_data['status']

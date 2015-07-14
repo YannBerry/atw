@@ -7,14 +7,14 @@ from django.contrib.gis.geos import Point
 
 class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
     fieldsets = [
-        ('Mandatory information', {'fields': ['date_published', 'geom', 'status', 'stage', 'project_name', 'project_leader']}),
+        ('Mandatory information', {'fields': ['date_published', 'geom', 'status', 'stage', 'project_name', 'project_owner', 'need']}),
         ('Optional information',  {'fields': ['description', 'nbr_installations', 'power', 'start', 'picture', 'picture_tag'], 'classes': ['collapse']}),
         ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
-    list_display = ('project_name', 'stage', 'status', 'power','date_published','published_more_than_6_months_ago', 'picture_tag', 'added_by')
+    list_display = ('project_name', 'stage', 'status', 'power','date_published','published_more_than_6_months_ago', 'picture_tag', 'added_by', 'need')
     readonly_fields = ['date_published', 'picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
     search_fields = ['project_name']
-    list_filter = ['stage', 'added_by']
+    list_filter = ['stage', 'added_by', 'need']
     save_on_top = True
     #map_width = 900 # Ne marche pas avec Leaflet
 

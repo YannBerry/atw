@@ -43,8 +43,8 @@ class Initiative(models.Model):
     project_name = models.CharField(verbose_name=_("Project Name"), max_length=50)
     status = models.ForeignKey(Status, verbose_name = _("Status")) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     stage = models.ForeignKey(Stage, verbose_name = _("Stage")) # le verbose name est celui de la classe stage , ainsi s'il y avait plusieurs attributs dans cette classe alors tous les verbose_name de ces attibuts seraient repris
-    project_leader = models.CharField(verbose_name=_("Project Leader"), max_length=50)
-    #need = models.ForeignKey(Need, verbose_name = _("Need"))
+    project_owner = models.CharField(verbose_name=_("Project Owner"), max_length=50)
+    need = models.ForeignKey(Need, verbose_name = _("Need"))
     picture = models.ImageField(verbose_name=_("Picture"), upload_to='picture/%Y/%m', blank=True, null=True)
     description = models.TextField(blank=True, max_length=300)
     nbr_installations = models.IntegerField(verbose_name=_("Number of Installations"), blank=True, null=True, validators=[MinValueValidator(0)])

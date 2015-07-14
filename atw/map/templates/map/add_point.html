@@ -35,9 +35,13 @@
                     {{ form.project_name|add_class:"form-control"|add_error_class:"errorfield" }}
                 </div>
                 <div class="col-md-6 fieldWrapper">
-                    {{ form.project_leader.label_tag }} {{ form.project_leader.errors }}
-                    {{ form.project_leader|add_class:"form-control"|add_error_class:"errorfield" }}
+                    {{ form.project_owner.label_tag }} {{ form.project_own.errors }}
+                    {{ form.project_owner|add_class:"form-control"|add_error_class:"errorfield" }}
                 </div>
+            </div>
+            <div class="fieldWrapper">
+                {{ form.need.label_tag }} {{ form.need.errors }}
+                {{ form.need|add_class:"form-control"|add_error_class:"errorfield" }}
             </div>
             <div class="fieldWrapper">
                 {{ form.picture.label_tag }} {{ form.picture.errors }}
