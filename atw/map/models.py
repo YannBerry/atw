@@ -46,7 +46,7 @@ class Initiative(models.Model):
     project_owner = models.CharField(verbose_name=_("Project Owner"), max_length=50)
     need = models.ForeignKey(Need, verbose_name = _("Need"))
     picture = models.ImageField(verbose_name=_("Picture"), upload_to='picture/%Y/%m', blank=True, null=True)
-    description = models.TextField(blank=True, max_length=300)
+    description = models.TextField(blank=True, max_length=350)
     nbr_installations = models.IntegerField(verbose_name=_("Number of Installations"), blank=True, null=True, validators=[MinValueValidator(0)])
     power = models.IntegerField(verbose_name=_("Total Power (kW)"), blank=True, null=True, validators=[MinValueValidator(0)])
     start = models.DateField(verbose_name=_("Beginning of the project"), default=timezone.now, blank=True)
