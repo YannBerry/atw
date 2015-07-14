@@ -25,6 +25,7 @@ class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais héri
 admin.site.register(Initiative, InitiativeAdmin)
 admin.site.register(Status)
 admin.site.register(Stage)
+admin.site.register(Need)
 
 
 # from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...
