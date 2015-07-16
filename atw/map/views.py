@@ -54,6 +54,10 @@ def gmap(request):
     initiatives = Initiative.objects.all()
     return render(request, 'map/gmap.html', {'initiatives':initiatives})
 
+def initiative(request, id):
+    initiative = Initiative.objects.get(pk=id)
+    return render(request, 'map/initiative_factsheets.html', {'i':initiative})
+
 def form_success(request):
     return render(request, 'map/form_success.html')
 

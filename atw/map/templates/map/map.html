@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %}
-{% load staticfiles %}
+{% load staticfiles i18n %}
 {% load l10n %} <!-- l10n loaded to use unlocalize filter for coordinates -->
 
 {% block css %}
@@ -61,7 +61,7 @@
 
         {% for i in initiatives %}
             L.marker([{{ i.geom.y | unlocalize }},{{ i.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{{ i.description | urlize | linebreaks }}<br />{% if i.picture %}<img style="width:100%;" src="/media/{{ i.picture }}"/>{% endif %}',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{% if i.description %}{{ i.description | urlize | linebreaks }}<br />{% endif %}{% if i.picture %}<img style="width:100%;" src="/media/{{ i.picture }}"/><br />{% endif %}<a href="/map/{{ i.id }}/">{% trans "Project Factsheet" %}</a>',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 

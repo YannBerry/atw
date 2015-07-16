@@ -5,6 +5,7 @@ from atw.map import views
 urlpatterns = patterns('',
     url(r'^$', views.osmap, name='map'),
     url(_(r'^gmap/$'), views.gmap, name='gmap'),
+    url(_(r'^(?P<id>[0-9]+)/$'), views.initiative, name='initiative'),
     url(_(r'^add-point/$'), views.add_point, name='add_point'),
     url(_(r'^add-point/success/$'), views.form_success, name='point_added'),
     url(_(r'^download-db/$'), views.download_db, name='download_db'),
