@@ -1,6 +1,7 @@
 {% extends 'home/base.html' %}
 {% load staticfiles i18n %}
 {% load l10n %} <!-- l10n loaded to use unlocalize filter for coordinates -->
+{% load thumbnail %}
 
 {% block css %}
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -61,7 +62,7 @@
 
         {% for i in initiatives %}
             L.marker([{{ i.geom.y | unlocalize }},{{ i.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{% if i.description %}{{ i.description | urlize | linebreaks }}<br />{% endif %}{% if i.picture %}<img style="width:100%;" src="/media/{{ i.picture }}"/><br />{% endif %}<a href="/map/{{ i.id }}/">{% trans "Project Factsheet" %}</a>',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ i.project_name }}</b><br />{% if i.power %}{{ i.power }} kW<br />{% endif %}{{ i.stage }}<br />Started on {{ i.start }}<br />{% if i.description %}{{ i.description | urlize | linebreaks }}<br />{% endif %}{% if i.picture %}<img src="{{ i.picture|thumbnail_url:"small" }}" /><br />{% endif %}<a href="/map/{{ i.id }}/">{% trans "Project Factsheet" %}</a>',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 

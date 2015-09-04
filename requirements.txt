@@ -9,3 +9,4 @@ psycopg2
 pytz
 django-widget-tweaks
 django-debug-toolbar
+easy_thumbnails
