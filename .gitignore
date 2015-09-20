@@ -6,14 +6,15 @@
 *__cache__
 *~
 
+/.settings/
+.project
+.pydevproject
 /settings_prod.py
+/settings_dev.py
 
 /media/
 /static/
 
 pip-selfcheck.json
 
-/.settings/
-.project
-.pydevproject
-/settings_dev.py
+.idea
