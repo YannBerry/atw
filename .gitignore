@@ -17,4 +17,5 @@
 
 pip-selfcheck.json
 
-.idea
+# PyCharm files
+.idea/
