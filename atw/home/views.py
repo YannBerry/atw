@@ -18,9 +18,6 @@ def ad(request):
 def wm_fr(request):
     return render(request, 'home/wm_fr.html')
 
-def community(request):
-    return render(request, 'home/community.html')
-
 def sign_in(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')

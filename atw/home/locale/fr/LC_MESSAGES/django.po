@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 21:54+0200\n"
+"POT-Creation-Date: 2015-09-28 14:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,48 +23,50 @@ msgid "Anaerobic Digestion AtW"
 msgstr "Méthanisation AdM"
 
 #: templates/home/base.html:44
-msgid "AD Around the World"
-msgstr "La méthanisation dans le monde"
+msgid "PROTEAN, supporting waste initiatives"
+msgstr "PROTEAN, soutien aux initiatives déchets"
 
-#: templates/home/base.html:51
-msgid "What it is?"
-msgstr "Quesako ?"
+#: templates/home/base.html:48
+msgid "The Project"
+msgstr "Le Projet"
+
+#: templates/home/base.html:50
+msgid "The Map"
+msgstr "La Carte"
 
 #: templates/home/base.html:52
-#, fuzzy
-#| msgid "Anaerobic Digestion AtW"
-msgid "Anaerobic digestion for noobs"
-msgstr "Méthanisation AdM"
-
-#: templates/home/base.html:53
-msgid "Waste Management in General"
-msgstr "Gestion des déchets"
-
-#: templates/home/base.html:59
 msgid "Explore the Map (Open Source Map)"
 msgstr "Explorer la carte (Open Source)"
 
-#: templates/home/base.html:60
+#: templates/home/base.html:53
 msgid "Explore the Map (Google Maps)"
 msgstr "Explorer la carte (Google Maps)"
 
-#: templates/home/base.html:61
+#: templates/home/base.html:54
 msgid "Add a Point to the Map"
 msgstr "Ajouter un point sur la carte"
 
-#: templates/home/base.html:62
+#: templates/home/base.html:55
 msgid "Get Data from the Map"
 msgstr "Extraire les données de la carte"
 
-#: templates/home/base.html:65
-msgid "The Community"
-msgstr "Communauté"
+#: templates/home/base.html:59
+msgid "Waste Management"
+msgstr "Gestion des déchets"
 
-#: templates/home/base.html:69
+#: templates/home/base.html:61
+msgid "Waste Management in General"
+msgstr "Gestion des déchets en général"
+
+#: templates/home/base.html:62
+msgid "Focus on AD"
+msgstr "Focus méthanisation"
+
+#: templates/home/base.html:68
 msgid "My account"
 msgstr "Mon compte"
 
-#: templates/home/base.html:71
+#: templates/home/base.html:70
 msgid "Sign In"
 msgstr "Connexion"
 
@@ -79,6 +81,24 @@ msgstr "Comment ? Grâce à la méthanisation !"
 #: templates/home/home.html:14
 msgid "Empowering Anaerobic Digestion Initiatives"
 msgstr "Promouvoir les projets de méthanisation"
+
+#: templates/home/home.html:46
+msgid "Partners"
+msgstr "Partenaires"
+
+#: templates/home/home.html:53
+msgid "Promote clean organic waste management in developed countries"
+msgstr ""
+"Promouvoir la valorisation des déchets organics dans les pays en voie de "
+"développement"
+
+#: templates/home/home.html:71
+msgid ""
+"First global collaborative platform for people passionate about…the future "
+"of waste."
+msgstr ""
+"Première plateforme collaborative pour les passionnés du ... futur des "
+"déchets."
 
 #: templates/home/my_account.html:6
 #, python-format
@@ -105,6 +125,71 @@ msgstr "Connexion"
 msgid "Bye. Have a great day."
 msgstr "A bientôt"
 
+#: templates/home/wm_fr.html:6
+msgid "Country Factsheets on waste management"
+msgstr "Fiches pays sur la gestion des déchets"
+
+#: templates/home/wm_fr.html:11
+msgid "France"
+msgstr "France"
+
+#: templates/home/wm_fr.html:18
+msgid "Who is responsible for waste management?"
+msgstr "Qui porte la compétence déchet ?"
+
+#: templates/home/wm_fr.html:60
+msgid "Canary Islands"
+msgstr "Les Canaries"
+
+#: templates/home/wm_fr.html:65 templates/home/wm_fr.html.py:77
+#: templates/home/wm_fr.html:89 templates/home/wm_fr.html.py:101
+#: templates/home/wm_fr.html:113 templates/home/wm_fr.html.py:125
+#: templates/home/wm_fr.html:137 templates/home/wm_fr.html.py:149
+#: templates/home/wm_fr.html:161 templates/home/wm_fr.html.py:173
+#: templates/home/wm_fr.html:185
+msgid "To be completed."
+msgstr "À compléter."
+
+#: templates/home/wm_fr.html:72
+msgid "Cape Verde"
+msgstr "Cap-Vert"
+
+#: templates/home/wm_fr.html:84
+msgid "Martinique"
+msgstr "Martinique"
+
+#: templates/home/wm_fr.html:96
+msgid "Venezuela"
+msgstr "Vénézuela"
+
+#: templates/home/wm_fr.html:108
+msgid "Colombia"
+msgstr "Colombie"
+
+#: templates/home/wm_fr.html:120
+msgid "Ecuador"
+msgstr "Equateur"
+
+#: templates/home/wm_fr.html:132
+msgid "Peru"
+msgstr "Pérou"
+
+#: templates/home/wm_fr.html:144
+msgid "Bolivia"
+msgstr "Bolivie"
+
+#: templates/home/wm_fr.html:156
+msgid "Argentina"
+msgstr "Argentine"
+
+#: templates/home/wm_fr.html:168
+msgid "Brazil"
+msgstr "Brésil"
+
+#: templates/home/wm_fr.html:180
+msgid "Senegal"
+msgstr "Sénégal"
+
 #: urls.py:7
 msgid "^project/$"
 msgstr ""
@@ -118,27 +203,17 @@ msgid "^waste-management/france/$"
 msgstr ""
 
 #: urls.py:10
-msgid "^community/$"
-msgstr ""
-
-#: urls.py:11
 msgid "^sign-in/$"
 msgstr ""
 
-#: urls.py:12
+#: urls.py:11
 msgid "^sign-out/$"
 msgstr ""
 
-#: urls.py:13
+#: urls.py:12
 msgid "^register/$"
 msgstr ""
 
-#: urls.py:14
+#: urls.py:13
 msgid "^my-account/$"
 msgstr ""
-
-#~ msgid "French"
-#~ msgstr "Français"
-
-#~ msgid "English"
-#~ msgstr "Anglais"

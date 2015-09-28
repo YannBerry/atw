@@ -41,18 +41,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'home' %}">{% trans "AD Around the World" %}</a>
+                    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static "home/img/logo_protean_text_40.png" %}" class="img-responsive" style="margin-top: -15px;" /></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "The Project" %} <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{% url 'project' %}">{% trans "What it is?" %}</a></li>
-                                <li><a href="{% url 'ad' %}">{% trans "Anaerobic digestion for noobs" %}</a></li>
-                                <li><a href="{% url 'wm_fr' %}">{% trans "Waste Management in General" %}</a></li>
-                            </ul>
-                        </li>
+                    <ul class="nav navbar-nav"100% 100% 100% 100%>
+                        <li><a href="{% url 'project' %}">{% trans "The Project" %}</a></li>
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "The Map" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -62,7 +55,13 @@
                                 <li><a href="{% url 'download_db' %}">{% trans "Get Data from the Map" %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'community' %}">{% trans "The Community" %}</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Waste Management" %} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{% url 'wm_fr' %}">{% trans "Waste Management in General" %}</a></li>
+                                <li><a href="{% url 'ad' %}">{% trans "Focus on AD" %}</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}

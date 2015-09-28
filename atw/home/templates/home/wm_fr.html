@@ -3,38 +3,189 @@
 
 {% block content %}
 <div class="container">
-	<h2 class="text-uppercase">Activité de la filière déchets</h2>
-	<p>Activités de la filière des déchets : Prévention, Collecte, Traitement/Valorisation, Elimination. Et sur toute la filière : mesure de l'impact environnemental.</p>
-	<h2 class="text-uppercase">France FactSheet</h2>
-	<div class="table-responsive">
-		<table class="table">
-			<tr>
-				<td>RESPONSABILITE DE LA GESTION</td>
-				<td>TERRITOIRES ONT COMPETENCE COLLECTE / COMPETENCE TRAITEMENT QU'ILS TRANSFERRENT SOUVENT A DES SOCIETES PRIVES. ON VOIT APPARAITRE DE LA GESTION PORTEE DIRECTEMENT PAR LE PRODUCTEUR DU DECHET (COMPOSTAGE, REUTILISATION)</td>
-			</tr>
-			<tr>
-				<td>FINANCEMENT</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>ACTEURS PRINCIPAUX</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>DECOUPAGE DU MARCHE PAR TYPE DE DECHETS</td>
-				<td>ORDURES MENAGERES RESIDUELLES, DECHETS RECYCLABLES, DECHETS DES ENTREPRISES, ENCOMBRANTS, DECHETS DANGEREUX (DASRI, ETC.)</td>
-			</tr>
-			<tr>
-				<td>SYNOPTIQUE DE L'ORGANISATION</td>
-				<td>PRE-COLLECTE (sacs plastiques, bacs, conteneurs enterrés) -> COLLECTE -> TRI (OU DECHETTERIE EN // DES 3 ETAPES PRECEDENTES -> TRAITEMENT (STOCKAGE, VALORISATION) + TRACABILITE</td>
-			</tr>
-		</table>
-
-		<p>Initiatives Métha</p>
-		<ul>
-			<li><a href="http://www.developpement-durable.gouv.fr/Du-jus-de-choucroute-transforme-en.html>">Méthanisation jus de choucroute (très corrosif) de l'usine de choucroute de Krautergersheim (produit 75% de la consommation française)</a></li>
-		</ul>
-
-	</div>
+    <h2 class="text-uppercase">{% trans "Country Factsheets on waste management" %}</h2>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed text-uppercase" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">{% trans "France" %}</a>
+                </h3>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <tr>
+                            <td class="table-title-column">{% trans "Who is responsible for waste management?" %}</td>
+                            <td>Les communautés de communes qui ont la compétence collecte et traitement. La moitié transferre la compétence à des sociétés privées. Développement de la gestion des déchets portée directement par le producteur du déchet (Réutilisation, Compostage, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Financement</td>
+                            <td>Taxe ou redevance perçue auprès des habitants + petites dotations de l'état</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Prévention</td>
+                            <td>Des programmes de prévention sont mis en place pour sensibiliser la population : distribution de flyers sur les bonnes pratiques, subventionnement d'achat de composteurs, distribution de stop-pub</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Collecte</td>
+                            <td>Camions bennes qui font des tournées en porte à porte ou auprès de points d'apport volontaire. Les déchets collectés sont parfois amenés directement au centre de traitement et parfois à un centre de stockage intermédiaire.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Traitement</td>
+                            <td>250 centres d'enfouissement, 130 usines d'incinération, 350 méthaniseurs, des stations d'épuration, des centres de tri, des </td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Suivi des impacts environnementaux</td>
+                            <td>Les installations de traitement doivent publier annuellement un rapport de suivi de l'installation. Les communautés de communes doivent elles publier annuellement un rapport sur le service public de gestion des déchets sur son territoire.</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Acteurs principaux</td>
+                            <td>Suez Environnement, Veolia, Pizzorno, Coved, petites entreprises locales qui ont une minorité du marché de la gestion des déchets</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Catégorisation des déchets</td>
+                            <td>Ordures ménagères résiduelles, Déchets recyclables, Déchets des entreprises, Encombrants, Déchets dangereux</td>
+                        </tr>
+                        <tr>
+                            <td class="table-title-column">Synoptique de l'organisation de la gestion des déchets</td>
+                            <td>PRE-COLLECTE (sacs plastiques, bacs, conteneurs enterrés) -> COLLECTE -> TRI (OU DECHETTERIE EN // DES 3 ETAPES PRECEDENTES -> TRAITEMENT (STOCKAGE, VALORISATION) + TRACABILITE</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">{% trans "Canary Islands" %}</a>
+                </h3>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">{% trans "Cape Verde" %}</a>
+                </h3>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">{% trans "Martinique" %}</a>
+                </h3>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFive">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">{% trans "Venezuela" %}</a>
+                </h3>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSix">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">{% trans "Colombia" %}</a>
+                </h3>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">{% trans "Ecuador" %}</a>
+                </h3>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingEight">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">{% trans "Peru" %}</a>
+                </h3>
+            </div>
+            <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingNine">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">{% trans "Bolivia" %}</a>
+                </h3>
+            </div>
+            <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTen">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">{% trans "Argentina" %}</a>
+                </h3>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingEleven">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">{% trans "Brazil" %}</a>
+                </h3>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwelve">
+                <h3 class="panel-title text-uppercase">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">{% trans "Senegal" %}</a>
+                </h3>
+            </div>
+            <div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve">
+                <div class="panel-body">
+                    {% trans "To be completed." %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

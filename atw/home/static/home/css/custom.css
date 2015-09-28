@@ -22,6 +22,10 @@ body {
     height: auto;
 }
 
+.table-title-column {
+    font-weight: bold;
+}
+
 /* PARTNERS */
 
 .partners {
