@@ -1,8 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 from atw.map import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', views.osmap, name='map'),
     url(_(r'^gmap/$'), views.gmap, name='gmap'),
     url(_(r'^(?P<id>[0-9]+)/$'), views.initiative, name='initiative'),
@@ -11,4 +11,4 @@ urlpatterns = patterns('',
     url(_(r'^download-db/$'), views.download_db, name='download_db'),
     url(_(r'^download-db/pdf/$'), views.download_db_pdf, name='download_db_pdf'),
     url(_(r'^download-db/csv/$'), views.download_db_csv, name='download_db_csv'),
-)
+]
