@@ -148,10 +148,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
 
-# Whitenoise configuration. Simplified static file serving.
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-#if os.environ.get('DJANGO_ENV') == 'production':
-    #from settings_prod import *
-#else:
-from settings_dev import *
+if os.environ.get('DJANGO_ENV') == 'production':
+    from settings_prod import *
+else:
+    from settings_dev import *
