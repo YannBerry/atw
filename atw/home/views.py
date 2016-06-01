@@ -9,9 +9,6 @@ def home(request):
     print(request.POST)
     return render(request, 'home/home.html')
 
-def project(request):
-    return render(request, 'home/project.html')
-
 def ad(request):
     return render(request, 'home/ad.html')
 

@@ -42,14 +42,15 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware', # Added. https://docs.djangoproject.com/en/1.8/topics/i18n/translation/#how-django-discovers-language-preference'django.middleware.common.CommonMiddleware'
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'atw.urls'
@@ -147,8 +148,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
 
-if os.environ.get('DJANGO_ENV') == 'production':
-    from settings_prod import *
-else:
-    from settings_dev import *
+# Whitenoise configuration. Simplified static file serving.
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+#if os.environ.get('DJANGO_ENV') == 'production':
+    #from settings_prod import *
+#else:
+from settings_dev import *
