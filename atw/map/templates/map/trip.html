@@ -2,16 +2,27 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container container_body">
+<div class="container" style="padding-top: 15px;">
     <a href="{% url 'map' %}">{% trans "Return to the map" %}</a>
     <h2>{{ t.trip_name }}</h2>
     <p>{{ t.start_date }}</p>
     <p>{{ t.end_date }}</p>
     {% if t.picture_tag %}<img style="width:100%;" src="/media/{{ t.picture_tag }}"/>{% endif %}
-    {% for stage in t.tripstage_set.all %}
-        <ul>
-            <li><a href="{% url 'trip_stage' stage.id %}">{{ stage.stage_name }}</a></li>
-        </ul>
-    {% endfor %}
 </div>
+<div class="container" style="padding-bottom: 15px;">
+    <div class="row">
+        {% for stage in t.tripstage_set.all %}
+            <div class="col-md-4">
+                <figure>
+                    <img class="img-responsive img-thumbnail center-block" src="/media/{{ stage.picture_tag }}" %}" />
+                    <figcaption>
+                        <a href="{% url 'trip_stage' stage.id %}" class="btn btn-default center-block" role="button">{{ stage.stage_name }}</a>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock content %}

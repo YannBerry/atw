@@ -12,9 +12,6 @@ def home(request):
 def short_hinking(request):
     return render(request, 'home/short_hiking.html')
 
-def crossing_the_alps(request):
-    return render(request, 'home/crossing_the_alps.html')
-
 def sign_in(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')

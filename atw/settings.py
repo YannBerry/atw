@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'atw.article',
     'leaflet',
     'debug_toolbar',
-    'tinymce',
+    'tinymce', # https://github.com/aljosa/django-tinymce
 )
 
 MIDDLEWARE_CLASSES = (

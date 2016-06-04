@@ -5,9 +5,6 @@ from leaflet.admin import LeafletGeoAdmin
 from .models import TripStage, Massif, Type, Trip
 from django.contrib.gis.geos import Point
 
-#class TripInline(admin.TabularInline):
-    #model = Trip.stages.through
-
 class TripStageInline(admin.TabularInline):
     model = TripStage.trips.through
     extra = 1
@@ -19,7 +16,6 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
         ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story', 'distance', 'duration'], 'classes': ['collapse']}),
         ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
-    #inlines = [TripInline]
     list_display = ('stage_name', 'massif', 'date', 'distance', 'published_more_than_6_months_ago', 'display_picture_tag', 'added_by')
     list_editable = ['date', 'massif', 'distance']
     readonly_fields = ['date_published', 'display_picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
@@ -34,13 +30,13 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
 
 class TripAdmin(LeafletGeoAdmin):
     fieldsets = [
-        (None, {'fields': ['date_published', 'geom', 'trip_name', 'start_date', 'end_date', 'picture_tag', 'display_picture_tag']}),
+        (None, {'fields': ['date_published', 'geom', 'trip_name', 'start_date', 'end_date', 'nbr_of_days', 'picture_tag', 'display_picture_tag']}),
     ]
     inlines = [TripStageInline]
-    list_display = ('trip_name', 'start_date', 'end_date')
+    list_display = ('trip_name', 'start_date', 'end_date', 'nbr_of_days')
     list_editable = ['start_date', 'end_date']
     search_fields = ['trip_name']
-    readonly_fields = ['date_published', 'display_picture_tag']
+    readonly_fields = ['date_published', 'nbr_of_days', 'display_picture_tag']
 
 admin.site.register(TripStage, TripStageAdmin)
 admin.site.register(Massif)

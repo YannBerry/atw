@@ -154,11 +154,11 @@ class PrinterTrips:
 		for o in Trip.objects.all():
 			elements.append(Paragraph(o.trip_name, style['Normal']))
 
-		headings = ('Trip', 'Start date', 'End date', 'Localisation')
+		headings = ('Trip', 'Duration', 'Start date', 'End date', 'Stages','Localisation')
 		trips = []
 		for o in Trip.objects.order_by('start_date'):
 			# Add a row to the table
-			trips.append([o.trip_name, o.start_date, o.end_date, str(o.geom.coords)])
+			trips.append([o.trip_name, o.nbr_of_days(), o.start_date, o.end_date, o.tripstage_set.all(), str(o.geom.coords)])
 		# Create the table
 		trips_table = Table([headings] + trips)
 		trips_table.setStyle(TableStyle([

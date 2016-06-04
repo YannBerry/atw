@@ -41,6 +41,9 @@ class Trip(models.Model):
     def __str__(self):
         return '{0} ({1})'.format(self.trip_name, self.start_date)
 
+    def nbr_of_days(self):
+        return self.end_date.day - self.start_date.day + 1
+
     def display_picture_tag(self): # Display the picture in the admin interface instead of just displaying a link to the picture
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
@@ -84,3 +87,7 @@ class TripStage(models.Model):
         ordering = ["date"]
         verbose_name = _("Stage")
         verbose_name_plural = _("Stages")
+
+#class TripStageTrip(models.Model):
+    #trip = models.ForeignKey(Trip)
+    #tripstage = models.ForeignKey(TripStage)
