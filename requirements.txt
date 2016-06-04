@@ -3,10 +3,11 @@ Django==1.9.4
 django-debug-toolbar==1.4
 django-leaflet==0.18.0
 django-registration==2.0.4
+django-tinymce==2.3.0
 django-widget-tweaks==1.4.1
 easy-thumbnails==2.3
 gunicorn==19.4.5
-Pillow==3.1.1
+Pillow==3.2.0
 psycopg2==2.6.1
 pytz==2016.3
 reportlab==3.3.0
