@@ -6,7 +6,6 @@ html, body {
     padding-right: 0px;
     padding-left: 0px;
     height: 100%;
-    height: calc(100% - 50px);
     width: 100%; /* permet un bon affichage sur smartphone pour google maps (source : https://developers.google.com/maps/documentation/javascript/basics) */
 }
 

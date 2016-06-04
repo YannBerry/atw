@@ -37,8 +37,10 @@ INSTALLED_APPS = (
     'widget_tweaks', # https://github.com/kmike/django-widget-tweaks Permet d'ajouter des filtres aux templates des forms (ajout css, attributs, etc.)
     'atw.home',
     'atw.map',
+    'atw.article',
     'leaflet',
     'debug_toolbar',
+    'tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,6 +106,7 @@ LANGUAGES = (
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "atw", "home", "locale"),
     os.path.join(BASE_DIR, "atw", "map", "locale"),
+    os.path.join(BASE_DIR, "atw", "article", "locale"),
 )
 
 # Leaflet
@@ -137,6 +140,11 @@ THUMBNAIL_ALIASES = {
     '': {
         'small': {'size': (150, 80), 'crop': True},
     },
+}
+
+#WYSIWYG Editor
+TINYMCE_DEFAULT_CONFIG = {
+    'theme' : 'advanced',
 }
 
 # Static files (CSS, JavaScript, Images)

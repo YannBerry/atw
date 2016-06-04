@@ -1,0 +1,81 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="container container_body">
+    <h2 class="text-uppercase">{% trans "List of Trips" %}</h2>
+	<table data-toggle="table" data-striped="true" data-search="true" data-sort-name="start" data-sort-order="desc" data-show-columns="true">
+		<thead>
+			<tr>
+				<th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Trip</th>
+				<th class="col-xs-2" data-field="picture">Photo</th>
+				<th class="col-xs-1" data-field="start" data-sortable="true">Start Date</th>
+				<th class="col-xs-1" data-field="status" data-sortable="true">End Date</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for t in trips %}
+			<tr>
+				<td><a href="{% url 'trip' t.id %}">{{ t.trip_name }}</a></td>
+				<td>{% if t.picture_tag %}<img class="img-responsive" src="{{ t.picture_tag|thumbnail_url:'small' }}" />{% endif %}</td>
+				<td>{{ t.start_date }}</td>
+				<td>{{ t.end_date }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<div class="container container_body">
+	<div class="row">
+		<div class="col-md-6">
+			<p class="text-center"><a href="{% url 'list_trips_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trips in CSV" %}</a></p>
+		</div>
+		<div class="col-md-6">
+			<p class="text-center"><a href="{% url 'list_trips_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trips in PDF" %}</a></p>
+		</div>
+	</div>
+</div>
+
+<div class="container container_body">
+    <h2 class="text-uppercase">{% trans "List of Trip Stages" %}</h2>
+	<table data-toggle="table" data-striped="true" data-search="true" data-sort-name="start" data-sort-order="desc" data-show-columns="true">
+		<thead>
+			<tr>
+				<th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Stage</th>
+				<th class="col-xs-2" data-field="picture">Photo</th>
+				<th class="col-xs-1" data-field="start" data-sortable="true">Date</th>
+				<th class="col-xs-1" data-field="status" data-sortable="true">Massif</th>
+				<th class="col-xs-1" data-field="stage" data-sortable="true">Distance (km)</th>
+				<th class="col-xs-1" data-field="power" data-sortable="true">Duration (h)</th>
+				<th class="col-xs-2" data-field="description">Story</th>
+				<th class="col-xs-1" data-field="location" data-visible="false">Location (Long,Lat)</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for t in trip_stages %}
+			<tr>
+				<td><a href="{% url 'trip_stage' t.id %}">{{ t.stage_name }}</a></td>
+				<td>{% if t.picture_tag %}<img class="img-responsive" src="{{ t.picture_tag|thumbnail_url:'small' }}" />{% endif %}</td>
+				<td>{{ t.date }}</td>
+				<td>{{ t.massif }}</td>
+				<td>{{ t.distance }}</td>
+				<td>{{ t.duration }}</td>
+				<td>{{ t.story }}</td>
+				<td>{{ t.geom.coords }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<div class="container container_body">
+	<div class="row">
+		<div class="col-md-6">
+			<p class="text-center"><a href="{% url 'list_trip_stages_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trip Stages in CSV" %}</a></p>
+		</div>
+		<div class="col-md-6">
+			<p class="text-center"><a href="{% url 'list_trip_stages_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trip Stages in PDF" %}</a></p>
+		</div>
+	</div>
+</div>
+{% endblock content %}

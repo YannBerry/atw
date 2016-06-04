@@ -50,17 +50,18 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{% url 'map' %}">{% trans "Explore the Map (Open Source Map)" %}</a></li>
                                 <li><a href="{% url 'gmap' %}">{% trans "Explore the Map (Google Maps)" %}</a></li>
-                                <li><a href="{% url 'add_point' %}">{% trans "Add a Point to the Map" %}</a></li>
-                                <li><a href="{% url 'download_db' %}">{% trans "Get Data from the Map" %}</a></li>
+                                <li><a href="{% url 'add_trip_stage' %}">{% trans "Add a Trip Stage" %}</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Waste Management" %} <span class="caret"></span></a>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Travelogue" %} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{% url 'wm_fr' %}">{% trans "Waste Management in General" %}</a></li>
-                                <li><a href="{% url 'ad' %}">{% trans "Focus on AD" %}</a></li>
+                                <li><a href="{% url 'crossing_the_alps' %}">{% trans "Crossing the Alps" %}</a></li>
+                                <li><a href="{% url 'short_hiking' %}">{% trans "Short Hiking" %}</a></li>
                             </ul>
                         </li>
+                        <li><a href="{% url 'list_trips' %}">{% trans "List" %}</a></li>
+                        <li><a href="{% url 'article_menu' %}">{% trans "Articles" %}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
@@ -98,10 +99,11 @@
                     <div class="col-md-4">
                         <ul class="list-inline text-center icon-footer" style="margin-top: 10px;">
                             <li><a href="mailto:berry.yann@free.fr"><img src="{% static "home/img/icon_email.png" %}" class="img-responsive" /></a></li>
-                            <li style="color: white;">&middot;</li>
+                            <li></li>
+                            <!--<li style="color: white;">&middot;</li>
                             <li><a href=""><img src="{% static "home/img/icon_facebook.png" %}" class="img-responsive" /></a></li>
                             <li><a href=""><img src="{% static "home/img/icon_google.png" %}" class="img-responsive" /></a></li>
-                            <li><a href=""><img src="{% static "home/img/icon_twitter.png" %}" class="img-responsive" /></a></li>
+                            <li><a href=""><img src="{% static "home/img/icon_twitter.png" %}" class="img-responsive" /></a></li>-->
                             <li><a href=""><img src="{% static "home/img/icon_rss.png" %}" class="img-responsive" /></a></li>
                         </ul>
                     </div>

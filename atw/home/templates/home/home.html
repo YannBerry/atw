@@ -3,126 +3,20 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center">{% trans "Empowering best-in-class waste management initiatives" %}</h1>
+<div id="bgvid_container">
+    <video autoplay loop poster="{% static "home/img/Aerial_mountain.jpg" %}" id="bgvid">
+        <source src="{% static "home/video/Aerial_mountain.webm" %}" type="video/webm">
+        <source src="{% static "home/video/Aerial_mountain.mp4" %}" type="video/mp4">
+    </video>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>{% trans "How?" %}</h2>
-            <ul>
-                <li>Facilitate international cooperation / contact between AD entrepreneurs and engineering offices / financial structures</li>
-                <li>Communication Relays</li>
-                <li>Diffuser l'expertise et le savoir-faire français dans les pays du Sud.</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>How to participate?</h2>
-            <ul>
-                <li>Source a project/entrepeneur.</li>
-                <li>Update an already existing project.</li>
-                <li>Talk about this project around you.</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Measuring the Impact of this project</h2>
-            <ul>
-                <li>Number of technical partnerships created</li>
-                <li>Nombre de vidéos de projets différents réalisées</li>
-                <li>Nombre de financements facilités par le projet.</li>
-                <li>Baisse de CO2, Nombre de kWh facilités par le projet</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-<h2 class="text-uppercase">Calendar</h2>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h3 class="panel-title text-uppercase">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Phase 1 [2014] <small>Asian Exploration</small></a>
-                </h3>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    Olivier rédige un paragraphe (10 lignes max) résumant ses 6 mois. Ajouter lien vers leur site Web.
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h3 class="panel-title text-uppercase">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Phase 2 [2016] <small>South America & Africa Explorations + First Asian Collaborations</small></a>
-                </h3>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    Yann Rédige un paragraphe sur les objectifs de sa mission.
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h3 class="panel-title text-uppercase">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Phase 3 [2017 and More] <small>World Collaborations & Partnerships</small></a>
-                </h3>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    Olivier et Yann rédigent un paragraphe sur leur vision du projet post tours du monde.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container partners">
-    <h2>{% trans "Partners" %}</h2>
-
-    <div class="row">
-        <div class="col-md-3">
-            <figure>
-                <img src="{% static "home/img/logo_happynest.png" %}" />
-                <figcaption>
-                    <p class="text-center">{% trans "Promote clean organic waste management in developed countries" %}</p>
-                    <a href="http://happynest.fr/" class="btn btn-default" role="button">> HappyNest <</a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="col-md-3">
-            <figure>
-                <img src="{% static "home/img/logo_esscentraliens.png" %}" />
-                <figcaption>
-                    <p class="text-center">Communauté d'acteurs de l'Economie Sociale et Solidaire composée d'ingénieurs centraliens.</p>
-                    <a href="http://ess.centraliens.net/cms/" class="btn btn-default" role="button">> ESS Centraliens <</a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="col-md-3">
-            <figure>
-                <img src="{% static "home/img/logo_fow.png" %}" />
-                <figcaption>
-                    <p class="text-center">{% trans "First global collaborative platform for people passionate about…the future of waste." %}</p>
-                    <a href="http://www.futureofwaste.org/" class="btn btn-default" role="button">> FoW <</a>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="col-md-3">
-            <figure>
-                <img src="{% static "home/img/logo_paillasse_saone.png" %}" />
-                <figcaption>
-                    <p class="text-center">An ecohacklab in Lyon, France</p>
-                    <a href="https://lapaillassaone.wordpress.com/" class="btn btn-default" role="button">> Paillasse Saône <</a>
-                </figcaption>
-            </figure>
-        </div>
+<div class="container home_main_div">
+    <h1 class="catchline">{% trans "Montagne, Nature et Sport" %}</h1>
+    <div class="tagline">
+        <h2>Topos de rando</h2>
+        <h2>Curiosités montagnardes</h2>
+        <h2>Sourires ;-)</h2>
+        <h2>Fraîcheur de vivre</h2>
     </div>
 </div>
 

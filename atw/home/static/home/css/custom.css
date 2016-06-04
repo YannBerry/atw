@@ -1,8 +1,22 @@
+/* GENERAL */
+.container_body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 /* TOP LINE */
 
 body {
     padding-top: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 50px;
+}
+
+/* BOTTOM LINE */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* TEXTE */
@@ -24,6 +38,83 @@ body {
 
 .table-title-column {
     font-weight: bold;
+}
+
+.home_main_div {
+    position:relative;
+    height: 90vh;
+    height: calc(100vh - 101px);
+}
+
+.catchline {
+    font-size: 72px;
+    position: absolute;
+    top: 10%;
+    top: calc(10% + 15px);
+    text-align: left;
+}
+
+@media (max-width: 1200px) {
+    .catchline { font-size: 60px; }
+}
+
+@media (max-width: 992px) {
+    .catchline { font-size: 48px !important; }
+}
+
+@media (max-width: 768px) {
+    .catchline { font-size: 36px !important; }
+}
+
+@media (max-width: 480px) {
+    .catchline { font-size: 36px !important; }
+}
+
+.tagline {
+    position: absolute;
+    bottom: 10%;
+    bottom: calc(10% + 15px);
+    color: #FFBD69;
+    right: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.tagline h2 {
+    text-align: right;
+}
+
+@media (max-width: 1200px) {
+    .tagline h2 { font-size: 24px !important; }
+}
+
+@media (max-width: 992px) {
+    .tagline h2 { font-size: 16px !important; }
+}
+
+/* BACKGROUND VIDEO */
+
+video#bgvid {
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background: url(../img/Aerial_mountain.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    object-fit: cover;
+}
+
+/* HOMEPAGE */
+
+@media screen and (max-device-width: 800px) {
+    #bgvid_container { position: fixed; left: 0; top: 50px; min-width: 100%; min-height: 100%; background: url(../img/Aerial_mountain.jpg) #FFF no-repeat center center fixed; background-size: cover; object-fit: cover; }
+    #bgvid { display: none; }
 }
 
 /* PARTNERS */

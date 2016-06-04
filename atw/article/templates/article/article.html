@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<div class="container container_body">
+    <h2 class="text-uppercase">{{ a.title }}</h2>
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p class="text-center"><a href="{% url 'download_articles_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "PDF Format" %}</a></p>
+		</div>
+        <div class="col-md-12">
+			<p class="text-center"><a href="{% url 'download_article_pdf' a.title %}" class="btn btn-default btn-lg" role="button">{% trans "PDF Format" %}</a></p>
+		</div>
+	</div>
+</div>
+    <div class="container">
+        <div class="row">
+            <p>{{ a.description|safe }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

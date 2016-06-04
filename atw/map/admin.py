@@ -2,19 +2,29 @@
 
 from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...
 from leaflet.admin import LeafletGeoAdmin
-from .models import Initiative, Status, Stage, Need
+from .models import TripStage, Massif, Type, Trip
 from django.contrib.gis.geos import Point
 
-class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
+#class TripInline(admin.TabularInline):
+    #model = Trip.stages.through
+
+class TripStageInline(admin.TabularInline):
+    model = TripStage.trips.through
+    extra = 1
+
+
+class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
     fieldsets = [
-        ('Mandatory information', {'fields': ['date_published', 'geom', 'status', 'stage', 'project_name', 'project_owner', 'need']}),
-        ('Optional information',  {'fields': ['description', 'nbr_installations', 'power', 'start', 'picture', 'picture_tag'], 'classes': ['collapse']}),
+        ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name', 'trips', 'date', 'massif', 'type']}),
+        ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story', 'distance', 'duration'], 'classes': ['collapse']}),
         ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
-    list_display = ('project_name', 'stage', 'status', 'power','date_published','published_more_than_6_months_ago', 'picture_tag', 'added_by', 'need')
-    readonly_fields = ['date_published', 'picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
-    search_fields = ['project_name']
-    list_filter = ['stage', 'added_by', 'need']
+    #inlines = [TripInline]
+    list_display = ('stage_name', 'massif', 'date', 'distance', 'published_more_than_6_months_ago', 'display_picture_tag', 'added_by')
+    list_editable = ['date', 'massif', 'distance']
+    readonly_fields = ['date_published', 'display_picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
+    search_fields = ['stage_name']
+    list_filter = ['massif', 'added_by']
     save_on_top = True
     #map_width = 900 # Ne marche pas avec Leaflet
 
@@ -22,10 +32,20 @@ class InitiativeAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais héri
     #pt.transform(3857)
     #default_lon, default_lat = pt.coords
 
-admin.site.register(Initiative, InitiativeAdmin)
-admin.site.register(Status)
-admin.site.register(Stage)
-admin.site.register(Need)
+class TripAdmin(LeafletGeoAdmin):
+    fieldsets = [
+        (None, {'fields': ['date_published', 'geom', 'trip_name', 'start_date', 'end_date', 'picture_tag', 'display_picture_tag']}),
+    ]
+    inlines = [TripStageInline]
+    list_display = ('trip_name', 'start_date', 'end_date')
+    list_editable = ['start_date', 'end_date']
+    search_fields = ['trip_name']
+    readonly_fields = ['date_published', 'display_picture_tag']
+
+admin.site.register(TripStage, TripStageAdmin)
+admin.site.register(Massif)
+admin.site.register(Type)
+admin.site.register(Trip, TripAdmin)
 
 
 # from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...

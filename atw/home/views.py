@@ -3,17 +3,17 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from atw.home.forms import RegistrationForm
-from atw.map.models import Initiative
+from atw.map.models import TripStage
 
 def home(request):
     print(request.POST)
     return render(request, 'home/home.html')
 
-def ad(request):
-    return render(request, 'home/ad.html')
+def short_hinking(request):
+    return render(request, 'home/short_hiking.html')
 
-def wm_fr(request):
-    return render(request, 'home/wm_fr.html')
+def crossing_the_alps(request):
+    return render(request, 'home/crossing_the_alps.html')
 
 def sign_in(request):
     username = request.POST.get('username','')
@@ -50,5 +50,5 @@ def my_account(request):
     args = {}
     username = request.user.username
     args['username'] = username
-    args['initiatives_added_by_user'] = Initiative.objects.filter(added_by=username)
+    args['trip_stage_added_by_user'] = TripStage.objects.filter(added_by=username)
     return render(request, 'home/my_account.html', args)

@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container container_body">
+    <a href="{% url 'map' %}">{% trans "Return to the map" %}</a>
+    <h2>{{ t.stage_name }}</h2>
+    {% if t.distance %}<p>{{ t.distance }} kW</p>{% endif %}
+    <p>{{ t.date }}</p>
+    {% if t.story %}{{ i.story | urlize | linebreaks }}{% endif %}
+    {% if t.picture_tag %}<img style="width:100%;" src="/media/{{ t.picture_tag }}"/>{% endif %}
+</div>
+{% endblock content %}

@@ -31,4 +31,6 @@ urlpatterns += i18n_patterns(
     url(r'^', include('atw.home.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(_(r'^map/'), include('atw.map.urls')),
+    url(_(r'^article/'), include('atw.article.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 )
