@@ -8,5 +8,10 @@
     <p>{{ t.start_date }}</p>
     <p>{{ t.end_date }}</p>
     {% if t.picture_tag %}<img style="width:100%;" src="/media/{{ t.picture_tag }}"/>{% endif %}
+    {% for stage in t.tripstage_set.all %}
+        <ul>
+            <li><a href="{% url 'trip_stage' stage.id %}">{{ stage.stage_name }}</a></li>
+        </ul>
+    {% endfor %}
 </div>
 {% endblock content %}
