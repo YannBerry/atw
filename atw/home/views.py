@@ -9,9 +9,6 @@ def home(request):
     print(request.POST)
     return render(request, 'home/home.html')
 
-def short_hinking(request):
-    return render(request, 'home/short_hiking.html')
-
 def sign_in(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')

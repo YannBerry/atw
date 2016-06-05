@@ -7,12 +7,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- user-scalable=no empêche le zoom par double click du navigateur d'un smarphone et ainsi eviter d'avoir des beugs sur la carte (google maps) quand l'utilisateur zoom et aussi de gagner les 300ms d'attente du navigateur pour voir si l'utilisateur va double cliquer ou pas (fonctionnalité disponible que sur chrome pour l'instant. -->
-        <meta name="description" content="Photos and videos of my trips Around the World.">
-        <meta name="keywords" content="trekking, adventure, around the world, photos, videos">
+        <meta name="description" content="Photos, videos and stories of my trips Around the World.">
+        <meta name="keywords" content="adventure, nature, trekking, around the world, trip, amm, photos, videos">
         <meta name="author" content="">
-        <link rel="icon" href="{% static 'home/favicon.ico' %}">
+        <link rel="icon" href="{% static 'home/favicon_b.ico' %}">
 
-        <title>{% block title %}{% trans "Trek AtW" %}{% endblock %}</title>
+        <title>{% block title %}{% trans "" %}{% endblock %}</title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" /> <!-- ou <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
@@ -41,7 +41,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static "home/img/logo_protean_text_40.png" %}" class="img-responsive" style="margin-top: -15px;" /></a>
+                    <a class="navbar-brand" href="{% url 'home' %}" style="padding-top: 0; padding-bottom: 0;"><img src="{% static "home/img/logo_wasc_white_40.png" %}" class="img-responsive" style="margin-top: 5px;" /></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav"100% 100% 100% 100%>
@@ -51,12 +51,6 @@
                                 <li><a href="{% url 'map' %}">{% trans "Explore the Map (Open Source Map)" %}</a></li>
                                 <li><a href="{% url 'gmap' %}">{% trans "Explore the Map (Google Maps)" %}</a></li>
                                 <li><a href="{% url 'add_trip_stage' %}">{% trans "Add a Trip Stage" %}</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{% trans "Travelogue" %} <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{% url 'short_hiking' %}">{% trans "Short Hiking" %}</a></li>
                             </ul>
                         </li>
                         <li><a href="{% url 'list_trips' %}">{% trans "List" %}</a></li>

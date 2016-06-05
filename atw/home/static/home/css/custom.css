@@ -238,3 +238,13 @@ video#bgvid {
 .language:hover {
     cursor: pointer;
 }
+
+/* BLOCKS */
+.padding_top_bot_10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.padding_top_15px {
+    padding-top: 15px;
+}
