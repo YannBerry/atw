@@ -158,8 +158,8 @@ if not os.path.exists(media_uploads):
     os.makedirs(media_uploads)
 
 # WYSIWYG Editor
-## TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
-#TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
+TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
 TINYMCE_DEFAULT_CONFIG = {
     #'plugins': "spellchecker",
     #'spellchecker_language': "fr", # en by default
