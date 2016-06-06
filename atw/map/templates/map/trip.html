@@ -5,9 +5,13 @@
 <div class="container padding_top_15px">
     <h1>{{ t.trip_name }}</h1>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <p>{{ t.start_date }} - {{ t.end_date }}</p>
+            <p style="margin-bottom: 15px;">{{ t.nbr_of_days }} {% trans "days" %}</p>
             {% if t.description %}{{ t.description|safe }}{% endif %}
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive center-block" src="/media/{{ t.picture_tag }}" %}" />
         </div>
     </div>
 </div>

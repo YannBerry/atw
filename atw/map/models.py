@@ -33,6 +33,7 @@ class Trip(models.Model):
     trip_name = models.CharField(verbose_name=_("Trip Name"), max_length=50)
     start_date = models.DateField(verbose_name=_("Start date"), default=timezone.now, blank=True)
     end_date = models.DateField(verbose_name=_("End date"), default=timezone.now, blank=True)
+    nbr_of_days = models.IntegerField(verbose_name=_("Nbr of days"), blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
     description = HTMLField(blank=True)
     geom = models.PointField(srid=4326, default='POINT(5.0 44.5)')
@@ -40,27 +41,29 @@ class Trip(models.Model):
 
     objects = models.GeoManager()
 
+    class Meta:
+        ordering = ["start_date"]
+        verbose_name = _("Trip")
+        verbose_name_plural = _("Trips")
+
     def __str__(self):
         return '{0} ({1})'.format(self.trip_name, self.start_date)
 
-    def nbr_of_days(self):
-        return self.end_date.day - self.start_date.day + 1
+    def save(self, *args, **kwargs):
+        if self.start_date and self.end_date:
+            self.nbr_of_days = self.end_date.day - self.start_date.day + 1
+        super().save(*args, **kwargs)
 
     def display_picture_tag(self): # Display the picture in the admin interface instead of just displaying a link to the picture
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
     display_picture_tag.allow_tags = True
 
-    class Meta:
-        ordering = ["start_date"]
-        verbose_name = _("Trip")
-        verbose_name_plural = _("Trips")
-
 class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Stage Name"), max_length=50)
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
-    massif = models.ForeignKey(Massif, verbose_name = _("Massif"), blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
+    massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     type = models.ForeignKey(Type, verbose_name = _("Type"))
     picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
     story = HTMLField(blank=True)

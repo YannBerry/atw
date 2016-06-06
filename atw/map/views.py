@@ -26,12 +26,14 @@ def add_trip_stage(request):
             new_stage.type = form.cleaned_data['type']
             new_stage.picture_tag = form.cleaned_data['picture_tag']
             new_stage.story = form.cleaned_data['story']
-            new_stage.trips = form.cleaned_data['trips']
             new_stage.distance = form.cleaned_data['distance']
             new_stage.duration = form.cleaned_data['duration']
             new_stage.email_validation = form.cleaned_data['email_validation']
             new_stage.email = form.cleaned_data['email']
             new_stage.added_by = request.user.username
+            new_stage.save()
+            for trip in form.cleaned_data['trips']:
+                new_stage.trips.add(trip)
             new_stage.save()
 
             if new_stage.email_validation:
