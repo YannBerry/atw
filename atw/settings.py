@@ -25,11 +25,12 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.contenttypes',
+    #'grappelli.dashboard',
     'grappelli', # before django.contrib.admin cette appli sert à l'appli filebrowser
     'filebrowser', # before django.contrib.admin
     'django.contrib.admin', # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -172,6 +173,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 # Grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
+#GRAPPELLI_INDEX_DASHBOARD = {    'django.contrib.admin_site': 'atw.dashboard.CustomIndexDashboard',}
 
 if os.environ.get('DJANGO_ENV') == 'production':
     from settings_prod import *
