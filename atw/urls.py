@@ -22,6 +22,7 @@ from django.contrib.gis import admin
 from django.conf import settings # chargé pour ajouter la possibilité d'accéder au media_url/root lors d'appel dans les templates
 from django.conf.urls.static import static # chargé pour ajouter la possibilité d'accéder au media_url/root lors d'appel dans les templates
 from django.utils.translation import ugettext_lazy as _
+from filebrowser.sites import site
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')), # default name : set_language, ne doit pas être mis dans i18n
@@ -29,6 +30,8 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^', include('atw.home.urls')),
+    url(r'^admin/filebrowser/', include(site.urls)), # before admin url
+    url(r'^grappelli/', include('grappelli.urls')), # before admin url
     url(r'^admin/', include(admin.site.urls)),
     url(_(r'^map/'), include('atw.map.urls')),
     url(_(r'^article/'), include('atw.article.urls')),

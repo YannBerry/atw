@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 
 class Article(models.Model):
     title = models.CharField(verbose_name=_("Article"), max_length=25)
-    description = HTMLField()
+    description = HTMLField(blank=True)
 
     def __str__(self):
         return self.title

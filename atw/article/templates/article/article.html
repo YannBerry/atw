@@ -2,6 +2,8 @@
 {% load staticfiles %}
 {% load i18n %}
 
+{% block title %}{% trans "WASC" %} | {{ a.title }}{% endblock %}
+
 {% block content %}
 <div class="container container_body">
     <h2 class="text-uppercase">{{ a.title }}</h2>

@@ -25,6 +25,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli', # before django.contrib.admin cette appli sert à l'appli filebrowser
+    'filebrowser', # before django.contrib.admin
     'django.contrib.admin', # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,10 +144,15 @@ THUMBNAIL_ALIASES = {
     },
 }
 
-#WYSIWYG Editor
+# WYSIWYG Editor
 TINYMCE_DEFAULT_CONFIG = {
-    'theme' : 'advanced',
+    'theme': "advanced",
+    'width': '100%',
+    'height': '600',
 }
+
+# Grappelli settings
+GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
