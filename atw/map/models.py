@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone # https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/ + answers to basic questions : https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/#time-zones-faq
 from django.core.validators import MinValueValidator
 from tinymce.models import HTMLField
+from filebrowser.fields import FileBrowseField
 
 class Massif(models.Model):
     massif = models.CharField(verbose_name=_("Massif"), max_length=25)
@@ -37,7 +38,8 @@ class Trip(models.Model):
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
     description = HTMLField(blank=True)
     geom = models.PointField(srid=4326, default='POINT(5.0 44.5)')
-    picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
+    #picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
+    picture_tag = FileBrowseField(verbose_name=_("Picture tag"), max_length=200, directory="uploads/picture/%Y/%m", extensions=[".jpg"], blank=True, null=True)
 
     objects = models.GeoManager()
 
@@ -65,7 +67,8 @@ class TripStage(models.Model):
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
     massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     type = models.ForeignKey(Type, verbose_name = _("Type"))
-    picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
+    #picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
+    picture_tag = FileBrowseField(verbose_name=_("Picture tag"), max_length=200, directory="uploads/picture/%Y/%m", extensions=[".jpg"], blank=True, null=True)
     story = HTMLField(blank=True)
     duration = models.IntegerField(verbose_name=_("Duration (h)"), blank=True, null=True, validators=[MinValueValidator(0)])
     distance = models.IntegerField(verbose_name=_("Distance (km)"), blank=True, null=True, validators=[MinValueValidator(0)])

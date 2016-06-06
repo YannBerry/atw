@@ -175,6 +175,11 @@ TINYMCE_DEFAULT_CONFIG = {
 GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
 #GRAPPELLI_INDEX_DASHBOARD = {    'django.contrib.admin_site': 'atw.dashboard.CustomIndexDashboard',}
 
+# Filebrowser settings
+FILEBROWSER_CONVERT_FILENAME = True
+FILEBROWSER_DEFAULT_SORTING_BY = ('date','filename_lower')
+FILEBROWSER_DEFAULT_SORTING_ORDER = 'asc'
+
 if os.environ.get('DJANGO_ENV') == 'production':
     from settings_prod import *
 else:
