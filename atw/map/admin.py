@@ -30,7 +30,7 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
 
 class TripAdmin(LeafletGeoAdmin):
     fieldsets = [
-        (None, {'fields': ['date_published', 'geom', 'trip_name', 'start_date', 'end_date', 'nbr_of_days', 'picture_tag', 'display_picture_tag']}),
+        (None, {'fields': ['date_published', 'geom', 'trip_name', 'start_date', 'end_date', 'nbr_of_days', 'description', 'picture_tag', 'display_picture_tag']}),
     ]
     inlines = [TripStageInline]
     list_display = ('trip_name', 'start_date', 'end_date', 'nbr_of_days')

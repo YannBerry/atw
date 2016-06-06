@@ -34,6 +34,7 @@ class Trip(models.Model):
     start_date = models.DateField(verbose_name=_("Start date"), default=timezone.now, blank=True)
     end_date = models.DateField(verbose_name=_("End date"), default=timezone.now, blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
+    description = HTMLField(blank=True)
     geom = models.PointField(srid=4326, default='POINT(5.0 44.5)')
     picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
 
@@ -59,7 +60,7 @@ class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Stage Name"), max_length=50)
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
-    massif = models.ForeignKey(Massif, verbose_name = _("Massif")) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
+    massif = models.ForeignKey(Massif, verbose_name = _("Massif"), blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     type = models.ForeignKey(Type, verbose_name = _("Type"))
     picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
     story = HTMLField(blank=True)

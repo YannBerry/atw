@@ -144,16 +144,6 @@ THUMBNAIL_ALIASES = {
     },
 }
 
-# WYSIWYG Editor
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': "advanced",
-    'width': '100%',
-    'height': '600',
-}
-
-# Grappelli settings
-GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
@@ -162,6 +152,22 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
+
+# WYSIWYG Editor
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
+TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
+TINYMCE_DEFAULT_CONFIG = {
+    #'plugins': "spellchecker",
+    #'spellchecker_language': "fr", # en by default
+    'theme': "advanced",
+    'width': '100%',
+    'height': '600',
+}
+TINYMCE_FILEBROWSER = True
+#TINYMCE_SPELLCHECKER = True
+
+# Grappelli settings
+GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
 
 if os.environ.get('DJANGO_ENV') == 'production':
     from settings_prod import *

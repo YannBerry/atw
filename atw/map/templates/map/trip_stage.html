@@ -3,11 +3,20 @@
 
 {% block content %}
 <div class="container container_body">
-    <a href="{% url 'map' %}">{% trans "Return to the map" %}</a>
-    <h2>{{ t.stage_name }}</h2>
-    {% if t.distance %}<p>{{ t.distance }} kW</p>{% endif %}
-    <p>{{ t.date }}</p>
-    {% if t.story %}{{ i.story | urlize | linebreaks }}{% endif %}
-    {% if t.picture_tag %}<img style="width:100%;" src="/media/{{ t.picture_tag }}"/>{% endif %}
+    <h1>{{ t.stage_name }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <p>{{ t.date }}</p>
+        </div>
+        <div class="col-md-6">
+            {% if t.distance %}<p>{{ t.distance }} km</p>{% endif %}
+            {% if t.duration %}<p>{{ t.duration }} h</p>{% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% if t.story %}{{ i.story | urlize | linebreaks }}{% endif %}
+        </div>
+    </div>
 </div>
 {% endblock content %}
