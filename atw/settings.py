@@ -153,6 +153,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") #directory that hold user-uploaded files
 MEDIA_URL = '/media/' #URL that handles the media served from MEDIA_ROOT
 
+media_uploads = os.path.join(MEDIA_ROOT, "uploads")
+if not os.path.exists(media_uploads):
+    os.makedirs(media_uploads)
+
 # WYSIWYG Editor
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
 TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
