@@ -93,21 +93,19 @@
                             <thead>
                                 <tr>
                                     <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Trip</th>
-                                    <th class="col-xs-2" data-field="picture">Photo</th>
                                     <th class="col-xs-1" data-field="start_date" data-sortable="true">Start Date</th>
                                     <th class="col-xs-1" data-field="nbr_days" data-sortable="true">Number of Days</th>
-                                    <th class="col-xs-2" data-field="stages" data-sortable="true">Stages</th>
+                                    <th class="col-xs-1" data-field="stages" data-sortable="true">Stages</th>
                                 </tr>
                             </thead>
                             <tbody>
                             {% for t in trips %}
                                 <tr>
                                     <td><a href="{% url 'trip' t.id %}">{{ t.trip_name }}</a></td>
-                                    <td>{% if t.picture_tag %}<img class="img-responsive" src="{{ t.picture_tag|thumbnail_url:'small' }}" />{% endif %}</td>
                                     <td>{{ t.start_date }}</td>
                                     <td>{{ t.nbr_of_days }}</td>
                                     <td>
-                                        <ul>
+                                        <ul  class="list-unstyled">
                                             {% for stage in t.tripstage_set.all %}<li><a href="{% url 'trip_stage' stage.id %}">{{ stage.stage_name }}</a></li>{% endfor %}
                                         </ul>
                                     </td>
@@ -129,7 +127,7 @@
             <thead>
                 <tr>
                     <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Stage</th>
-                    <th class="col-xs-2" data-field="picture">Photo</th>
+                    <th class="col-xs-2" data-field="trip">Trips linked</th>
                     <th class="col-xs-1" data-field="date" data-sortable="true">Date</th>
                     <th class="col-xs-1" data-field="massif" data-sortable="true">Massif</th>
                     <th class="col-xs-1" data-field="distance" data-sortable="true">Distance (km)</th>
@@ -141,7 +139,11 @@
             {% for t in trip_stages %}
                 <tr>
                     <td><a href="{% url 'trip_stage' t.id %}">{{ t.stage_name }}</a></td>
-                    <td>{% if t.picture_tag %}<img class="img-responsive" src="{{ t.picture_tag|thumbnail_url:'small' }}" />{% endif %}</td>
+                    <td>
+                        <ul class="list-unstyled">
+                            {% for linkedtrip in t.trips.all %}<li><a href="{% url 'trip_stage' linkedtrip.id %}">{{ linkedtrip.trip_name }}</a></li>{% endfor %}
+                        </ul>
+                    </td>
                     <td>{{ t.date }}</td>
                     <td>{{ t.massif }}</td>
                     <td>{{ t.distance }}</td>

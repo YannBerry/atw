@@ -26,7 +26,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
-    #'grappelli.dashboard',
+    'grappelli.dashboard', # pas besoin finalement
     'grappelli', # before django.contrib.admin cette appli sert à l'appli filebrowser
     'filebrowser', # before django.contrib.admin
     'django.contrib.admin', # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.syndication', # pour le flux rss
     'easy_thumbnails',
     'widget_tweaks', # https://github.com/kmike/django-widget-tweaks Permet d'ajouter des filtres aux templates des forms (ajout css, attributs, etc.)
+    'haystack',
     'atw.home',
     'atw.map',
     'atw.article',
@@ -163,23 +164,31 @@ if not os.path.exists(media_uploads):
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
 TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
 TINYMCE_DEFAULT_CONFIG = {
-    #'plugins': "spellchecker",
+    'plugins': "wordcount",
     #'spellchecker_language': "fr", # en by default
     'theme': "advanced",
     'width': '100%',
     'height': '600',
+    #'theme_advanced_buttons3' : "fontselect,fontsizeselect,emotions",
 }
 #TINYMCE_FILEBROWSER = True
 #TINYMCE_SPELLCHECKER = True
 
 # Grappelli settings
 GRAPPELLI_ADMIN_TITLE = 'WACS Admin'
-#GRAPPELLI_INDEX_DASHBOARD = {    'django.contrib.admin_site': 'atw.dashboard.CustomIndexDashboard',}
+GRAPPELLI_INDEX_DASHBOARD = 'atw.dashboard.CustomIndexDashboard'
 
 # Filebrowser settings
 FILEBROWSER_CONVERT_FILENAME = True
 FILEBROWSER_DEFAULT_SORTING_BY = ('date','filename_lower')
 FILEBROWSER_DEFAULT_SORTING_ORDER = 'asc'
+
+# Haystack settings
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
 
 if os.environ.get('DJANGO_ENV') == 'production':
     from settings_prod import *

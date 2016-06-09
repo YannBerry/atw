@@ -36,4 +36,5 @@ urlpatterns += i18n_patterns(
     url(_(r'^map/'), include('atw.map.urls')),
     url(_(r'^article/'), include('atw.article.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
+    #url(_(r'^search/'), include('haystack.urls')),
 )
