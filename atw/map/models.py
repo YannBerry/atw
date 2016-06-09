@@ -2,6 +2,8 @@
 
 import datetime # Python’s standard datetime module
 from django.contrib.gis.db import models
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone # https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/ + answers to basic questions : https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/#time-zones-faq
 from django.core.validators import MinValueValidator
@@ -32,6 +34,8 @@ class Type(models.Model):
 
 class Trip(models.Model):
     trip_name = models.CharField(verbose_name=_("Trip Name"), max_length=50)
+    trip_slug = models.SlugField(_("Slug"), max_length=50, null=True)
+    prepopulated_fields = {"trip_slug": ("trip_name",)} # does not work
     start_date = models.DateField(verbose_name=_("Start date"), default=timezone.now, blank=True)
     end_date = models.DateField(verbose_name=_("End date"), default=timezone.now, blank=True)
     nbr_of_days = models.IntegerField(verbose_name=_("Nbr of days"), blank=True)
@@ -63,6 +67,8 @@ class Trip(models.Model):
 
 class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Stage Name"), max_length=50)
+    stage_slug = models.SlugField(_("Slug"), max_length=50, null=True)
+    prepopulated_fields = {"stage_slug": ("stage_name",)} # does not work
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
     massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
@@ -99,3 +105,4 @@ class TripStage(models.Model):
 #class TripStageTrip(models.Model):
     #trip = models.ForeignKey(Trip)
     #tripstage = models.ForeignKey(TripStage)
+
