@@ -19,6 +19,7 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
     list_display = ('stage_name', 'stage_slug', 'massif', 'date', 'distance', 'published_more_than_6_months_ago', 'display_picture_tag', 'added_by')
     list_editable = ['stage_slug', 'date', 'massif', 'distance']
     readonly_fields = ['date_published', 'display_picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
+    prepopulated_fields = {"stage_slug": ("stage_name",)}
     search_fields = ['stage_name']
     list_filter = ['massif', 'added_by']
     save_on_top = True
@@ -35,6 +36,7 @@ class TripAdmin(LeafletGeoAdmin):
     inlines = [TripStageInline]
     list_display = ('trip_name', 'trip_slug', 'start_date', 'end_date', 'nbr_of_days')
     list_editable = ['start_date', 'trip_slug', 'end_date']
+    prepopulated_fields = {"trip_slug": ("trip_name",)}
     search_fields = ['trip_name']
     readonly_fields = ['date_published', 'nbr_of_days', 'display_picture_tag']
 

@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
 from atw.map import views
+from atw.map.feeds import LatestStageFeed
+
 
 urlpatterns = [
     url(r'^$', views.osmap, name='map'),
@@ -14,4 +16,5 @@ urlpatterns = [
     url(_(r'^list-trips/download-csv/$'), views.list_trips_csv, name='list_trips_csv'),
     url(_(r'^list-trips/trip-stages/download-pdf/$'), views.list_trip_stages_pdf, name='list_trip_stages_pdf'),
     url(_(r'^list-trips/trip-stages/download-csv/$'), views.list_trip_stages_csv, name='list_trip_stages_csv'),
+    url(_(r'^latest-stages/feed/$'), LatestStageFeed(), name='trip_stage_feed'),
 ]

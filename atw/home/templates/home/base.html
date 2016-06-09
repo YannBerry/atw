@@ -98,7 +98,7 @@
                             <li><a href=""><img src="{% static "home/img/icon_facebook.png" %}" class="img-responsive" /></a></li>
                             <li><a href=""><img src="{% static "home/img/icon_google.png" %}" class="img-responsive" /></a></li>
                             <li><a href=""><img src="{% static "home/img/icon_twitter.png" %}" class="img-responsive" /></a></li>-->
-                            <li><a href=""><img src="{% static "home/img/icon_rss.png" %}" class="img-responsive" /></a></li>
+                            <li><a href="{% url 'trip_stage_feed' %}"><img src="{% static "home/img/icon_rss.png" %}" class="img-responsive" /></a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">

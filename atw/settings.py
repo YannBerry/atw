@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #'django.contrib.sitemaps', reste à créer
     'django.contrib.gis',
+    'django.contrib.syndication', # pour le flux rss
     'easy_thumbnails',
     'widget_tweaks', # https://github.com/kmike/django-widget-tweaks Permet d'ajouter des filtres aux templates des forms (ajout css, attributs, etc.)
     'atw.home',
