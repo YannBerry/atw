@@ -10,6 +10,18 @@
         <h1 class="text-uppercase">{% trans "Liste des aventures" %}</h1>
         <div class="container">
             <div class="row">
+            {% for t in trips %}
+                <div class="col-md-4">
+                    <figure>
+                        <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
+                        <figcaption>
+                            <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+            </div>
+            <!--<div class="row">
                 <h3 class="text-uppercase">{% trans "1 jour" %}</h3>
                 {% for t in trips %}
                     {% if t.nbr_of_days = 1 %}
@@ -47,7 +59,7 @@
                             <figure>
                                 <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
-                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} (t.nbr_of_days)</a>
+                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -62,13 +74,13 @@
                             <figure>
                                 <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
-                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} (t.nbr_of_days)</a>
+                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
                                 </figcaption>
                             </figure>
                         </div>
                     {% endif %}
                 {% endfor %}
-            </div>
+            </div>-->
         </div>
 
 
