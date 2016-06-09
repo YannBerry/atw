@@ -9,17 +9,17 @@
             </div>
             <div class="col-md-4">
                 <div class="fieldWrapper">
-                    <label for="username_id">Username</label>
+                    <label for="username_id">{% trans "Identifiant" %}</label>
                     <input type="text" id="username_id" class="form-control" name="username" placeholder="Username" />
                 </div>
                 <div class="fieldWrapper">
-                    <label for="password_id">Password</label>
+                    <label for="password_id">{% trans "Mot de passe" %}</label>
                     <input type="password" id="password_id" class="form-control" name="password" placeholder="Password" />
                 </div>
-                <button type="submit" class="btn center-block">{% trans "Sign in" %}</button>
+                <button type="submit" class="btn center-block">{% trans "Se connecter" %}</button>
             </div>
         </div>
     </form>
-    <p>or <a href="{% url 'register' %}">{% trans "Register" %}</a></p>
+    <p>or <a href="{% url 'register' %}">{% trans "S'enregistrer" %}</a></p>
 </div>
 {% endblock content %}

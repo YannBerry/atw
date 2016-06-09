@@ -1,13 +1,15 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
 
+{% block title %}{% trans "WASC" %} | {{ t.trip_name }}{% endblock %}
+
 {% block content %}
 <div class="container padding_top_15px">
     <h1>{{ t.trip_name }}</h1>
     <div class="row">
         <div class="col-md-6">
             <p>{{ t.start_date }} - {{ t.end_date }}</p>
-            <p style="margin-bottom: 15px;">{{ t.nbr_of_days }} {% trans "days" %}</p>
+            <p style="margin-bottom: 15px;">{{ t.nbr_of_days }} {% trans "jours" %}</p>
             {% if t.description %}{{ t.description|safe }}{% endif %}
         </div>
         <div class="col-md-6">
@@ -20,10 +22,10 @@
         {% for stage in t.tripstage_set.all %}
             <div class="col-md-4 padding_top_bot_10px">
                 <figure>
-                    <a href="{% url 'trip_stage' stage.id %}"><img class="img-responsive img-thumbnail center-block" src="/media/{{ stage.picture_tag }}" %}" /></a>
                     <figcaption>
                         <a href="{% url 'trip_stage' stage.id %}" class="btn btn-default center-block" role="button">{{ stage.stage_name }}</a>
                     </figcaption>
+                    <a href="{% url 'trip_stage' stage.id %}"><img class="img-responsive img-thumbnail center-block" src="/media/{{ stage.picture_tag }}" %}" /></a>
                 </figure>
             </div>
         {% endfor %}

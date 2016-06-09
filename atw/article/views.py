@@ -9,9 +9,6 @@ def article_menu(request):
     articles_m = Article.objects.all()
     return render(request, 'article/article_menu.html', {'articles_m':articles_m})
 
-def geol(request):
-    return render(request, 'article/geol.html')
-
 def article(request, title):
     article = Article.objects.get(title=title)
     return render(request, 'article/article.html', {'a':article})

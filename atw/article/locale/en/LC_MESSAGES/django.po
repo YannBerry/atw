@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# YANN BERRY <BERRY.YANN@FREE.FR>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-10 00:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:6 models.py:15
+msgid "Article"
+msgstr "Article"
+
+#: models.py:7
+msgid "Slug"
+msgstr "Slug"
+
+#: models.py:16 templates/article/article_menu.html.py:9
+msgid "Articles"
+msgstr "Articles"
+
+#: templates/article/article.html:5
+#, fuzzy, python-format
+#| msgid "WASC | Articles"
+msgid " WASC | %(a.title)s "
+msgstr ""
+
+#: templates/article/article.html:14
+msgid "Télécharger l'article en PDF"
+msgstr "Download the article in PDF"
+
+#: templates/article/article_menu.html:5
+msgid "WASC | Articles"
+msgstr "WASC | Articles"
+
+#: templates/article/article_menu.html:19
+msgid "Télécharger le résumé en PDF"
+msgstr "Download the sum-up in PDF"
+
+#: urls.py:6
+msgid "^$"
+msgstr ""
+
+#: urls.py:7
+msgid "^(?P<title>\\w+)/$"
+msgstr ""
+
+#: urls.py:8
+msgid "^download-articles/pdf/$"
+msgstr "^telechargement-articles/pdf/$"
+
+#: urls.py:9
+msgid "^download-article/(?P<title>\\w+)/pdf/$"
+msgstr ""
+
+#~ msgid "WASC"
+#~ msgstr "WASC"

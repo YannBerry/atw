@@ -2,13 +2,15 @@
 {% load i18n %}
 {% load thumbnail %}
 
+{% block title %}{% trans "WASC | Aventures" %}{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="container container_body">
-        <h1 class="text-uppercase">{% trans "List of Trips" %}</h1>
+        <h1 class="text-uppercase">{% trans "Liste des aventures" %}</h1>
         <div class="container">
             <div class="row">
-                <h3 class="text-uppercase">{% trans "1 day" %}</h3>
+                <h3 class="text-uppercase">{% trans "1 jour" %}</h3>
                 {% for t in trips %}
                     {% if t.nbr_of_days = 1 %}
                         <div class="col-md-4">
@@ -23,7 +25,7 @@
                 {% endfor %}
             </div>
             <div class="row">
-                <h3 class="text-uppercase">{% trans "2 days" %}</h3>
+                <h3 class="text-uppercase">{% trans "2 jours" %}</h3>
                 {% for t in trips %}
                     {% if t.nbr_of_days = 2 %}
                         <div class="col-md-4">
@@ -38,14 +40,14 @@
                 {% endfor %}
             </div>
             <div class="row">
-                 <h3 class="text-uppercase">{% trans "Until 7 days" %}</h3>
+                 <h3 class="text-uppercase">{% trans "Jusqu'à 1 semaine" %}</h3>
                 {% for t in trips %}
                     {% if t.nbr_of_days > 2 and t.nbr_of_days < 8 %}
                         <div class="col-md-4">
                             <figure>
                                 <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
-                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }}</a>
+                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} (t.nbr_of_days)</a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -53,14 +55,14 @@
                 {% endfor %}
             </div>
             <div class="row">
-                <h3 class="text-uppercase">{% trans "More than 7 days" %}</h3>
+                <h3 class="text-uppercase">{% trans "Plus d'une semaine" %}</h3>
                 {% for t in trips %}
                     {% if t.nbr_of_days > 7 %}
                         <div class="col-md-4">
                             <figure>
                                 <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
-                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }}</a>
+                                    <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} (t.nbr_of_days)</a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -74,7 +76,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                     <h3 class="panel-title text-uppercase text-center">
-                        <a class="collapsed text-uppercase" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">{% trans "More details" %}</a>
+                        <a class="collapsed text-uppercase" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">{% trans "Détails" %}</a>
                     </h3>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -82,20 +84,20 @@
                         <div class="container container_body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p class="text-center"><a href="{% url 'list_trips_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trips in CSV" %}</a></p>
+                                    <p class="text-center"><a href="{% url 'list_trips_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger les voyages en CSV" %}</a></p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="text-center"><a href="{% url 'list_trips_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trips in PDF" %}</a></p>
+                                    <p class="text-center"><a href="{% url 'list_trips_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger les voyages en PDF" %}</a></p>
                                 </div>
                             </div>
                         </div>
                         <table data-toggle="table" data-striped="true" data-search="true" data-sort-name="start" data-sort-order="desc" data-show-columns="true">
                             <thead>
                                 <tr>
-                                    <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Trip</th>
-                                    <th class="col-xs-1" data-field="start_date" data-sortable="true">Start Date</th>
-                                    <th class="col-xs-1" data-field="nbr_days" data-sortable="true">Number of Days</th>
-                                    <th class="col-xs-1" data-field="stages" data-sortable="true">Stages</th>
+                                    <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">{% trans "Voyage" %}</th>
+                                    <th class="col-xs-1" data-field="start_date" data-sortable="true">{% trans "Départ" %}</th>
+                                    <th class="col-xs-1" data-field="nbr_days" data-sortable="true">{% trans "Nombre de jours" %}</th>
+                                    <th class="col-xs-1" data-field="stages" data-sortable="true">{% trans "Etapes" %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,18 +123,18 @@
 
 <div class="container-fluid" style="background-color: #f5f5f5">
     <div class="container container_body">
-        <h1 class="text-uppercase">{% trans "List of Trip Stages" %}</h1>
+        <h1 class="text-uppercase">{% trans "Liste des étapes de voyage" %}</h1>
 
         <table data-toggle="table" data-striped="true" data-search="true" data-sort-name="start" data-sort-order="desc" data-show-columns="true">
             <thead>
                 <tr>
-                    <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">Stage</th>
-                    <th class="col-xs-2" data-field="trip">Trips linked</th>
-                    <th class="col-xs-1" data-field="date" data-sortable="true">Date</th>
-                    <th class="col-xs-1" data-field="massif" data-sortable="true">Massif</th>
-                    <th class="col-xs-1" data-field="distance" data-sortable="true">Distance (km)</th>
-                    <th class="col-xs-1" data-field="duration" data-sortable="true">Duration (h)</th>
-                    <th class="col-xs-1" data-field="location" data-visible="false">Location (Long,Lat)</th>
+                    <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">{% trans "Etape" %}</th>
+                    <th class="col-xs-2" data-field="trip">{% trans "Voyages associés" %}</th>
+                    <th class="col-xs-1" data-field="date" data-sortable="true">{% trans "Date" %}</th>
+                    <th class="col-xs-1" data-field="massif" data-sortable="true">{% trans "Massif" %}</th>
+                    <th class="col-xs-1" data-field="distance" data-sortable="true">{% trans "Distance (km)" %}</th>
+                    <th class="col-xs-1" data-field="duration" data-sortable="true">{% trans "Durée (h)" %}</th>
+                    <th class="col-xs-1" data-field="location" data-visible="false">{% trans "Localisation (Long,Lat)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -157,10 +159,10 @@
     <div class="container container_body">
         <div class="row">
             <div class="col-md-6">
-                <p class="text-center"><a href="{% url 'list_trip_stages_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trip Stages in CSV" %}</a></p>
+                <p class="text-center"><a href="{% url 'list_trip_stages_csv' %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger les étapes en CSV" %}</a></p>
             </div>
             <div class="col-md-6">
-                <p class="text-center"><a href="{% url 'list_trip_stages_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Download Trip Stages in PDF" %}</a></p>
+                <p class="text-center"><a href="{% url 'list_trip_stages_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger les étapes en PDF" %}</a></p>
             </div>
         </div>
     </div>

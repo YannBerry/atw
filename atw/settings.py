@@ -93,7 +93,7 @@ TEMPLATES = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us' # default language Django will use if no translation is found
+LANGUAGE_CODE = 'fr' # default language Django will use if no translation is found. 'en-us' by default
 
 TIME_ZONE = 'Europe/Paris' # https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-TIME_ZONE
 
@@ -160,18 +160,21 @@ media_uploads = os.path.join(MEDIA_ROOT, "uploads")
 if not os.path.exists(media_uploads):
     os.makedirs(media_uploads)
 
-# WYSIWYG Editor
+# WYSIWYG Editor (TinyMCE 3.5)
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
 TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "wordcount",
+    # list of buttons : http://archive.tinymce.com/wiki.php/TinyMCE3x:Buttons/controls
+    'plugins': "wordcount, emotions, print, table, media",
     #'spellchecker_language': "fr", # en by default
     'theme': "advanced",
     'width': '100%',
     'height': '600',
-    #'theme_advanced_buttons3' : "fontselect,fontsizeselect,emotions",
+    'theme_advanced_buttons2_add': "separator, print",
+    'theme_advanced_buttons3': "fontselect, fontsizeselect, forecolor, backcolor, sup, sub, separator, media, tablecontrols, separator, emotions, charmap",
+    #'media_live_embeds': true, # Actif à parti de version 4.3
 }
-#TINYMCE_FILEBROWSER = True
+TINYMCE_FILEBROWSER = True
 #TINYMCE_SPELLCHECKER = True
 
 # Grappelli settings

@@ -3,13 +3,13 @@
 
 {% block content %}
 <div class="container container_body">
-    <p>{% blocktrans %} Hi {{ username }}{% endblocktrans %}</p>
-    <p>{% trans "Projects you added:" %}</p>
+    <p>{% blocktrans %} Bonjour {{ username }}{% endblocktrans %}</p>
+    <p>{% trans "Etapes que vous avez ajouté :" %}</p>
     <ul>
     {% for t in trip_stage_added_by_user %}
         <li>{{ t.stage_name }}</li>
     {% endfor %}
     </ul>
-    <p><a href="{% url 'sign_out' %}">{% trans "Sign Out" %}</a></p>
+    <p><a href="{% url 'sign_out' %}">{% trans "Déconnexion" %}</a></p>
 </div>
 {% endblock content %}

@@ -62,13 +62,13 @@
 
         {% for t in trips %}
             L.marker([{{ t.geom.y | unlocalize }},{{ t.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ t.trip_name }}</b><br />{{ t.start_date }}<br />{{ t.end_date }}<br />{% if t.picture_tag %}<img src="{{ t.picture_tag|thumbnail_url:"small" }}" /><br />{% endif %}<a href="{% url 'trip' t.id %}">{% trans "Travelogue" %}</a>',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ t.trip_name }}</b><br />{{ t.start_date }}<br />{{ t.end_date }}<br />{% if t.picture_tag %}<img src="{{ t.picture_tag|thumbnail_url:"small" }}" /><br />{% endif %}<a href="{% url 'trip' t.id %}">{% trans "Détail" %}</a>',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 
         {% for i in trip_stages %}
             L.marker([{{ i.geom.y | unlocalize }},{{ i.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ i.stage_name }}</b><br />{% if i.distance %}{{ i.distance }} km<br />{% endif %}{{ i.massif }}<br />{{ i.date }}<br />{% if i.story %}{{ i.story | urlize | linebreaks }}<br />{% endif %}{% if i.picture_tag %}<img src="{{ i.picture_tag|thumbnail_url:"small" }}" /><br />{% endif %}<a href="{% url 'trip_stage' i.id %}">{% trans "Trip stage description" %}</a>',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ i.stage_name }}</b><br />{% if i.distance %}{{ i.distance }} km<br />{% endif %}{{ i.massif }}<br />{{ i.date }}<br />{% if i.story %}{{ i.story | urlize | linebreaks }}<br />{% endif %}{% if i.picture_tag %}<img src="{{ i.picture_tag|thumbnail_url:"small" }}" /><br />{% endif %}<a href="{% url 'trip_stage' i.id %}">{% trans "Détail" %}</a>',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 
@@ -76,7 +76,7 @@
         function onMapClick(e) {
             var popup = L.popup()
                 .setLatLng(e.latlng)
-                .setContent('<a href="{% url "add_trip_stage" %}">Add a trip stage</a>')
+                .setContent('<a href="{% url "add_trip_stage" %}">{% trans "Ajouter une étape" %}</a>')
                 .openOn(map);
         }
         map.on('contextmenu', onMapClick);

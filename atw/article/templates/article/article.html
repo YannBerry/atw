@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load i18n %}
 
-{% block title %}{% trans "WASC" %} | {{ a.title }}{% endblock %}
+{% block title %}{% blocktrans %} WASC | {{ a.title }} {% endblocktrans %}{% endblock %}
 
 {% block content %}
 <div class="container container_body">
@@ -11,7 +11,7 @@
 	<div class="row">
         <p>{{ a.description|safe }}</p>
         <div class="col-md-12">
-			<p class="text-center"><a href="{% url 'download_article_pdf' a.title %}" class="btn btn-default btn-lg" role="button">{% trans "Download the article in PDF" %}</a></p>
+			<p class="text-center"><a href="{% url 'download_article_pdf' a.title %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger l'article en PDF" %}</a></p>
 		</div>
 	</div>
 </div>

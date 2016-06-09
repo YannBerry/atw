@@ -1,6 +1,8 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
 
+{% block title %}{% trans "WASC" %} | {{ t.stage_name }}{% endblock %}
+
 {% block content %}
 <div class="container container_body">
     <h1>{{ t.stage_name }}</h1>

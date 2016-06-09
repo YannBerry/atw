@@ -11,7 +11,7 @@
 {% block content %}
 
 <div class="container container_body">
-    <h2 class="text-uppercase">{% trans "Add your trip stage" %}</h2>
+    <h2 class="text-uppercase">{% trans "Ajouter votre étape" %}</h2>
     <div id="form-div" >
         <form enctype="multipart/form-data" action="{% url 'add_trip_stage' %}" method="post" novalidate>{% csrf_token %}
             {{ form.non_field_errors }}

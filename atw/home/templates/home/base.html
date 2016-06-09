@@ -8,8 +8,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- user-scalable=no empêche le zoom par double click du navigateur d'un smarphone et ainsi eviter d'avoir des beugs sur la carte (google maps) quand l'utilisateur zoom et aussi de gagner les 300ms d'attente du navigateur pour voir si l'utilisateur va double cliquer ou pas (fonctionnalité disponible que sur chrome pour l'instant. -->
-        <meta name="description" content="Photos, videos and stories of my trips Around the World.">
-        <meta name="keywords" content="adventure, nature, trekking, around the world, trip, amm, photos, videos">
+        <meta name="description" content="{% trans "Photos, vidéos et récits de mes voyages autour du monde." %}">
+        <meta name="keywords" content={% trans "aventure, nature, trekking, autour du monde, voyage, amm, photos, vidéos" %}>
         <meta name="author" content="">
         <link rel="icon" href="{% static 'home/favicon.ico' %}">
 
@@ -54,15 +54,15 @@
                                 <li><a href="{% url 'add_trip_stage' %}">{% trans "Add a Trip Stage" %}</a></li>
                             </ul>
                         </li>-->
-                        <li><a href="{% url 'map' %}">{% trans "Map" %}</a></li>
-                        <li><a href="{% url 'list_trips' %}">{% trans "List" %}</a></li>
-                        <li><a href="{% url 'article_menu' %}">{% trans "Basic naturalist lessons" %}</a></li>
+                        <li><a href="{% url 'map' %}">{% trans "Carte" %}</a></li>
+                        <li><a href="{% url 'list_trips' %}">{% trans "Liste" %}</a></li>
+                        <li><a href="{% url 'article_menu' %}">{% trans "Fondamentaux naturalistes" %}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                            <li><a href="{% url 'my_account' %}">{% trans "My account" %}</a></li>
+                            <li><a href="{% url 'my_account' %}">{% trans "Mon compte" %}</a></li>
                         {% else %}
-                            <li><a href="{% url 'sign_in' %}">{% trans "Sign In" %}</a></li>
+                            <li><a href="{% url 'sign_in' %}">{% trans "Se connecter" %}</a></li>
                         {% endif %}
                         <li>
                             <form action="{% url 'set_language' %}" method="POST">{% csrf_token %}

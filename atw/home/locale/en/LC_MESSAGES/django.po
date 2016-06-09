@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-10 00:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/home/base.html:11
+msgid "Photos, vidéos et récits de mes voyages autour du monde."
+msgstr "Photos, videos and writings of my trips around the world."
+
+#: templates/home/base.html:12
+msgid "aventure, nature, trekking, autour du monde, voyage, amm, photos, vidéos"
+msgstr "adventure, nature, trekking, around the world, trip, amm, photos, videos"
+
+#: templates/home/base.html:16
+msgid "WASC"
+msgstr "WASC"
+
+#: templates/home/base.html:50
+msgid "The Map"
+msgstr ""
+
+#: templates/home/base.html:52
+msgid "Explore the Map (Open Source Map)"
+msgstr ""
+
+#: templates/home/base.html:53
+msgid "Explore the Map (Google Maps)"
+msgstr ""
+
+#: templates/home/base.html:54
+msgid "Add a Trip Stage"
+msgstr ""
+
+#: templates/home/base.html:57
+msgid "Carte"
+msgstr "Map"
+
+#: templates/home/base.html:58
+msgid "Liste"
+msgstr "List"
+
+#: templates/home/base.html:59
+msgid "Fondamentaux naturalistes"
+msgstr "Basic naturalist lessons"
+
+#: templates/home/base.html:63
+msgid "Mon compte"
+msgstr "My account"
+
+#: templates/home/base.html:65 templates/home/sign_in.html.py:19
+msgid "Se connecter"
+msgstr "Sign in"
+
+#: templates/home/home.html:14
+msgid "Nature, Aventure, Contemplation, Sport"
+msgstr "Wildness, Adventure, Contemplation, Sport"
+
+#: templates/home/home.html:16
+msgid "Mes aventures en photos, écrits & vidéos"
+msgstr "My adventures in photos, writings & videos"
+
+#: templates/home/home.html:17
+msgid "Notions naturalistes"
+msgstr "Basic naturalist lessons"
+
+#: templates/home/my_account.html:6
+#, python-format
+msgid " Bonjour %(username)s"
+msgstr "Hi %(username)s"
+
+#: templates/home/my_account.html:7
+msgid "Etapes que vous avez ajouté :"
+msgstr "Trip stages that you have added:"
+
+#: templates/home/my_account.html:13
+msgid "Déconnexion"
+msgstr "Sign out"
+
+#: templates/home/register.html:27
+msgid "S'enregister"
+msgstr "Register"
+
+#: templates/home/sign_in.html:12
+msgid "Identifiant"
+msgstr "Username"
+
+#: templates/home/sign_in.html:16
+msgid "Mot de passe"
+msgstr "Password"
+
+#: templates/home/sign_in.html:23
+msgid "S'enregistrer"
+msgstr "Sign in"
+
+#: templates/home/sign_out.html:6
+msgid "Bonne journée !"
+msgstr "Bye. Have a great day!"
+
+#: urls.py:6 urls.py:11
+msgid "^my-account/$"
+msgstr ""
+
+#: urls.py:8
+msgid "^sign-in/$"
+msgstr ""
+
+#: urls.py:9
+msgid "^sign-out/$"
+msgstr ""
+
+#: urls.py:10
+msgid "^register/$"
+msgstr ""
+
+#~ msgid "Photos, videos and stories of my trips Around the World."
+#~ msgstr "Photos, vidéos et récits de mes voyages autour du monde."
