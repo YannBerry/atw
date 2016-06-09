@@ -34,7 +34,7 @@ class Type(models.Model):
 
 class Trip(models.Model):
     trip_name = models.CharField(verbose_name=_("Trip Name"), max_length=50)
-    trip_slug = models.SlugField(_("Slug"), max_length=50, null=True)
+    trip_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     prepopulated_fields = {"trip_slug": ("trip_name",)} # does not work
     start_date = models.DateField(verbose_name=_("Start date"), default=timezone.now, blank=True)
     end_date = models.DateField(verbose_name=_("End date"), default=timezone.now, blank=True)
@@ -67,7 +67,7 @@ class Trip(models.Model):
 
 class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Stage Name"), max_length=50)
-    stage_slug = models.SlugField(_("Slug"), max_length=50, null=True)
+    stage_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     prepopulated_fields = {"stage_slug": ("stage_name",)} # does not work
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
     date_published = models.DateTimeField(verbose_name=_("Date published"), auto_now_add=True)
