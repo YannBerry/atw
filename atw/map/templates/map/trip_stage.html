@@ -5,7 +5,8 @@
 
 {% block breadcrumb2 %}
     {{ block.super }}
-    <li><a href="{% url 'list_trips' %}">{% trans "Liste des étapes" %}</a></li>
+    <li><a href="{% url 'list_trips' %}">{% trans "Liste des aventures" %}</a></li>
+    <li><a href="{% url 'trip' t.trip_linked.trip_slug %}">{{ t.trip_linked.trip_name }}</a></li>
     <li><a href="{% url 'trip_stage' t.stage_slug %}">{{ t.stage_name }}</a></li>
 {% endblock breadcrumb2 %}
 

@@ -4,15 +4,21 @@
 
 {% block title %}{% blocktrans with a|title as a_title%} WASC | {{ a_title }} {% endblocktrans %}{% endblock %}
 
+{% block breadcrumb2 %}
+    {{ block.super }}
+    <li><a href="{% url 'article_menu' %}">{% trans "Articles" %}</a></li>
+    <li><a href="{% url 'article' a.slug %}">{{ a.title }}</a></li>
+{% endblock breadcrumb2 %}
+
 {% block content %}
 <div class="container container_body">
     <h1 class="text-uppercase">{{ a.title }}</h1>
     <div class="container">
 	<div class="row">
         <p>{{ a.description|safe }}</p>
-        <div class="col-md-12">
+        <!--<div class="col-md-12">
 			<p class="text-center"><a href="{% url 'download_article_pdf' a.slug %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger l'article en PDF" %}</a></p>
-		</div>
+		</div>-->
 	</div>
 </div>
 

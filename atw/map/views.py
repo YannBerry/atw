@@ -86,9 +86,9 @@ def list_trips_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="Trips.csv"'
     writer = csv.writer(response)
-    writer.writerow(['Trip', 'Start date', 'End date', 'Localisation'])
+    writer.writerow(['Trip', 'Duration' ,'Start date', 'End date', 'Stages', 'Localisation'])
     for o in Trip.objects.all():
-        writer.writerow([o.trip_name, o.start_date, o.end_date, o.geom])
+        writer.writerow([o.trip_name, o.nbr_of_days, o.start_date, o.end_date, o.tripstage_set.values_list('stage_name', flat=True).order_by('date'), o.geom])
     return response
 
 def list_trip_stages_pdf(request):

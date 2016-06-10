@@ -124,7 +124,8 @@ class Printer:
 		elements.append(Paragraph(article_title, style['Heading2']))
 
 		article_description = Article.objects.get(slug=slug).description
-		elements.append(Paragraph(article_description, style['Justify']))
+		#elements.append(Paragraph(article_description, style['Justify']))
+		elements.append(article_description)
 
 		doc.build(elements, onFirstPage=self._header_footer, onLaterPages=self._header_footer, canvasmaker=NumberedCanvas)
 

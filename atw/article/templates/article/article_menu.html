@@ -4,6 +4,11 @@
 
 {% block title %}{% trans "WASC | Articles" %}{% endblock %}
 
+{% block breadcrumb2 %}
+    {{ block.super }}
+    <li><a href="{% url 'article_menu' %}">{% trans "Articles" %}</a></li>
+{% endblock breadcrumb2 %}
+
 {% block content %}
 <div class="container container_body">
     <h1 class="text-uppercase">{% trans "Articles" %}</h1>
@@ -15,9 +20,9 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="col-md-12">
+        <!--<div class="col-md-12">
 			<p class="text-center"><a href="{% url 'download_articles_pdf' %}" class="btn btn-default btn-lg" role="button">{% trans "Télécharger le résumé en PDF" %}</a></p>
-		</div>
+		</div>-->
     </div>
 </div>
 {% endblock content %}
