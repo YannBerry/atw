@@ -26,9 +26,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
-    'grappelli.dashboard', # pas besoin finalement
+    'grappelli.dashboard',
     'grappelli', # before django.contrib.admin cette appli sert à l'appli filebrowser
     'filebrowser', # before django.contrib.admin
+    'modeltranslation', # before django.contrib.admin
     'django.contrib.admin', # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
     'django.contrib.auth',
     'django.contrib.sessions',
@@ -44,7 +45,6 @@ INSTALLED_APPS = (
     'atw.map',
     'atw.article',
     'leaflet',
-    'debug_toolbar',
     'tinymce', # https://github.com/aljosa/django-tinymce
 )
 

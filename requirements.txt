@@ -1,10 +1,10 @@
 dj-database-url==0.4.0
 Django==1.9.4
-django-debug-toolbar==1.4
 django-filebrowser==3.7.1
 django-grappelli==2.8.1
 django-haystack==2.4.1
 django-leaflet==0.18.0
+django-modeltranslation==0.11
 django-registration==2.0.4
 django-tinymce==2.3.0
 django-widget-tweaks==1.4.1
