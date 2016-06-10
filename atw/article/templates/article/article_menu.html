@@ -11,7 +11,7 @@
         <div class="row">
             {% for a in articles_m %}
                 <div class="col-md-4">
-                    <p><a href="{% url 'article' a.title %}" class="btn btn-default center-block" role="button">{{ a.title }}</a></p>
+                    <p><a href="{% url 'article' a.slug %}" class="btn btn-default center-block" role="button">{{ a.title }}</a></p>
                 </div>
             {% endfor %}
         </div>

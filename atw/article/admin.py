@@ -7,6 +7,6 @@ class ArticleAdmin(admin.ModelAdmin):
     ]
     list_display = ('title', 'title_en', 'slug', 'slug_en')
     list_editable = ['title_en', 'slug', 'slug_en']
-    prepopulated_fields = {"slug": ("title",)}
+    prepopulated_fields = {"slug": ("title",), "slug_en": ("title_en",)}
 
 admin.site.register(Article, ArticleAdmin)

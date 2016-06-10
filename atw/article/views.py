@@ -9,8 +9,8 @@ def article_menu(request):
     articles_m = Article.objects.all()
     return render(request, 'article/article_menu.html', {'articles_m':articles_m})
 
-def article(request, title):
-    article = Article.objects.get(title=title)
+def article(request, slug):
+    article = Article.objects.get(slug=slug)
     return render(request, 'article/article.html', {'a':article})
 
 def download_articles_pdf(request):
@@ -22,11 +22,11 @@ def download_articles_pdf(request):
     response.write(pdf)
     return response
 
-def download_article_pdf(request, title):
+def download_article_pdf(request, slug):
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="Article_{}.pdf"'.format(title)
+    response['Content-Disposition'] = 'attachment; filename="Article_{}.pdf"'.format(slug)
     buffer = BytesIO()
     report = Printer(buffer,'A4') # I defined A4, Landscape and Letter in printers.py
-    pdf = report.print_article(title)
+    pdf = report.print_article(slug)
     response.write(pdf)
     return response

@@ -57,12 +57,12 @@ def gmap(request):
     trips = Trip.objects.all()
     return render(request, 'map/gmap.html', {'trips':trips}) #{'trip_stages':trip_stages, 'trips':trips}
 
-def trip_stage(request, id):
-    trip_stage = TripStage.objects.get(pk=id)
+def trip_stage(request, stage_slug):
+    trip_stage = TripStage.objects.get(stage_slug=stage_slug)
     return render(request, 'map/trip_stage.html', {'t':trip_stage})
 
-def trip(request, id):
-    trip = Trip.objects.get(pk=id)
+def trip(request, trip_slug):
+    trip = Trip.objects.get(trip_slug=trip_slug)
     return render(request, 'map/trip.html', {'t':trip})
 
 def form_success(request):

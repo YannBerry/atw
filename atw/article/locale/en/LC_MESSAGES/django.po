@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 08:50+0200\n"
+"POT-Creation-Date: 2016-06-10 12:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:6 models.py:15
-msgid "Article"
-msgstr "Article"
+#: models.py:6
+msgid "Titre"
+msgstr "Title"
 
 #: models.py:7
 msgid "Slug"
 msgstr "Slug"
+
+#: models.py:15
+msgid "Article"
+msgstr "Article"
 
 #: models.py:16 templates/article/article_menu.html.py:9
 msgid "Articles"
@@ -52,7 +56,7 @@ msgid "^$"
 msgstr ""
 
 #: urls.py:7
-msgid "^(?P<title>\\w+)/$"
+msgid "^(?P<slug>\\w+)/$"
 msgstr ""
 
 #: urls.py:8

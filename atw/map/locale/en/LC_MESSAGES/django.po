@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 08:48+0200\n"
+"POT-Creation-Date: 2016-06-10 12:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: forms.py:10
-#, fuzzy
-#| msgid "Cliquer sur le lieu de votre aventure"
 msgid "Cliquer sur le lieu de votre aventure."
 msgstr "Click on the map to show where your trip stage is located."
 
-#: forms.py:11 models.py:12 models.py:19 models.py:70
+#: forms.py:11 models.py:12 models.py:19 models.py:73
 #: templates/map/list_trips.html:146
 msgid "Massif"
 msgstr "Massif"
 
-#: forms.py:12 models.py:23 models.py:30 models.py:71
+#: forms.py:12 models.py:23 models.py:30 models.py:74
 msgid "Type"
 msgstr "Type"
 
-#: forms.py:13 models.py:50 models.py:81
-msgid "Trips"
-msgstr "Voyages"
+#: forms.py:13 models.py:84
+msgid "Aventures liées"
+msgstr "Trips linked"
 
-#: forms.py:14 models.py:68 templates/map/list_trips.html.py:145
+#: forms.py:14 models.py:71 templates/map/list_trips.html.py:145
 msgid "Date"
 msgstr "Date"
 
@@ -53,72 +51,78 @@ msgid "Types"
 msgstr "Types"
 
 #: models.py:34
-msgid "Trip Name"
-msgstr "Nom de l'aventure"
+msgid "Nom de l'aventure"
+msgstr "Trip name"
 
-#: models.py:35 models.py:67
+#: models.py:35 models.py:70
 msgid "Slug"
 msgstr "Slug"
 
 #: models.py:36
-msgid "Start date"
-msgstr "Début"
+msgid "Début"
+msgstr "Start date"
 
 #: models.py:37
-msgid "End date"
-msgstr "Fin"
+msgid "Fin"
+msgstr "End date"
 
 #: models.py:38
-msgid "Nbr of days"
-msgstr "Nombre du séjours"
+msgid "Année"
+msgstr "Year"
 
-#: models.py:39 models.py:69
-msgid "Date published"
-msgstr "Date de publication"
+#: models.py:39
+msgid "Nbr de jours"
+msgstr "Number of days"
 
-#: models.py:43 models.py:73
-msgid "Picture tag"
-msgstr "Photo principale"
+#: models.py:40 models.py:72
+msgid "Date de publication"
+msgstr "Date published"
 
-#: models.py:49
-msgid "Trip"
-msgstr "Aventure"
+#: models.py:44 models.py:76
+msgid "Photo principale"
+msgstr "Picture tag"
 
-#: models.py:66
-msgid "Stage Name"
-msgstr "Nom de l'étape"
+#: models.py:50
+msgid "Aventure"
+msgstr "Trip"
 
-#: models.py:75
-msgid "Duration (h)"
-msgstr "Durée (h)"
+#: models.py:51
+msgid "Aventures"
+msgstr "Trips"
 
-#: models.py:76 templates/map/list_trips.html.py:147
+#: models.py:69
+msgid "Nom de l'étape"
+msgstr "Stage name"
+
+#: models.py:78 templates/map/list_trips.html.py:148
+msgid "Durée (h)"
+msgstr "Duration (h)"
+
+#: models.py:79 templates/map/list_trips.html.py:147
 msgid "Distance (km)"
 msgstr "Distance (km)"
 
-#: models.py:78
-msgid "Email validation"
-msgstr "Validation de l'email"
+#: models.py:81
+msgid "Validation de l'email"
+msgstr "E-mail validation"
 
-#: models.py:79
-msgid "E-mail adress"
-msgstr "Adresse email"
+#: models.py:82
+msgid "Adresse e-mail"
+msgstr "E-mail adress"
 
-#: models.py:80
-msgid "Added by"
-msgstr "Ajouté par"
+#: models.py:83
+msgid "Ajouté par"
+msgstr "Added by"
 
-#: models.py:98
-msgid "Stage"
-msgstr "Etape"
+#: models.py:101 templates/map/list_trips.html.py:143
+msgid "Etape"
+msgstr "Stage"
 
-#: models.py:99
-msgid "Stages"
-msgstr "Etapes"
+#: models.py:102 templates/map/list_trips.html.py:112
+msgid "Etapes"
+msgstr "Stages"
 
 #: templates/map/add_trip_stage.html:14
-#, fuzzy
-#| msgid "Ajouter une étape"
 msgid "Ajouter votre étape"
 msgstr "Add a trip stage"
 
@@ -175,25 +179,13 @@ msgstr "Starting date"
 msgid "Nombre de jours"
 msgstr "Number of days"
 
-#: templates/map/list_trips.html:112
-msgid "Etapes"
-msgstr "Stages"
-
 #: templates/map/list_trips.html:138
 msgid "Liste des étapes de voyage"
 msgstr "List of trip stages"
 
-#: templates/map/list_trips.html:143
-msgid "Etape"
-msgstr "Stage"
-
 #: templates/map/list_trips.html:144
 msgid "Voyages associés"
 msgstr "Trips linked"
-
-#: templates/map/list_trips.html:148
-msgid "Durée (h)"
-msgstr "Duration (h)"
 
 #: templates/map/list_trips.html:149
 msgid "Localisation (Long,Lat)"
@@ -224,44 +216,89 @@ msgid "^gmap/$"
 msgstr ""
 
 #: urls.py:10
-msgid "^trip/(?P<id>[0-9]+)/$"
+msgid "^trip/(?P<trip_slug>\\w+)/$"
 msgstr ""
 
 #: urls.py:11
-msgid "^trip-stage/(?P<id>[0-9]+)/$"
-msgstr ""
-
-#: urls.py:12
-msgid "^add-trip-stage/$"
-msgstr ""
-
-#: urls.py:13
-msgid "^add-trip-stage/success/$"
+msgid "^trip-stage/(?P<stage_slug>\\w+)/$"
 msgstr ""
 
 #: urls.py:14
-msgid "^list-trips/$"
+msgid "^add-trip-stage/$"
 msgstr ""
 
 #: urls.py:15
-msgid "^list-trips/download-pdf/$"
+msgid "^add-trip-stage/success/$"
 msgstr ""
 
 #: urls.py:16
-msgid "^list-trips/download-csv/$"
+msgid "^list-trips/$"
 msgstr ""
 
 #: urls.py:17
-msgid "^list-trips/trip-stages/download-pdf/$"
+msgid "^list-trips/download-pdf/$"
 msgstr ""
 
 #: urls.py:18
-msgid "^list-trips/trip-stages/download-csv/$"
+msgid "^list-trips/download-csv/$"
 msgstr ""
 
 #: urls.py:19
+msgid "^list-trips/trip-stages/download-pdf/$"
+msgstr ""
+
+#: urls.py:20
+msgid "^list-trips/trip-stages/download-csv/$"
+msgstr ""
+
+#: urls.py:21
 msgid "^latest-stages/feed/$"
 msgstr ""
+
+#~ msgid "Trips"
+#~ msgstr "Voyages"
+
+#~ msgid "Trip"
+#~ msgstr "Aventure"
+
+#~ msgid "Stage Name"
+#~ msgstr "Nom de l'étape"
+
+#~ msgid "Date published"
+#~ msgstr "Date de publication"
+
+#~ msgid "Picture tag"
+#~ msgstr "Photo principale"
+
+#~ msgid "Duration (h)"
+#~ msgstr "Durée (h)"
+
+#~ msgid "Email validation"
+#~ msgstr "Validation de l'email"
+
+#~ msgid "E-mail adress"
+#~ msgstr "Adresse email"
+
+#~ msgid "Added by"
+#~ msgstr "Ajouté par"
+
+#~ msgid "Stage"
+#~ msgstr "Etape"
+
+#~ msgid "Stages"
+#~ msgstr "Etapes"
+
+#~ msgid "Trip Name"
+#~ msgstr "Nom de l'aventure"
+
+#~ msgid "Start date"
+#~ msgstr "Début"
+
+#~ msgid "End date"
+#~ msgstr "Fin"
+
+#~ msgid "Nbr of days"
+#~ msgstr "Nombre du séjours"
 
 #~ msgid "days"
 #~ msgstr "jours"

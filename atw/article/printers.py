@@ -102,7 +102,7 @@ class Printer:
 		buffer.close()
 		return pdf
 
-	def print_article(self, title):
+	def print_article(self, slug):
 		buffer = self.buffer
 		doc = SimpleDocTemplate(buffer,
 								rightMargin= 20 * mm,
@@ -120,10 +120,10 @@ class Printer:
 		style.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
 		# Draw things on the PDF. Here's where the PDF generation happens.
-		article_title = Article.objects.get(title=title).title
+		article_title = Article.objects.get(slug=slug).title
 		elements.append(Paragraph(article_title, style['Heading2']))
 
-		article_description = Article.objects.get(title=title).description
+		article_description = Article.objects.get(slug=slug).description
 		elements.append(Paragraph(article_description, style['Justify']))
 
 		doc.build(elements, onFirstPage=self._header_footer, onLaterPages=self._header_footer, canvasmaker=NumberedCanvas)

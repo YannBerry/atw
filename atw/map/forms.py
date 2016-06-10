@@ -10,7 +10,7 @@ class AddTripStageForm(ModelForm): # ModelForm if it depends on a model, forms.F
     coordinates = forms.CharField(label=_("Cliquer sur le lieu de votre aventure."), max_length=200, required=True)
     massif = forms.ModelChoiceField(widget=forms.Select(), queryset=Massif.objects, empty_label="----------", label=_("Massif"), required=False)
     type = forms.ModelChoiceField(queryset=Type.objects, empty_label="----------", label=_("Type"))
-    trips = forms.ModelMultipleChoiceField(queryset=Trip.objects, label=_("Trips"))
+    trips = forms.ModelMultipleChoiceField(queryset=Trip.objects, label=_("Aventures liées"))
     date = forms.DateField(label=_("Date"))
 
     class Meta:
