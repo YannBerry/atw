@@ -2,7 +2,7 @@
 
 from django.contrib.gis import admin # AdminSite ModelAdmin OSMGeoAdmin sont compris dans le gis.admin dont je comprend pas pourquoi je dois les charger ensuite...
 from leaflet.admin import LeafletGeoAdmin
-from .models import TripStage, Massif, Type, Trip
+from .models import TripStage, Massif, Type, Trip, Country
 from django.contrib.gis.geos import Point
 
 class TripStageInline(admin.TabularInline):
@@ -43,6 +43,7 @@ class TripAdmin(LeafletGeoAdmin):
 admin.site.register(TripStage, TripStageAdmin)
 admin.site.register(Massif)
 admin.site.register(Type)
+admin.site.register(Country)
 admin.site.register(Trip, TripAdmin)
 
 

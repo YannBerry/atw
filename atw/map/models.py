@@ -8,6 +8,17 @@ from django.core.validators import MinValueValidator
 from tinymce.models import HTMLField
 from filebrowser.fields import FileBrowseField
 
+class Country(models.Model):
+    country = models.CharField(verbose_name=_("Pays"), max_length=30)
+
+    def __str__(self):
+        return self.country
+
+    class Meta:
+        ordering = ['country']
+        verbose_name = _("Pays")
+        verbose_name_plural = _("Pays")
+
 class Massif(models.Model):
     massif = models.CharField(verbose_name=_("Massif"), max_length=25)
 
@@ -69,6 +80,7 @@ class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Nom de l'étape"), max_length=50)
     stage_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
+    #country = models.ForeignKey(Country, verbose_name=_("Pays"))
     date_published = models.DateTimeField(verbose_name=_("Date de publication"), auto_now_add=True)
     massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     type = models.ForeignKey(Type, verbose_name = _("Type"))
