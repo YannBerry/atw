@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 00:03+0200\n"
+"POT-Creation-Date: 2016-06-10 08:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,8 +32,8 @@ msgstr "Articles"
 #: templates/article/article.html:5
 #, fuzzy, python-format
 #| msgid "WASC | Articles"
-msgid " WASC | %(a.title)s "
-msgstr ""
+msgid " WASC | %(a_title)s "
+msgstr "WASC | Articles"
 
 #: templates/article/article.html:14
 msgid "Télécharger l'article en PDF"

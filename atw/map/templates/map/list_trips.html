@@ -13,10 +13,10 @@
             {% for t in trips %}
                 <div class="col-md-4">
                     <figure>
-                        <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                         <figcaption>
                             <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
                         </figcaption>
+                        <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                     </figure>
                 </div>
             {% endfor %}
@@ -27,10 +27,10 @@
                     {% if t.nbr_of_days = 1 %}
                         <div class="col-md-4">
                             <figure>
-                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
                                     <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }}</a>
                                 </figcaption>
+                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                             </figure>
                         </div>
                     {% endif %}
@@ -42,10 +42,10 @@
                     {% if t.nbr_of_days = 2 %}
                         <div class="col-md-4">
                             <figure>
-                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
                                     <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }}</a>
                                 </figcaption>
+                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                             </figure>
                         </div>
                     {% endif %}
@@ -57,10 +57,10 @@
                     {% if t.nbr_of_days > 2 and t.nbr_of_days < 8 %}
                         <div class="col-md-4">
                             <figure>
-                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
                                     <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
                                 </figcaption>
+                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                             </figure>
                         </div>
                     {% endif %}
@@ -72,10 +72,10 @@
                     {% if t.nbr_of_days > 7 %}
                         <div class="col-md-4">
                             <figure>
-                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                                 <figcaption>
                                     <a href="{% url 'trip' t.id %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} ({{ t.nbr_of_days }} {% trans "jours" %})</a>
                                 </figcaption>
+                                <img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" />
                             </figure>
                         </div>
                     {% endif %}

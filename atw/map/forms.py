@@ -7,7 +7,7 @@ from .models import *
 class AddTripStageForm(ModelForm): # ModelForm if it depends on a model, forms.Form otherwise
     required_css_class = 'required'
 
-    coordinates = forms.CharField(label=_("Click on the map to show where your trip stage is located"), max_length=200, required=True)
+    coordinates = forms.CharField(label=_("Cliquer sur le lieu de votre aventure."), max_length=200, required=True)
     massif = forms.ModelChoiceField(widget=forms.Select(), queryset=Massif.objects, empty_label="----------", label=_("Massif"), required=False)
     type = forms.ModelChoiceField(queryset=Type.objects, empty_label="----------", label=_("Type"))
     trips = forms.ModelMultipleChoiceField(queryset=Trip.objects, label=_("Trips"))
@@ -23,5 +23,5 @@ class AddTripStageForm(ModelForm): # ModelForm if it depends on a model, forms.F
         email = cleaned_data.get("email")
 
         if email_validation and not email:
-            msg = _("Must add your valid email.")
+            msg = _("Votre email ne doit pas être valide.")
             self.add_error('email', msg)

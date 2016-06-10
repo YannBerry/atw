@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load i18n %}
 
-{% block title %}{% blocktrans %} WASC | {{ a.title }} {% endblocktrans %}{% endblock %}
+{% block title %}{% blocktrans with a|title as a_title%} WASC | {{ a_title }} {% endblocktrans %}{% endblock %}
 
 {% block content %}
 <div class="container container_body">
