@@ -3,6 +3,12 @@
 
 {% block title %}{% trans "WASC" %} | {{ t.stage_name }}{% endblock %}
 
+{% block breadcrumb2 %}
+    {{ block.super }}
+    <li><a href="{% url 'list_trips' %}">{% trans "Liste des étapes" %}</a></li>
+    <li><a href="{% url 'trip_stage' t.stage_slug %}">{{ t.stage_name }}</a></li>
+{% endblock breadcrumb2 %}
+
 {% block content %}
 <div class="container container_body">
     <h1>{{ t.stage_name }}</h1>

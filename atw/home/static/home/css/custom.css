@@ -248,3 +248,10 @@ video#bgvid {
 .padding_top_15px {
     padding-top: 15px;
 }
+
+/* BREADCRUMB */
+.breadcrumb {
+    padding: 10px 15px;
+    margin-bottom: 0px;
+    background-color: transparent;
+}

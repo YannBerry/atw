@@ -3,6 +3,12 @@
 
 {% block title %}{% trans "WASC" %} | {{ t.trip_name }}{% endblock %}
 
+{% block breadcrumb2 %}
+    {{ block.super }}
+    <li><a href="{% url 'list_trips' %}">{% trans "Liste des aventures" %}</a></li>
+    <li><a href="{% url 'trip' t.trip_slug %}">{{ t.trip_name }}</a></li>
+{% endblock breadcrumb2 %}
+
 {% block content %}
 <div class="container padding_top_15px">
     <h1>{{ t.trip_name }}</h1>

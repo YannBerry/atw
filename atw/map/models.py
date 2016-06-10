@@ -93,7 +93,7 @@ class TripStage(models.Model):
     email_validation = models.BooleanField(verbose_name=_("Validation de l'email"))
     email = models.EmailField(verbose_name=_("Adresse e-mail"), blank=True, null=True)
     added_by = models.CharField(verbose_name=_("Ajouté par"), max_length=50, default="Admin")
-    trips = models.ManyToManyField(Trip, verbose_name=_("Aventures liées"))
+    trip_linked = models.ForeignKey(Trip, verbose_name=_("Aventure liée"))
 
     objects = models.GeoManager() # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
 

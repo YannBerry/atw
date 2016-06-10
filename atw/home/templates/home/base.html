@@ -84,6 +84,18 @@
             </div>
         </nav>
 
+        {% block breadcrumb %}
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        {% block breadcrumb2 %}
+                            <li><a href="{% url 'home' %}">{% trans "Accueil" %}</a></li>
+                        {% endblock breadcrumb2 %}
+                    </ol>
+                </div>
+            </div>
+        {% endblock breadcrumb %}
+
         {% block content %}{% endblock content %}
 
         <footer class="navbar-inverse">

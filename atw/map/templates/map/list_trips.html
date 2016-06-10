@@ -4,6 +4,11 @@
 
 {% block title %}{% trans "WASC | Aventures" %}{% endblock %}
 
+{% block breadcrumb2 %}
+    {{ block.super }}
+    <li><a href="{% url 'list_trips' %}">{% trans "Liste des aventures" %}</a></li>
+{% endblock breadcrumb2 %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="container container_body">
@@ -154,9 +159,7 @@
                 <tr>
                     <td><a href="{% url 'trip_stage' t.stage_slug %}">{{ t.stage_name }}</a></td>
                     <td>
-                        <ul class="list-unstyled">
-                            {% for linkedtrip in t.trips.all %}<li><a href="{% url 'trip' linkedtrip.trip_slug %}">{{ linkedtrip.trip_name }}</a></li>{% endfor %}
-                        </ul>
+                        <a href="{% url 'trip' t.trip_linked.trip_slug %}">{{ t.trip_linked }}</a>
                     </td>
                     <td>{{ t.date }}</td>
                     <td>{{ t.massif }}</td>
