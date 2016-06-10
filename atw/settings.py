@@ -122,9 +122,8 @@ LEAFLET_CONFIG = {
     'MAX_ZOOM': 18,
     'TILES': [('Watercolor', 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {'attribution': 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
             ('Roads', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {'attribution': 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'}),
-            ('Satellite', 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {'attribution': '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
-            ('Satellite2', 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}),
-            ('Hybrid', 'http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/hybrid.day/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {'attribution': 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>', 'subdomains': '1234', 'mapID': 'newest', 'app_id': 'Y8m9dK2brESDPGJPdrvs', 'app_code': 'dq2MYIvjAotR8tHvY8Q_Dg', 'base': 'aerial', 'minZoom': 0, 'maxZoom': 20}),
+            ('Outdoors', 'http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {'attribution': '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
+            ('Satellite', 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'}),
             ],
     'SCALE': None,
     'RESET_VIEW': False, # True by default : a button appears below the zoom controls and, when clicked, shows the entire map.
