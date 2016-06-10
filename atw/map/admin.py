@@ -12,12 +12,12 @@ class TripStageInline(admin.TabularInline):
 
 class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
     fieldsets = [
-        ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name', 'stage_slug', 'country', 'trips', 'date', 'massif', 'type']}),
-        ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story', 'distance', 'duration'], 'classes': ['collapse']}),
+        ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name', 'stage_name_en', 'stage_slug', 'stage_slug_en', 'country', 'trips', 'date', 'massif', 'type']}),
+        ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story', 'story_en', 'distance', 'duration'], 'classes': ['collapse']}),
         ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
-    list_display = ('stage_name', 'stage_slug', 'massif', 'date', 'distance', 'published_more_than_6_months_ago', 'display_picture_tag', 'added_by')
-    list_editable = ['stage_slug', 'date', 'massif', 'distance']
+    list_display = ('stage_name', 'stage_slug', 'date', 'distance', 'published_more_than_6_months_ago', 'display_picture_tag', 'added_by')
+    list_editable = ['stage_slug', 'date', 'distance']
     readonly_fields = ['date_published', 'display_picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
     prepopulated_fields = {"stage_slug": ("stage_name",)}
     search_fields = ['stage_name']
@@ -31,7 +31,7 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
 
 class TripAdmin(LeafletGeoAdmin):
     fieldsets = [
-        (None, {'fields': ['date_published', 'geom', 'trip_name', 'trip_slug', 'start_date', 'end_date', 'nbr_of_days', 'description', 'picture_tag', 'display_picture_tag']}),
+        (None, {'fields': ['date_published', 'geom', 'trip_name', 'trip_name_en', 'trip_slug', 'trip_slug_en', 'start_date', 'end_date', 'nbr_of_days', 'description', 'description_en', 'picture_tag', 'display_picture_tag']}),
     ]
     inlines = [TripStageInline]
     list_display = ('trip_name', 'trip_slug', 'start_date', 'end_date', 'nbr_of_days')
