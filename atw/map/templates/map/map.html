@@ -62,7 +62,7 @@
 
         {% for t in trips %}
             L.marker([{{ t.geom.y | unlocalize }},{{ t.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ t.trip_name }}</b><br />{% if t.picture_tag %}<img src="/media/{{ t.picture_tag }}" style="width:100%;"/><br />{% endif %}<a href="{% url 'trip' t.trip_slug %}">{% trans "Détail" %}</a>',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ t.trip_name }}</b> ({{ t.trip_year }})<br />{{ t.nbr_of_days }} jours<br />{% if t.picture_tag %}<img src="/media/{{ t.picture_tag }}" style="width:100%;"/><br />{% endif %}',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 
