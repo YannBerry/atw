@@ -7,10 +7,8 @@ from atw.map.feeds import LatestStageFeed
 urlpatterns = [
     url(r'^$', views.osmap, name='map'),
     url(_(r'^gmap/$'), views.gmap, name='gmap'),
-    url(_(r'^trip/(?P<trip_slug>\w+)/$'), views.trip, name='trip'),
-    url(_(r'^trip-stage/(?P<stage_slug>\w+)/$'), views.trip_stage, name='trip_stage'),
-    #url(_(r'^trip/(?P<id>[0-9]+)/$'), views.trip, name='trip'),
-    #url(_(r'^trip-stage/(?P<id>[0-9]+)/$'), views.trip_stage, name='trip_stage'),
+    url(_(r'^trip/(?P<trip_slug>.*)/$'), views.trip, name='trip'),
+    url(_(r'^trip-stage/(?P<stage_slug>.*)/$'), views.trip_stage, name='trip_stage'),
     url(_(r'^add-trip-stage/$'), views.add_trip_stage, name='add_trip_stage'),
     url(_(r'^add-trip-stage/success/$'), views.form_success, name='trip_stage_added'),
     url(_(r'^list-trips/$'), views.list_trips, name='list_trips'),
