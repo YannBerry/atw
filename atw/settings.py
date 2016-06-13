@@ -184,6 +184,14 @@ GRAPPELLI_INDEX_DASHBOARD = 'atw.dashboard.CustomIndexDashboard'
 FILEBROWSER_CONVERT_FILENAME = True
 FILEBROWSER_DEFAULT_SORTING_BY = ('date','filename_lower')
 FILEBROWSER_DEFAULT_SORTING_ORDER = 'asc'
+FILEBROWSER_VERSIONS = {
+    'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+    '1024_768_cropped': {'verbose_name': '1024-768 cropped', 'width': 1024, 'height': 780, 'opts': 'crop'},
+    '1024_cropped': {'verbose_name': '1024-1024 cropped', 'width': 1024, 'height': 1024, 'opts': 'crop'},
+}
+FILEBROWSER_ADMIN_VERSIONS = ['thumbnail', 'large', '1024_768_cropped', '1024_cropped']
 
 # Haystack settings
 HAYSTACK_CONNECTIONS = {
