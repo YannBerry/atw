@@ -27,8 +27,8 @@
     <div class="row">
         {% for stage in t.tripstage_set.all %}
             <div class="col-md-4 padding_top_bot_10px">
-                <figure>
-                    <figcaption>
+                <figure style="position: relative;">
+                    <figcaption class="text-over-img">
                         <a href="{% url 'trip_stage' stage.stage_slug %}" class="btn btn-default center-block" role="button">{{ stage.stage_name }}</a>
                     </figcaption>
                     <a href="{% url 'trip_stage' stage.stage_slug %}"><img class="img-responsive img-thumbnail center-block" src="/media/{{ stage.picture_tag }}" %}" /></a>

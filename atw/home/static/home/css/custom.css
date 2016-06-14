@@ -255,3 +255,34 @@ video#bgvid {
     margin-bottom: 0px;
     background-color: transparent;
 }
+
+
+/* TEXT OVER IMG */
+.text-over-img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.text-over-img a {
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border:none;
+    border-radius: 0;
+    margin: 5px;
+    padding: 15px;
+}
+
+.text-over-img a:hover,
+.text-over-img a:focus,
+.text-over-img a.focus,
+.text-over-img a:active,
+.text-over-img a.active {
+    color: white ;
+    background-color: rgba(0,0,0,0.8);
+    border-color: transparent;
+}

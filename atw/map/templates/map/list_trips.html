@@ -17,11 +17,11 @@
             <div class="row">
             {% for t in trips %}
                 <div class="col-md-4">
-                    <figure>
-                        <figcaption>
+                    <figure style="position: relative;">
+                        <figcaption class="text-over-img">
                             <a href="{% url 'trip' t.trip_slug %}" class="btn btn-default center-block" role="button">{{ t.trip_name }} | {{ t.nbr_of_days }} {% trans "jours" %} | {{ t.trip_year }}</a>
                         </figcaption>
-                        <a href="{% url 'trip' t.trip_slug %}"><img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" %}" /></a>
+                        <a href="{% url 'trip' t.trip_slug %}"><img class="img-responsive img-thumbnail center-block" src="/media/{{ t.picture_tag }}" /></a>
                     </figure>
                 </div>
             {% endfor %}
