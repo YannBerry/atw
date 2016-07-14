@@ -38,5 +38,39 @@
     </div>
 </div>
 
+<div class="container-fluid" style="background-color: #f5f5f5">
+    <div class="container container_body">
+        <h1 class="text-uppercase">{% trans "Etapes" %}</h1>
+
+        <table data-toggle="table" data-striped="true" data-search="true" data-sort-name="start" data-sort-order="desc" data-show-columns="true">
+            <thead>
+                <tr>
+                    <th class="col-xs-1" data-field="name" data-sortable="true" data-halign="left" data-valign="top" data-align="left" data-switchable="false">{% trans "Etape" %}</th>
+                    <th class="col-xs-2" data-field="trip_linked" data-visible="false">{% trans "Aventure associée" %}</th>
+                    <th class="col-xs-1" data-field="date" data-sortable="true">{% trans "Date" %}</th>
+                    <th class="col-xs-1" data-field="massif" data-sortable="true">{% trans "Massif" %}</th>
+                    <th class="col-xs-1" data-field="distance" data-sortable="true">{% trans "Distance (km)" %}</th>
+                    <th class="col-xs-1" data-field="duration" data-sortable="true">{% trans "Durée (h)" %}</th>
+                    <th class="col-xs-1" data-field="location" data-visible="false">{% trans "Localisation (Long,Lat)" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for stage in t.tripstage_set.all %}
+                <tr>
+                    <td><a href="{% url 'trip_stage' stage.stage_slug %}">{{ stage.stage_name }}</a></td>
+                    <td>
+                        <a href="{% url 'trip' stage.trip_linked.trip_slug %}">{{ stage.trip_linked }}</a>
+                    </td>
+                    <td>{{ stage.date }}</td>
+                    <td>{{ stage.massif }}</td>
+                    <td>{{ stage.distance }}</td>
+                    <td>{{ stage.duration }}</td>
+                    <td>{{ stage.geom.coords }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock content %}
