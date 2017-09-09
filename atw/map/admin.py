@@ -5,12 +5,13 @@ from leaflet.admin import LeafletGeoAdmin
 from .models import TripStage, Massif, Type, Trip, Country
 from django.contrib.gis.geos import Point
 
-#class TripStageInline(admin.TabularInline):
-    #model = TripStage.trips.through
-    #extra = 1
+
+# class TripStageInline(admin.TabularInline):
+    # model = TripStage.trips.through
+    # extra = 1
 
 
-class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
+class TripStageAdmin(LeafletGeoAdmin):  # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
     fieldsets = [
         ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name_fr', 'stage_name_en', 'stage_slug_fr', 'stage_slug_en', 'country', 'trip_linked', 'date', 'massif', 'type']}),
         ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story_fr', 'story_en', 'distance', 'duration'], 'classes': ['collapse']}),
@@ -18,22 +19,23 @@ class TripStageAdmin(LeafletGeoAdmin): # avant leafletgeoadmin je faisais hérit
     ]
     list_display = ('stage_name', 'stage_slug', 'date', 'distance', 'published_more_than_6_months_ago', 'added_by')
     list_editable = ['stage_slug', 'date', 'distance']
-    readonly_fields = ['date_published', 'display_picture_tag', 'added_by'] # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
+    readonly_fields = ['date_published', 'display_picture_tag', 'added_by']  # https://docs.djangoproject.com/en/1.8/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields
     prepopulated_fields = {"stage_slug_fr": ("stage_name_fr",), "stage_slug_en": ("stage_name_en",)}
     search_fields = ['stage_name']
     list_filter = ['massif', 'added_by']
     save_on_top = True
-    #map_width = 900 # Ne marche pas avec Leaflet
+    # map_width = 900 # Ne marche pas avec Leaflet
 
-    #pt = Point(4.85, 45.75, srid=4326)
-    #pt.transform(3857)
-    #default_lon, default_lat = pt.coords
+    # pt = Point(4.85, 45.75, srid=4326)
+    # pt.transform(3857)
+    # default_lon, default_lat = pt.coords
+
 
 class TripAdmin(LeafletGeoAdmin):
     fieldsets = [
         (None, {'fields': ['date_published', 'geom', 'trip_name_fr', 'trip_name_en', 'trip_slug_fr', 'trip_slug_en', 'start_date', 'end_date', 'nbr_of_days', 'description_fr', 'description_en', 'picture_tag', 'display_picture_tag']}),
     ]
-    #inlines = [TripStageInline]
+    # inlines = [TripStageInline]
     list_display = ('trip_name', 'trip_slug', 'start_date', 'end_date', 'nbr_of_days')
     list_editable = ['start_date', 'trip_slug', 'end_date']
     prepopulated_fields = {"trip_slug_fr": ("trip_name_fr",), "trip_slug_en": ("trip_name_en",)}

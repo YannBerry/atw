@@ -8,6 +8,7 @@ from django.core.validators import MinValueValidator
 from tinymce.models import HTMLField
 from filebrowser.fields import FileBrowseField
 
+
 class Country(models.Model):
     country = models.CharField(verbose_name=_("Pays"), max_length=30)
 
@@ -18,6 +19,7 @@ class Country(models.Model):
         ordering = ['country']
         verbose_name = _("Pays")
         verbose_name_plural = _("Pays")
+
 
 class Massif(models.Model):
     massif = models.CharField(verbose_name=_("Massif"), max_length=25)
@@ -30,6 +32,7 @@ class Massif(models.Model):
         verbose_name = _("Massif")
         verbose_name_plural = _("Massifs")
 
+
 class Type(models.Model):
     type = models.CharField(verbose_name=_("Type"), max_length=25)
 
@@ -41,6 +44,7 @@ class Type(models.Model):
         verbose_name = _("Type")
         verbose_name_plural = _("Types")
 
+
 class Trip(models.Model):
     trip_name = models.CharField(verbose_name=_("Nom de l'aventure"), max_length=50)
     trip_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
@@ -51,7 +55,7 @@ class Trip(models.Model):
     date_published = models.DateTimeField(verbose_name=_("Date de publication"), auto_now_add=True)
     description = HTMLField(blank=True)
     geom = models.PointField(srid=4326, default='POINT(5.0 44.5)')
-    #picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
+    # picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
     picture_tag = FileBrowseField(verbose_name=_("Photo principale"), max_length=200, directory="uploads/picture/%Y/%m", extensions=[".jpg"], blank=True, null=True)
 
     objects = models.GeoManager()
@@ -71,10 +75,11 @@ class Trip(models.Model):
             self.trip_year = self.end_date.year
         super().save(*args, **kwargs)
 
-    def display_picture_tag(self): # Display the picture in the admin interface instead of just displaying a link to the picture
+    def display_picture_tag(self):  # Display the picture in the admin interface instead of just displaying a link to the picture
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
     display_picture_tag.allow_tags = True
+
 
 class TripStage(models.Model):
     stage_name = models.CharField(verbose_name=_("Nom de l'étape"), max_length=50)
@@ -82,9 +87,9 @@ class TripStage(models.Model):
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
     country = models.ForeignKey(Country, verbose_name=_("Pays"))
     date_published = models.DateTimeField(verbose_name=_("Date de publication"), auto_now_add=True)
-    massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True) # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
+    massif = models.ForeignKey(Massif, verbose_name = _("Massif"), null=True, blank=True)  # Voir comment on fait des cleaned data avec des foreign keys dans un formulaire avec Django car lui il compare le text à l'id du status défini dans modèle status
     type = models.ForeignKey(Type, verbose_name = _("Type"))
-    #picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
+    # picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='uploads/picture/%Y/%m', blank=True, null=True)
     picture_tag = FileBrowseField(verbose_name=_("Photo principale"), max_length=200, directory="uploads/picture/%Y/%m", extensions=[".jpg"], blank=True, null=True)
     story = HTMLField(blank=True)
     duration = models.IntegerField(verbose_name=_("Durée (h)"), blank=True, null=True, validators=[MinValueValidator(0)])
@@ -95,15 +100,15 @@ class TripStage(models.Model):
     added_by = models.CharField(verbose_name=_("Ajouté par"), max_length=50, default="Admin")
     trip_linked = models.ForeignKey(Trip, verbose_name=_("Aventure liée"))
 
-    objects = models.GeoManager() # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
+    objects = models.GeoManager()  # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
 
     def __str__(self):
         return '{0} ({1})'.format(self.stage_name, self.date)
 
     def published_more_than_6_months_ago(self):
-        return self.date_published <= timezone.now() - datetime.timedelta(days=180) # http://sametmax.com/manipuler-les-dates-et-les-durees-en-python/
+        return self.date_published <= timezone.now() - datetime.timedelta(days=180)  # http://sametmax.com/manipuler-les-dates-et-les-durees-en-python/
 
-    def display_picture_tag(self): # Display the picture in the admin interface instead of just displaying a link to the picture
+    def display_picture_tag(self):  # Display the picture in the admin interface instead of just displaying a link to the picture
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
     display_picture_tag.allow_tags = True
@@ -113,6 +118,7 @@ class TripStage(models.Model):
         verbose_name = _("Etape")
         verbose_name_plural = _("Etapes")
 
-#class TripStageTrip(models.Model):
-    #trip = models.ForeignKey(Trip)
-    #tripstage = models.ForeignKey(TripStage)
+
+# class TripStageTrip(models.Model):
+    # trip = models.ForeignKey(Trip)
+    # tripstage = models.ForeignKey(TripStage)

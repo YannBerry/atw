@@ -12,11 +12,12 @@ from io import BytesIO
 # Export csv
 import csv
 
+
 @login_required
 def add_trip_stage(request):
     if request.method == 'POST':
         form = AddTripStageForm(request.POST, request.FILES, label_suffix='')
-        if form.is_valid(): # If is_valid() is True then validated data are stored in the form.cleaned_data dictionary nicely converted into python types.
+        if form.is_valid():  # If is_valid() is True then validated data are stored in the form.cleaned_data dictionary nicely converted into python types
             new_stage = TripStage()
             coordinates = form.cleaned_data['coordinates'].split(',')
             new_stage.geom = Point(float(coordinates[0]), float(coordinates[1]))
@@ -47,40 +48,48 @@ def add_trip_stage(request):
 
     return render(request, 'map/add_trip_stage.html', args)
 
+
 def osmap(request):
-    #trip_stages = TripStage.objects.all()
+    # trip_stages = TripStage.objects.all()
     trips = Trip.objects.all()
-    return render(request, 'map/map.html', {'trips':trips}) #{'trip_stages':trip_stages, 'trips':trips}
+    return render(request, 'map/map.html', {'trips': trips})  # {'trip_stages':trip_stages, 'trips':trips}
+
 
 def gmap(request):
-    #trip_stages = TripStage.objects.all()
+    # trip_stages = TripStage.objects.all()
     trips = Trip.objects.all()
-    return render(request, 'map/gmap.html', {'trips':trips}) #{'trip_stages':trip_stages, 'trips':trips}
+    return render(request, 'map/gmap.html', {'trips': trips})  # {'trip_stages':trip_stages, 'trips':trips}
+
 
 def trip_stage(request, stage_slug):
     trip_stage = TripStage.objects.get(stage_slug=stage_slug)
-    return render(request, 'map/trip_stage.html', {'t':trip_stage})
+    return render(request, 'map/trip_stage.html', {'t': trip_stage})
+
 
 def trip(request, trip_slug):
     trip = Trip.objects.get(trip_slug=trip_slug)
     return render(request, 'map/trip.html', {'t':trip})
 
+
 def form_success(request):
     return render(request, 'map/form_success.html')
+
 
 def list_trips(request):
     trip_stages = TripStage.objects.all()
     trips = Trip.objects.all()
     return render(request, 'map/list_trips.html', {'trip_stages':trip_stages, 'trips':trips})
 
+
 def list_trips_pdf(request):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="Trips.pdf"'
     buffer = BytesIO()
-    report = PrinterTrips(buffer,'A4') # I defined A4, Landscape and Letter in printers.py
+    report = PrinterTrips(buffer,'A4')  # I defined A4, Landscape and Letter in printers.py
     pdf = report.print_db()
     response.write(pdf)
     return response
+
 
 def list_trips_csv(request):
     response = HttpResponse(content_type='text/csv')
@@ -91,14 +100,16 @@ def list_trips_csv(request):
         writer.writerow([o.trip_name, o.nbr_of_days, o.start_date, o.end_date, o.tripstage_set.values_list('stage_name', flat=True).order_by('date'), o.geom])
     return response
 
+
 def list_trip_stages_pdf(request):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="Trip_stages.pdf"'
     buffer = BytesIO()
-    report = PrinterTripStages(buffer,'A4') # I defined A4, Landscape and Letter in printers.py
+    report = PrinterTripStages(buffer,'A4')  # I defined A4, Landscape and Letter in printers.py
     pdf = report.print_db()
     response.write(pdf)
     return response
+
 
 def list_trip_stages_csv(request):
     response = HttpResponse(content_type='text/csv')

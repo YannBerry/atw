@@ -65,7 +65,7 @@ ROOT_URLCONF = 'atw.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "atw", "admin", "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "atw", "admin", "templates")], # emplacement des templates qui permettent de modifier l'admin
         'APP_DIRS': True, # obligatoire pour utiliser l'application sitemap
         'OPTIONS': {
             'context_processors': [
