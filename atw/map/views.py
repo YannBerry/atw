@@ -17,7 +17,9 @@ import csv
 def add_trip_stage(request):
     if request.method == 'POST':
         form = AddTripStageForm(request.POST, request.FILES, label_suffix='')
-        if form.is_valid():  # If is_valid() is True then validated data are stored in the form.cleaned_data dictionary nicely converted into python types
+        # If form is valid then validated data are stored
+        # in the form.cleaned_data dictionary nicely converted into python types.
+        if form.is_valid():
             new_stage = TripStage()
             coordinates = form.cleaned_data['coordinates'].split(',')
             new_stage.geom = Point(float(coordinates[0]), float(coordinates[1]))
@@ -25,6 +27,9 @@ def add_trip_stage(request):
             new_stage.date = form.cleaned_data['date']
             new_stage.massif = form.cleaned_data['massif']
             new_stage.type = form.cleaned_data['type']
+            new_stage.stage_slug = form.cleaned_data['stage_slug']
+            new_stage.country = form.cleaned_data['country']
+            new_stage.trip_linked = form.cleaned_data['trip_linked']
             new_stage.picture_tag = form.cleaned_data['picture_tag']
             new_stage.story = form.cleaned_data['story']
             new_stage.distance = form.cleaned_data['distance']
@@ -32,9 +37,6 @@ def add_trip_stage(request):
             new_stage.email_validation = form.cleaned_data['email_validation']
             new_stage.email = form.cleaned_data['email']
             new_stage.added_by = request.user.username
-            new_stage.save()
-            for trip in form.cleaned_data['trips']:
-                new_stage.trips.add(trip)
             new_stage.save()
 
             if new_stage.email_validation:

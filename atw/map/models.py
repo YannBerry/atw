@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import datetime # Python’s standard datetime module
+import datetime
 from django.contrib.gis.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone # https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/ + answers to basic questions : https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/#time-zones-faq
@@ -75,7 +75,8 @@ class Trip(models.Model):
             self.trip_year = self.end_date.year
         super().save(*args, **kwargs)
 
-    def display_picture_tag(self):  # Display the picture in the admin interface instead of just displaying a link to the picture
+    # Display the picture in the admin interface instead of just displaying a link to the picture.
+    def display_picture_tag(self):
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
     display_picture_tag.allow_tags = True
@@ -94,13 +95,16 @@ class TripStage(models.Model):
     story = HTMLField(blank=True)
     duration = models.IntegerField(verbose_name=_("Durée (h)"), blank=True, null=True, validators=[MinValueValidator(0)])
     distance = models.IntegerField(verbose_name=_("Distance (km)"), blank=True, null=True, validators=[MinValueValidator(0)])
-    geom = models.PointField(srid=4326, default='POINT(5.0 44.5)') #srid=4326 doit être la valeur par défaut je pense mais je l'écris quand même
+    geom = models.PointField(srid=4326, default='POINT(5.0 44.5)') # srid=4326 est la valeur par défaut je pense mais je l'écris quand même
     email_validation = models.BooleanField(verbose_name=_("Validation de l'email"))
     email = models.EmailField(verbose_name=_("Adresse e-mail"), blank=True, null=True)
     added_by = models.CharField(verbose_name=_("Ajouté par"), max_length=50, default="Admin")
     trip_linked = models.ForeignKey(Trip, verbose_name=_("Aventure liée"))
 
-    objects = models.GeoManager()  # Allows to perform geoqueryset https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager. Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
+    # Redefine the default manager to allow to perform geoqueryset.
+    # https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager
+    # Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
+    objects = models.GeoManager()
 
     def __str__(self):
         return '{0} ({1})'.format(self.stage_name, self.date)
@@ -108,7 +112,8 @@ class TripStage(models.Model):
     def published_more_than_6_months_ago(self):
         return self.date_published <= timezone.now() - datetime.timedelta(days=180)  # http://sametmax.com/manipuler-les-dates-et-les-durees-en-python/
 
-    def display_picture_tag(self):  # Display the picture in the admin interface instead of just displaying a link to the picture
+    # Display the picture in the admin interface instead of just displaying a link to the picture
+    def display_picture_tag(self):
         if self.picture_tag:
             return '<img style="max-width:100%;" src="{}" />'.format(self.picture_tag.url)
     display_picture_tag.allow_tags = True

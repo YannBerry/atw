@@ -41,8 +41,16 @@
                 </div>
             </div>
             <div class="fieldWrapper">
-                {{ form.trips.label_tag }} {{ form.trips.errors }}
-                {{ form.trips|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.stage_slug.label_tag }} {{ form.stage_slug.errors }}
+                {{ form.stage_slug|add_class:"form-control"|add_error_class:"errorfield" }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.country.label_tag }} {{ form.country.errors }}
+                {{ form.country|add_class:"form-control"|add_error_class:"errorfield" }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.trip_linked.label_tag }} {{ form.trip_linked.errors }}
+                {{ form.trip_linked|add_class:"form-control"|add_error_class:"errorfield" }}
             </div>
             <div class="fieldWrapper">
                 {{ form.picture_tag.label_tag }} {{ form.picture_tag.errors }}

@@ -7,7 +7,6 @@ from atw.map.models import TripStage
 
 
 def home(request):
-    print(request.POST)
     return render(request, 'home/home.html')
 
 

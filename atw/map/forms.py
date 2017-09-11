@@ -11,12 +11,13 @@ class AddTripStageForm(ModelForm):  # ModelForm if it depends on a model, forms.
     coordinates = forms.CharField(label=_("Cliquer sur le lieu de votre aventure."), max_length=200, required=True)
     massif = forms.ModelChoiceField(widget=forms.Select(), queryset=Massif.objects, empty_label="----------", label=_("Massif"), required=False)
     type = forms.ModelChoiceField(queryset=Type.objects, empty_label="----------", label=_("Type"))
-    trips = forms.ModelChoiceField(queryset=Trip.objects, empty_label="----------", label=_("Aventures liées"))
+    trip_linked = forms.ModelChoiceField(queryset=Trip.objects, empty_label="----------", label=_("Aventures liées"))
+    country = forms.ModelChoiceField(queryset=Country.objects, empty_label="----------", label=_("Pays"))
     date = forms.DateField(label=_("Date"))
 
     class Meta:
         model = TripStage
-        fields = ['coordinates', 'stage_name', 'date', 'massif', 'type', 'trips', 'picture_tag', 'story', 'distance', 'duration', 'email_validation', 'email']
+        fields = ['coordinates', 'stage_name', 'date', 'massif', 'type', 'country', 'stage_slug', 'trip_linked', 'picture_tag', 'story', 'distance', 'duration', 'email_validation', 'email']
 
     def clean(self):  # allows me to custom the validator of the form
         cleaned_data = super(AddTripStageForm, self).clean()
