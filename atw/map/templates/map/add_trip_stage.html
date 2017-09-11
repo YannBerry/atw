@@ -23,58 +23,58 @@
             <div class="row">
                 <div class="col-md-6 fieldWrapper">
                     {{ form.stage_name.label_tag }} {{ form.stage_name.errors }}
-                    {{ form.stage_name|add_class:"form-control"|add_error_class:"errorfield" }}
+                    {{ form.stage_name }}
                 </div>
                 <div class="col-md-6 fieldWrapper">
                     {{ form.date.label_tag }} {{ form.date.errors }}
-                    {{ form.date|add_class:"form-control"|attr:"type:date"|add_error_class:"errorfield" }}
+                    {{ form.date }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 fieldWrapper">
                     {{ form.massif.label_tag }} {{ form.massif.errors }}
-                    {{ form.massif|add_class:"form-control"|add_error_class:"errorfield" }}
+                    {{ form.massif }}
                 </div>
                 <div class="col-md-6 fieldWrapper">
                     {{ form.type.label_tag }} {{ form.type.errors }}
-                    {{ form.type|add_class:"form-control"|add_error_class:"errorfield" }}
+                    {{ form.type }}
                 </div>
             </div>
             <div class="fieldWrapper">
                 {{ form.stage_slug.label_tag }} {{ form.stage_slug.errors }}
-                {{ form.stage_slug|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.stage_slug }}
             </div>
             <div class="fieldWrapper">
                 {{ form.country.label_tag }} {{ form.country.errors }}
-                {{ form.country|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.country }}
             </div>
             <div class="fieldWrapper">
                 {{ form.trip_linked.label_tag }} {{ form.trip_linked.errors }}
-                {{ form.trip_linked|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.trip_linked }}
             </div>
             <div class="fieldWrapper">
                 {{ form.picture_tag.label_tag }} {{ form.picture_tag.errors }}
-                {{ form.picture_tag|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.picture_tag }}
             </div>
             <div class="fieldWrapper">
                 {{ form.story.label_tag }} {{ form.story.errors }}
-                {{ form.story|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.story }}
             </div>
             <div class="fieldWrapper">
                 {{ form.distance.label_tag }} {{ form.distance.errors }}
-                {{ form.distance|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.distance }}
             </div>
             <div class="fieldWrapper">
                 {{ form.duration.label_tag }} {{ form.duration.errors }}
-                {{ form.duration|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.duration }}
             </div>
             <div class="fieldWrapper">
                 {{ form.email_validation.label_tag }} {{ form.email_validation.errors }}<br />
-                {{ form.email_validation|add_error_class:"errorfield" }}
+                {{ form.email_validation }}
             </div>
             <div class="fieldWrapper">
                 {{ form.email.label_tag }} {{ form.email.errors }}
-                {{ form.email|add_class:"form-control"|add_error_class:"errorfield" }}
+                {{ form.email }}
             </div>
             <input type="submit" name="submit" class="btn center-block padding_top_15px" value="Add trip stage" />
         </form>

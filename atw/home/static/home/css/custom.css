@@ -217,11 +217,6 @@ video#bgvid {
     padding: 0;
 }
 
-.errorfield {
-    border-color: rgb(150,1,1);
-    /*background-color: rgb(240,240,70)*/
-}
-
 .language {
     -webkit-appearance: none;
     -moz-appearance: none;

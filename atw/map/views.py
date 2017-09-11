@@ -30,7 +30,7 @@ def add_trip_stage(request):
             new_stage.stage_slug = form.cleaned_data['stage_slug']
             new_stage.country = form.cleaned_data['country']
             new_stage.trip_linked = form.cleaned_data['trip_linked']
-            new_stage.picture_tag = form.cleaned_data['picture_tag']
+            #new_stage.picture_tag = form.cleaned_data['picture_tag']
             new_stage.story = form.cleaned_data['story']
             new_stage.distance = form.cleaned_data['distance']
             new_stage.duration = form.cleaned_data['duration']

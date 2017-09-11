@@ -46,6 +46,7 @@ class Type(models.Model):
 
 
 class Trip(models.Model):
+    """Model of a Trip"""
     trip_name = models.CharField(verbose_name=_("Nom de l'aventure"), max_length=50)
     trip_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     start_date = models.DateField(verbose_name=_("Début"), default=timezone.now, blank=True)
@@ -57,8 +58,6 @@ class Trip(models.Model):
     geom = models.PointField(srid=4326, default='POINT(5.0 44.5)')
     # picture_tag = models.ImageField(verbose_name=_("Picture tag"), upload_to='picture/%Y/%m', blank=True, null=True)
     picture_tag = FileBrowseField(verbose_name=_("Photo principale"), max_length=200, directory="uploads/picture/%Y/%m", extensions=[".jpg"], blank=True, null=True)
-
-    objects = models.GeoManager()
 
     class Meta:
         ordering = ["start_date"]
@@ -83,6 +82,7 @@ class Trip(models.Model):
 
 
 class TripStage(models.Model):
+    """Model of a Trip Stage """
     stage_name = models.CharField(verbose_name=_("Nom de l'étape"), max_length=50)
     stage_slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     date = models.DateField(verbose_name=_("Date"), default=timezone.now, blank=True)
@@ -100,11 +100,6 @@ class TripStage(models.Model):
     email = models.EmailField(verbose_name=_("Adresse e-mail"), blank=True, null=True)
     added_by = models.CharField(verbose_name=_("Ajouté par"), max_length=50, default="Admin")
     trip_linked = models.ForeignKey(Trip, verbose_name=_("Aventure liée"))
-
-    # Redefine the default manager to allow to perform geoqueryset.
-    # https://docs.djangoproject.com/en/1.7/ref/contrib/gis/model-api/#geomanager
-    # Geoqueryset class : https://docs.djangoproject.com/en/1.7/ref/contrib/gis/geoquerysets/#django.contrib.gis.db.models.GeoQuerySet
-    objects = models.GeoManager()
 
     def __str__(self):
         return '{0} ({1})'.format(self.stage_name, self.date)

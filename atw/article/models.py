@@ -8,7 +8,7 @@ class Article(models.Model):
     slug = models.SlugField(_("Slug"), max_length=50, unique=True)
     description = HTMLField(blank=True)
 
-    def __str__(self):
+    def __repr__(self):
         return self.title
 
     class Meta:
