@@ -4,6 +4,7 @@ import datetime
 from django.contrib.gis.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone # https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/ + answers to basic questions : https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/#time-zones-faq
+from django.utils.text import slugify
 from django.core.validators import MinValueValidator
 from tinymce.models import HTMLField
 from filebrowser.fields import FileBrowseField
@@ -103,6 +104,12 @@ class TripStage(models.Model):
 
     def __str__(self):
         return '{0} ({1})'.format(self.stage_name, self.date)
+
+    def save(self, *args, **kwargs):
+        if not self.stage_slug:
+            slug_date_name = '{0}-{1}-{2}-{3}'.format(self.date.year, self.date.month, self.date.day, self.stage_name)
+            self.stage_slug = slugify(slug_date_name)
+        super().save(*args, **kwargs)
 
     def published_more_than_6_months_ago(self):
         return self.date_published <= timezone.now() - datetime.timedelta(days=180)  # http://sametmax.com/manipuler-les-dates-et-les-durees-en-python/
