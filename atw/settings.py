@@ -27,18 +27,17 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'grappelli.dashboard',
-    'grappelli', # before django.contrib.admin cette appli sert à l'appli filebrowser
-    'filebrowser', # before django.contrib.admin
-    'modeltranslation', # before django.contrib.admin
-    'django.contrib.admin', # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
+    'grappelli',  # before django.contrib.admin cette appli sert à l'appli filebrowser
+    'filebrowser',  # before django.contrib.admin
+    'modeltranslation',  # before django.contrib.admin
+    'django.contrib.admin',  # Passer à django.contrib.admin.apps.SimpleAdminConfig quand on personnalise AdminSite et que part conséquent l'autodiscovery n'est plus nécessaire puisqu'on indiquera nous meme les modeles à intégrer
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'django.contrib.sitemaps', reste à créer
     'django.contrib.gis',
-    'django.contrib.syndication', # pour le flux rss
-    'easy_thumbnails',
+    'django.contrib.syndication',  # pour le flux rss
     'haystack',
     'atw.home',
     'atw.map',
@@ -47,11 +46,11 @@ INSTALLED_APPS = (
     'tinymce', # https://github.com/aljosa/django-tinymce
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = (  # A partir de Django 1.10 remplacer MIDDLEWARE_CLASSES par MIDDLEWARE
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #'django.middleware.common.CommonMiddleware',  # nouveau dans Django 1.11
     'django.middleware.locale.LocaleMiddleware', # Added. https://docs.djangoproject.com/en/1.8/topics/i18n/translation/#how-django-discovers-language-preference'django.middleware.common.CommonMiddleware'
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -134,16 +133,16 @@ LOGIN_URL = '/sign-in/'
 LOGOUT_URL = '/sign-out/'
 
 #Thumbnails
-from easy_thumbnails.conf import Settings as thumbnail_settings
+#from easy_thumbnails.conf import Settings as thumbnail_settings
 
-THUMBNAIL_PRESERVE_EXTENSIONS = ('png',)
-THUMBNAIL_DEBUG = True
+#THUMBNAIL_PRESERVE_EXTENSIONS = ('png',)
+#THUMBNAIL_DEBUG = True
 
-THUMBNAIL_ALIASES = {
-    '': {
-        'small': {'size': (150, 80), 'crop': True},
-    },
-}
+#THUMBNAIL_ALIASES = {
+#    '': {
+#        'small': {'size': (150, 80), 'crop': True},
+#    },
+#}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

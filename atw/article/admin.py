@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Article
 
+
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title_fr', 'title_en', 'slug_fr', 'slug_en', 'description_fr', 'description_en']}),

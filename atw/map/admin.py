@@ -13,8 +13,11 @@ from django.contrib.gis.geos import Point
 
 class TripStageAdmin(LeafletGeoAdmin):  # avant leafletgeoadmin je faisais hériter de admin.OSMGeoAdmin (OSMGeoAdmin hérite de GeoModelAdmin qui hérite de ModelAdmin)
     fieldsets = [
-        ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name_fr', 'stage_name_en', 'stage_slug_fr', 'stage_slug_en', 'country', 'trip_linked', 'date', 'massif', 'type']}),
-        ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story_fr', 'story_en', 'distance', 'duration'], 'classes': ['collapse']}),
+        ('Mandatory information', {'fields': ['date_published', 'geom', 'stage_name_fr', 'stage_name_en',
+                                              'stage_slug_fr', 'stage_slug_en', 'country', 'trip_linked',
+                                              'date', 'massif', 'type']}),
+        ('Optional information',  {'fields': ['picture_tag', 'display_picture_tag', 'story_fr', 'story_en',
+                                              'distance', 'duration'], 'classes': ['collapse']}),
         ('Publication information', {'fields': ['added_by', 'email_validation', 'email'], 'classes': ['collapse']}),
     ]
     list_display = ('stage_name', 'stage_slug', 'date', 'distance', 'published_more_than_6_months_ago', 'added_by')

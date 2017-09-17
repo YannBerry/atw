@@ -1,7 +1,6 @@
 {% extends 'home/base.html' %}
 {% load staticfiles i18n %}
 {% load l10n %} <!-- l10n loaded to use unlocalize filter for coordinates -->
-{% load thumbnail %}
 
 {% block css %}
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -71,7 +70,7 @@
 
         {% for i in trip_stages %}
             L.marker([{{ i.geom.y | unlocalize }},{{ i.geom.x | unlocalize }}])
-            .bindPopup('<b>{{ i.stage_name }}</b><br />{% if i.distance %}{{ i.distance }} km<br />{% endif %}{{ i.massif }}<br />{{ i.date }}<br />{% if i.story %}{{ i.story | urlize | linebreaks }}<br />{% endif %}{% if i.picture_tag %}<img src="{{ i.picture_tag|thumbnail_url:"small" }}" /><br />{% endif %}<a href="{% url 'trip_stage' i.stage_slug %}">{% trans "Détail" %}</a>',{maxWidth: 300,minWidth: 200})
+            .bindPopup('<b>{{ i.stage_name }}</b><br />{% if i.distance %}{{ i.distance }} km<br />{% endif %}{{ i.massif }}<br />{{ i.date }}<br />{% if i.story %}{{ i.story | urlize | linebreaks }}<br />{% endif %}{% if i.picture_tag %}<img src="{{ i.picture_tag }}" /><br />{% endif %}<a href="{% url 'trip_stage' i.stage_slug %}">{% trans "Détail" %}</a>',{maxWidth: 300,minWidth: 200})
             .addTo(map);
         {% endfor %}
 
