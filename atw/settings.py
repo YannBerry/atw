@@ -132,18 +132,6 @@ LEAFLET_CONFIG = {
 LOGIN_URL = '/sign-in/'
 LOGOUT_URL = '/sign-out/'
 
-#Thumbnails
-#from easy_thumbnails.conf import Settings as thumbnail_settings
-
-#THUMBNAIL_PRESERVE_EXTENSIONS = ('png',)
-#THUMBNAIL_DEBUG = True
-
-#THUMBNAIL_ALIASES = {
-#    '': {
-#        'small': {'size': (150, 80), 'crop': True},
-#    },
-#}
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
