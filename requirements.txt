@@ -18,5 +18,5 @@ reportlab==3.4.0
 requests==2.18.4
 sqlparse==0.2.3
 stripe==1.65.0
-urllib3==1.22
+urllib3==1.26.5
 whitenoise==3.3.0
